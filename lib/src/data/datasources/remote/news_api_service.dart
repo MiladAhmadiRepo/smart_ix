@@ -6,7 +6,7 @@ class _NewsApiService implements NewsApiService {
   final Dio _dio;
   String baseUrl;
 
-  _NewsApiService(this._dio, {this.baseUrl = "https://newsapi.org/v2"}) {
+  _NewsApiService(this._dio, {this.baseUrl = "https://smart-ix.ai/"}) {
     ArgumentError.checkNotNull(_dio, '_dio');
   }
 
