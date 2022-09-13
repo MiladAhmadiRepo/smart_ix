@@ -4,7 +4,6 @@ Smart Ix Flutter project.
 
 # what is the task :
 
-
 [What Are Alexa Routines And How Do You Use Them](https://youtu.be/AwYn31iql0Q)
 
 [How To Start A Smart Home in 2022](https://youtu.be/mI86siMLX_o)
@@ -19,7 +18,7 @@ Smart Ix Flutter project.
 
 -------------------------------------------------------------------------------
 
-# how should look like ui of project ::
+# how should look like the UI of task :
 
 https://dribbble.com/shots/17409361-Smart-Home-Mobile-App
 
@@ -27,11 +26,7 @@ https://dribbble.com/shots/17461749-Rebound-Smart-Home-Mobile-App
 
 -------------------------------------------------------------------------------
 
-
-[online documentation](https://docs.flutter.dev/)
- 
-
-## The Architecture and Dependency Rule
+# The Architecture and Dependency Rule
 
 take a deep look at this diagram below:
 
