@@ -2,18 +2,34 @@
 
 Smart Ix Flutter project.
 
-## Getting Started
+# what is the task :
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+[What Are Alexa Routines And How Do You Use Them](https://youtu.be/AwYn31iql0Q)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+[How To Start A Smart Home in 2022](https://youtu.be/mI86siMLX_o)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+[smart-home-iot-solution-providers](https://developer.amazon.com/en-US/docs/alexa/smarthome/smart-home-iot-solution-providers.html)
+
+[wwa-program-guidelines](https://developer.amazon.com/support/legal/wwa-program-guidelines)
+
+[smart-home-general-apis](https://developer.amazon.com/en-US/docs/alexa/device-apis/smart-home-general-apis.html)
+
+[alexa-brightnesscontroller](https://developer.amazon.com/en-US/docs/alexa/device-apis/alexa-brightnesscontroller.html)
+
+-------------------------------------------------------------------------------
+
+# how should look like ui of project ::
+
+https://dribbble.com/shots/17409361-Smart-Home-Mobile-App
+
+https://dribbble.com/shots/17461749-Rebound-Smart-Home-Mobile-App
+
+-------------------------------------------------------------------------------
+
+
+[online documentation](https://docs.flutter.dev/)
+ 
 
 ## The Architecture and Dependency Rule
 
