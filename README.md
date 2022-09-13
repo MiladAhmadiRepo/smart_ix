@@ -2,11 +2,15 @@
 
 Smart Ix Flutter project.
 
+-------------------------------------------------------------------------------
+
 # what is the task :
 
 [What Are Alexa Routines And How Do You Use Them](https://youtu.be/AwYn31iql0Q)
 
 [How To Start A Smart Home in 2022](https://youtu.be/mI86siMLX_o)
+
+# how would look like the api from smart-ix server : 
 
 [smart-home-iot-solution-providers](https://developer.amazon.com/en-US/docs/alexa/smarthome/smart-home-iot-solution-providers.html)
 
@@ -18,9 +22,11 @@ Smart Ix Flutter project.
 
 -------------------------------------------------------------------------------
 
-# how should look like the UI of task :
+# UI of the task inspired by :
 
-https://dribbble.com/shots/17409361-Smart-Home-Mobile-App
+https://dribbble.com/shots/14312427-Smart-Home-Mobile-Application-Design
+
+https://play.google.com/store/apps/details?id=com.google.android.apps.chromecast.app&hl=en_NZ&gl=US
 
 https://dribbble.com/shots/17461749-Rebound-Smart-Home-Mobile-App
 
@@ -59,6 +65,7 @@ The most interesting layer in the architecture, this layer contains only the int
 
 Keep in mind that the presentation layer will only gets data as entities and not models, this is why we separate each layer individually and independently.
 
+-------------------------------------------------------------------------------
 
 ## Folder Structure
 
