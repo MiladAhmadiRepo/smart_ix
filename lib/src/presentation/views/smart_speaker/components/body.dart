@@ -16,14 +16,14 @@ class Body extends StatelessWidget {
         children: [
           Padding(
             padding: EdgeInsets.only(
-              left: getProportionateScreenWidth(19),
-              top: getProportionateScreenHeight(5),
+              left:  19),
+              top:  5),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
-                  height: getProportionateScreenHeight(40),
+                  height:  40),
                 ),
                 InkWell(
                     onTap: () {
@@ -46,7 +46,7 @@ class Body extends StatelessWidget {
                   ],
                 ),
                 SizedBox(
-                  height: getProportionateScreenHeight(10),
+                  height:  10),
                 ),
               ],
             ),
@@ -92,7 +92,7 @@ class Body extends StatelessWidget {
                     borderRadius: BorderRadius.circular(100),
                     child: Image.asset(
                       'assets/images/stay.jpg',
-                      //height: getProportionateScreenHeight(50),
+                      //height:  50),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -101,7 +101,7 @@ class Body extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: getProportionateScreenHeight(20),
+            height:  20),
           ),
           Align(
             alignment: Alignment.center,
@@ -113,7 +113,7 @@ class Body extends StatelessWidget {
                   style: Theme.of(context).textTheme.headline3,
                 ),
                 SizedBox(
-                  height: getProportionateScreenHeight(10),
+                  height:  10),
                 ),
                 Text(
                   'STAY',
@@ -180,7 +180,7 @@ class Body extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: getProportionateScreenHeight(15),
+            height:  15),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -253,7 +253,7 @@ class Body extends StatelessWidget {
             ],
           ),
           SizedBox(
-            height: getProportionateScreenHeight(15),
+            height:  15),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -287,7 +287,7 @@ class Body extends StatelessWidget {
             ],
           ),
           SizedBox(
-            height: getProportionateScreenHeight(9),
+            height:  9),
           ),
         ],
       ),

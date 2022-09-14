@@ -110,7 +110,7 @@ class ExpandableBottomSheet extends StatelessWidget {
               ],
             ),
             SizedBox(
-              height: getProportionateScreenHeight(10),
+              height:  10),
             ),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
@@ -131,7 +131,7 @@ class ExpandableBottomSheet extends StatelessWidget {
               style: Theme.of(context).textTheme.headline5,
             ),
             SizedBox(
-              height: getProportionateScreenHeight(10),
+              height:  10),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

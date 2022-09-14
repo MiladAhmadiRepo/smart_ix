@@ -14,7 +14,7 @@ class Intensity extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(
-            horizontal: getProportionateScreenWidth(
+            horizontal:  
               15,
             ),
           ),
@@ -34,7 +34,7 @@ class Intensity extends StatelessWidget {
         ),
         SliderTheme(
           data: SliderThemeData(
-              trackHeight: getProportionateScreenHeight(5),
+              trackHeight:  5),
               thumbColor: const Color(0xFF464646),
               activeTrackColor: const Color(0xFF464646),
               inactiveTrackColor: Colors.white,
@@ -51,7 +51,7 @@ class Intensity extends StatelessWidget {
         ),
         Padding(
           padding: EdgeInsets.symmetric(
-            horizontal: getProportionateScreenWidth(
+            horizontal:  
               15,
             ),
           ),

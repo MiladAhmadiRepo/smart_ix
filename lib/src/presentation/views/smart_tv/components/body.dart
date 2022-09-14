@@ -16,12 +16,12 @@ class Body extends StatelessWidget {
           alignment: AlignmentDirectional.topEnd,
           child: Padding(
             padding: EdgeInsets.only(
-              top: getProportionateScreenHeight(50),
+              top:  50),
             ),
             child: Image.asset(
               'assets/images/tv.png',
-              height: getProportionateScreenHeight(450),
-              width: getProportionateScreenWidth(260),
+              height:  450),
+              width:  260),
               fit: BoxFit.contain,
             ),
           ),
@@ -31,21 +31,21 @@ class Body extends StatelessWidget {
           children: [
             Padding(
               padding: EdgeInsets.only(
-                top: getProportionateScreenHeight(7),
+                top:  7),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
                     padding: EdgeInsets.only(
-                      left: getProportionateScreenWidth(19),
-                      top: getProportionateScreenHeight(7),
+                      left:  19),
+                      top:  7),
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(
-                          height: getProportionateScreenHeight(40),
+                          height:  40),
                         ),
                         InkWell(
                             onTap: () {
@@ -72,14 +72,14 @@ class Body extends StatelessWidget {
                           ],
                         ),
                         SizedBox(
-                          height: getProportionateScreenHeight(26),
+                          height:  26),
                         ),
                         Text(
                           'Power',
                           style: Theme.of(context).textTheme.headline2,
                         ),
                         SizedBox(
-                          height: getProportionateScreenHeight(4),
+                          height:  4),
                         ),
                         Switch.adaptive(
                           inactiveThumbColor: const Color(0xFFE4E4E4),
@@ -92,7 +92,7 @@ class Body extends StatelessWidget {
                           },
                         ),
                         SizedBox(
-                          height: getProportionateScreenHeight(90),
+                          height:  90),
                         ),
                       ],
                     ),

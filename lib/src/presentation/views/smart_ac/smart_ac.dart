@@ -1,8 +1,4 @@
-import 'package:domus/provider/base_view.dart';
-import 'package:domus/src/screens/smart_ac/components/expandable_bottom_sheet.dart';
-import 'package:domus/view/smart_ac_view_model.dart';
 import 'package:flutter/material.dart';
-import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'components/body.dart';
 
 class SmartAC extends StatelessWidget {

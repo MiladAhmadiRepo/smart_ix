@@ -13,7 +13,7 @@ class ConnectSpeaker extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           SizedBox(
-            height: getProportionateScreenHeight(40),
+            height:  40),
           ),
           Align(
             alignment: Alignment.centerLeft,
@@ -33,19 +33,19 @@ class ConnectSpeaker extends StatelessWidget {
             style: Theme.of(context).textTheme.headline3,
           ),
           SizedBox(
-            height: getProportionateScreenHeight(40),
+            height:  40),
           ),
           Material(
             child: Image.asset(
               'assets/images/kakao_mini.png',
-              height: getProportionateScreenHeight(300),
-              width: getProportionateScreenWidth(150),
+              height:  300),
+              width:  150),
               fit: BoxFit.contain,
             ),
             color: Colors.transparent,
           ),
           SizedBox(
-            height: getProportionateScreenHeight(40),
+            height:  40),
           ),
           OutlinedButton(
             onPressed: () {},
@@ -55,8 +55,8 @@ class ConnectSpeaker extends StatelessWidget {
             ),
             style: OutlinedButton.styleFrom(
               padding: EdgeInsets.symmetric(
-                horizontal: getProportionateScreenWidth(80),
-                vertical: getProportionateScreenHeight(10),
+                horizontal:  80),
+                vertical:  10),
               ),
               shape: const StadiumBorder(),
             ),

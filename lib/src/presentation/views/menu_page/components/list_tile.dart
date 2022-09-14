@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:domus/config/size_config.dart';
 import 'package:flutter_svg/svg.dart';
 
 class MenuListItems extends StatelessWidget {
@@ -22,9 +21,7 @@ class MenuListItems extends StatelessWidget {
         child: Row(
           children: [
             SvgPicture.asset(iconPath),
-            SizedBox(
-              width: getProportionateScreenWidth(25),
-            ),
+            const Spacer(),
             Text(
               itemName,
               style: const TextStyle(

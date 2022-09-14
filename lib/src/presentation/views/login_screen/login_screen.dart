@@ -1,5 +1,6 @@
-import 'package:domus/src/screens/login_screen/components/body.dart';
 import 'package:flutter/material.dart';
+
+import 'components/body.dart';
 
 class LoginScreen  extends StatelessWidget {
 	static String routeName = '/login-screen';

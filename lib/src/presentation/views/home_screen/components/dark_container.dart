@@ -1,4 +1,3 @@
-import 'package:domus/config/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -28,8 +27,8 @@ class DarkContainer extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        width: getProportionateScreenWidth(140),
-        height: getProportionateScreenHeight(140),
+        width:  140,
+        height:  140,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           color: itsOn
@@ -38,8 +37,8 @@ class DarkContainer extends StatelessWidget {
         ),
         child: Padding(
           padding: EdgeInsets.symmetric(
-            horizontal: getProportionateScreenWidth(10),
-            vertical: getProportionateScreenHeight(6),
+            horizontal:  10,
+            vertical:  6,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

@@ -1,6 +1,6 @@
-import 'package:domus/config/size_config.dart';
-import 'package:domus/view/home_screen_view_model.dart';
 import 'package:flutter/material.dart';
+
+import '../../../blocs/home_screen_view_model.dart';
 
 class SavingsContainer extends StatelessWidget {
   const SavingsContainer({Key? key, required this.model}) : super(key: key);
@@ -12,15 +12,15 @@ class SavingsContainer extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          height: getProportionateScreenHeight(85),
+          height:  85,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             color: const Color(0xFFFFFFFF),
           ),
           child: Padding(
             padding: EdgeInsets.symmetric(
-              horizontal: getProportionateScreenWidth(10),
-              vertical: getProportionateScreenHeight(6),
+              horizontal:  10,
+              vertical:  6,
             ),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -43,7 +43,7 @@ class SavingsContainer extends StatelessWidget {
                           ),
                     ),
                     SizedBox(
-                      height: getProportionateScreenHeight(5),
+                      height:  5,
                     ),
                     Text(
                       '23.5 kWh',
@@ -52,7 +52,7 @@ class SavingsContainer extends StatelessWidget {
                   ],
                 ),
                 SizedBox(
-                  width: getProportionateScreenWidth(90),
+                  width:  90,
                 ),
               ],
             ),
@@ -62,8 +62,8 @@ class SavingsContainer extends StatelessWidget {
           right: 0,
           child: Image.asset(
             'assets/images/thunder.png',
-            height: getProportionateScreenHeight(100),
-            width: getProportionateScreenWidth(140),
+            height:  100,
+            width:  140,
             fit: BoxFit.contain,
           ),
         ),

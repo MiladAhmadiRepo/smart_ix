@@ -16,8 +16,8 @@ class TimeContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: getProportionateScreenHeight(30),
-      width: getProportionateScreenWidth(115),
+      height:  30),
+      width:  115),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         border: Border.all(

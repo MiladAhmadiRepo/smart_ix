@@ -12,7 +12,7 @@ class MoodToggleButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding:  EdgeInsets.symmetric(
-        horizontal: getProportionateScreenWidth(
+        horizontal:  
           15,
         ),
       ),
@@ -24,7 +24,7 @@ class MoodToggleButtons extends StatelessWidget {
             style: Theme.of(context).textTheme.headline2,
           ),
           SizedBox(
-            height: getProportionateScreenHeight(9),
+            height:  9),
           ),
           Container(
             decoration: BoxDecoration(
@@ -38,7 +38,7 @@ class MoodToggleButtons extends StatelessWidget {
               borderRadius: BorderRadius.circular(15),
               children: <Widget>[
                 SizedBox(
-                  width: getProportionateScreenWidth(80),
+                  width:  80),
                   child: const Text(
                     'TV Shows',
                     textAlign: TextAlign.center,
@@ -48,7 +48,7 @@ class MoodToggleButtons extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  width: getProportionateScreenWidth(80),
+                  width:  80),
                   child: const Text(
                     'Movies',
                     textAlign: TextAlign.center,
@@ -58,7 +58,7 @@ class MoodToggleButtons extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  width: getProportionateScreenWidth(80),
+                  width:  80),
                   child: const Text(
                     'My List',
                     textAlign: TextAlign.center,
@@ -75,7 +75,7 @@ class MoodToggleButtons extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: getProportionateScreenHeight(20),
+            height:  20),
           ),
         ],
       ),

@@ -16,22 +16,22 @@ class Body extends StatelessWidget {
           children: [
             Padding(
               padding: EdgeInsets.only(
-                left: getProportionateScreenWidth(19),
-                top: getProportionateScreenHeight(7),
+                left:  19),
+                top:  7),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
                     padding: EdgeInsets.only(
-                      left: getProportionateScreenWidth(19),
-                      top: getProportionateScreenHeight(7),
+                      left:  19),
+                      top:  7),
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(
-                          height: getProportionateScreenHeight(40),
+                          height:  40),
                         ),
                         InkWell(
                             onTap: () {
@@ -58,14 +58,14 @@ class Body extends StatelessWidget {
                           ],
                         ),
                         SizedBox(
-                          height: getProportionateScreenHeight(26),
+                          height:  26),
                         ),
                         Text(
                           'Power',
                           style: Theme.of(context).textTheme.headline2,
                         ),
                         SizedBox(
-                          height: getProportionateScreenHeight(4),
+                          height:  4),
                         ),
                         Switch.adaptive(
                           inactiveThumbColor: const Color(0xFFE4E4E4),
@@ -78,27 +78,27 @@ class Body extends StatelessWidget {
                           },
                         ),
                         SizedBox(
-                          height: getProportionateScreenHeight(20),
+                          height:  20),
                         ),
                         Text(
                           'Color',
                           style: Theme.of(context).textTheme.headline2,
                         ),
                         SizedBox(
-                          height: getProportionateScreenHeight(7),
+                          height:  7),
                         ),
                         InkWell(
                           onTap: model.showColorPanel,
                           child: Image.asset(
                             'assets/images/color_wheel.png',
-                            height: getProportionateScreenHeight(22),
+                            height:  22),
                           ),
                         ),
                       ],
                     ),
                   ),
                   SizedBox(
-                    height: getProportionateScreenHeight(40),
+                    height:  40),
                   ),
                 ],
               ),
@@ -107,8 +107,8 @@ class Body extends StatelessWidget {
               children: [
                 Image.asset(
                   'assets/images/lamp.png',
-                  height: getProportionateScreenHeight(180),
-                  width: getProportionateScreenWidth(140),
+                  height:  180),
+                  width:  140),
                   fit: BoxFit.contain,
                 ),
 
@@ -116,14 +116,14 @@ class Body extends StatelessWidget {
                 model.isLightOff
                     ? Image.asset(
                         model.lightImage,
-                        height: getProportionateScreenHeight(190),
-                        width: getProportionateScreenWidth(140),
+                        height:  190),
+                        width:  140),
                         fit: BoxFit.contain,
                         alignment: Alignment.topCenter,
                       )
                     : SizedBox(
-                        height: getProportionateScreenHeight(190),
-                        width: getProportionateScreenWidth(140),
+                        height:  190),
+                        width:  140),
                       ),
               ],
             ),
@@ -131,7 +131,7 @@ class Body extends StatelessWidget {
         ),
         Padding(
           padding: EdgeInsets.symmetric(
-            horizontal: getProportionateScreenWidth(
+            horizontal:  
               15,
             ),
           ),
@@ -143,7 +143,7 @@ class Body extends StatelessWidget {
                 style: Theme.of(context).textTheme.headline2,
               ),
               SizedBox(
-                height: getProportionateScreenHeight(9),
+                height:  9),
               ),
               Container(
                 decoration: BoxDecoration(
@@ -161,14 +161,14 @@ class Body extends StatelessWidget {
                       .copyWith(color: Colors.white),
                   children: <Widget>[
                     SizedBox(
-                      width: getProportionateScreenWidth(115),
+                      width:  115),
                       child: const Text(
                         'Warm',
                         textAlign: TextAlign.center,
                       ),
                     ),
                     SizedBox(
-                      width: getProportionateScreenWidth(115),
+                      width:  115),
                       child: const Text(
                         'Cold',
                         textAlign: TextAlign.center,
@@ -182,7 +182,7 @@ class Body extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: getProportionateScreenHeight(20),
+                height:  20),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -199,7 +199,7 @@ class Body extends StatelessWidget {
               ),
               SliderTheme(
                 data: SliderThemeData(
-                    trackHeight: getProportionateScreenHeight(5),
+                    trackHeight:  5),
                     thumbColor: const Color(0xFF464646),
                     activeTrackColor: const Color(0xFF464646),
                     inactiveTrackColor: Colors.white,

@@ -1,4 +1,3 @@
-import 'package:domus/config/size_config.dart';
 import 'package:flutter/material.dart';
 
 class ReusableCard extends StatelessWidget {
@@ -18,15 +17,15 @@ class ReusableCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: getProportionateScreenHeight(100),
+      height:  100,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
         color: const Color(0xFFFFFFFF),
       ),
       child: Padding(
         padding: EdgeInsets.symmetric(
-          horizontal: getProportionateScreenWidth(10),
-          vertical: getProportionateScreenHeight(6),
+          horizontal:  10,
+          vertical:  6,
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,

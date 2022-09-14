@@ -20,7 +20,7 @@ import '../../login_screen/login_screen.dart';
 //         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
 //         children: [
 //           SizedBox(
-//             height: getProportionateScreenHeight(20),
+//             height:  20),
 //           ),
 //           Material(
 //             child: Image.asset('assets/images/splash_img.png'),
@@ -49,8 +49,8 @@ import '../../login_screen/login_screen.dart';
 //             style: ElevatedButton.styleFrom(
 //               elevation: 0,
 //               padding: EdgeInsets.symmetric(
-//                 horizontal: getProportionateScreenWidth(70),
-//                 vertical: getProportionateScreenHeight(15),
+//                 horizontal:  70),
+//                 vertical:  15),
 //               ),
 //               shape: RoundedRectangleBorder(
 //                 borderRadius: BorderRadius.circular(20), // <-- Radius

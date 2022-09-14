@@ -1,6 +1,6 @@
-import 'package:domus/config/size_config.dart';
-import 'package:domus/view/home_screen_view_model.dart';
 import 'package:flutter/material.dart';
+
+import '../../../blocs/home_screen_view_model.dart';
 
 class WeatherContainer extends StatelessWidget {
   const WeatherContainer({Key? key, required this.model}) : super(key: key);
@@ -12,22 +12,22 @@ class WeatherContainer extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          height: getProportionateScreenHeight(100),
+          height:  100,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             color: const Color(0xFFFFFFFF),
           ),
           child: Padding(
             padding: EdgeInsets.symmetric(
-              horizontal: getProportionateScreenWidth(10),
-              vertical: getProportionateScreenHeight(6),
+              horizontal:  10,
+              vertical:  6,
             ),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 SizedBox(
-                  width: getProportionateScreenWidth(90),
+                  width:  90,
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
@@ -41,7 +41,7 @@ class WeatherContainer extends StatelessWidget {
                       style: Theme.of(context).textTheme.headline1,
                     ),
                     SizedBox(
-                      height: getProportionateScreenHeight(5),
+                      height:  5,
                     ),
                     Text(
                       '27 Mar 2022',
@@ -59,8 +59,8 @@ class WeatherContainer extends StatelessWidget {
         ),
         Image.asset(
           'assets/images/weather/0.png',
-          height: getProportionateScreenHeight(110),
-          width: getProportionateScreenWidth(140),
+          height:  110,
+          width:  140,
           fit: BoxFit.contain,
         ),
       ],

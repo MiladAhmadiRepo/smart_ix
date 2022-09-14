@@ -73,7 +73,7 @@ class ExpandableBottomSheet extends StatelessWidget {
               thickness: 2,
             ),
             SizedBox(
-              height: getProportionateScreenHeight(20),
+              height:  20),
             ),
           ],
         ),

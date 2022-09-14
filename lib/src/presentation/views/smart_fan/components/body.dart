@@ -75,21 +75,21 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
           children: [
             Padding(
               padding: EdgeInsets.only(
-                left: getProportionateScreenWidth(15),
-                top: getProportionateScreenHeight(7),
+                left:  15),
+                top:  7),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
                     padding: EdgeInsets.only(
-                      top: getProportionateScreenHeight(7),
+                      top:  7),
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(
-                          height: getProportionateScreenHeight(40),
+                          height:  40),
                         ),
                         InkWell(
                             onTap: () {
@@ -116,14 +116,14 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                           ],
                         ),
                         SizedBox(
-                          height: getProportionateScreenHeight(26),
+                          height:  26),
                         ),
                         Text(
                           'Power',
                           style: Theme.of(context).textTheme.headline2,
                         ),
                         SizedBox(
-                          height: getProportionateScreenHeight(4),
+                          height:  4),
                         ),
                         Switch.adaptive(
                           inactiveThumbColor: const Color(0xFFE4E4E4),
@@ -136,16 +136,16 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                           },
                         ),
                         SizedBox(
-                          height: getProportionateScreenHeight(20),
+                          height:  20),
                         ),
                         SizedBox(
-                          height: getProportionateScreenHeight(10),
+                          height:  10),
                         ),
                       ],
                     ),
                   ),
                   SizedBox(
-                    height: getProportionateScreenHeight(105),
+                    height:  105),
                   ),
                 ],
               ),
@@ -157,8 +157,8 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                   height: 20,
                 ),
                 Container(
-                  height: getProportionateScreenHeight(260),
-                  width: getProportionateScreenWidth(120),
+                  height:  260),
+                  width:  120),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(30),
@@ -183,7 +183,7 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
         ),
         Padding(
           padding: EdgeInsets.symmetric(
-            horizontal: getProportionateScreenWidth(
+            horizontal:  
               15,
             ),
           ),
@@ -195,7 +195,7 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                 style: Theme.of(context).textTheme.headline2,
               ),
               SizedBox(
-                height: getProportionateScreenHeight(9),
+                height:  9),
               ),
               Container(
                 decoration: BoxDecoration(
@@ -213,21 +213,21 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                       .copyWith(color: Colors.white),
                   children: <Widget>[
                     SizedBox(
-                      width: getProportionateScreenWidth(76),
+                      width:  76),
                       child: const Text(
                         'Air',
                         textAlign: TextAlign.center,
                       ),
                     ),
                     SizedBox(
-                      width: getProportionateScreenWidth(76),
+                      width:  76),
                       child: const Text(
                         'Mild',
                         textAlign: TextAlign.center,
                       ),
                     ),
                     SizedBox(
-                      width: getProportionateScreenWidth(76),
+                      width:  76),
                       child: const Text(
                         'Breeze',
                         textAlign: TextAlign.center,
@@ -241,7 +241,7 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                 ),
               ),
               SizedBox(
-                height: getProportionateScreenHeight(20),
+                height:  20),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -258,7 +258,7 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
               ),
               SliderTheme(
                 data: SliderThemeData(
-                    trackHeight: getProportionateScreenHeight(5),
+                    trackHeight:  5),
                     thumbColor: const Color(0xFF464646),
                     activeTrackColor: const Color(0xFF464646),
                     inactiveTrackColor: Colors.white,

@@ -32,7 +32,7 @@ https://dribbble.com/shots/17461749-Rebound-Smart-Home-Mobile-App
 
 -------------------------------------------------------------------------------
 
-# The Architecture and Dependency Rule
+# The Architecture of App
 
 take a deep look at this diagram below:
 
@@ -48,7 +48,7 @@ The models in the data layer are different from the entities in the Domain layer
 
 The data layer is also contains the real implementations of the abstraction in the domain layer including the repositories, so we define the interface (abstracted class) in the domain layer.. then we implement that class in the data layer and this is useful because we have the ability to change or add multiple implementations without interacting with the Domain layer.
 
-repositories returns entities and not models, because the contract written inside the Domain layer, and with that.. we can say that the Data layer depends on Domain layer.
+the repositories returns entities and not models, because the contract written inside the Domain layer, and with that.. we can say that the Data layer depends on Domain layer.
 
 Presentation Layer
 
@@ -66,7 +66,7 @@ Domain Layer
 
 The most interesting layer in the architecture, this layer contains only the internal entities and what this mean is that our domain’s entities are completely independent from any changes that could occur outside this layer. Both Presentation and Data layers depending on this layer, since the data layer will implement what ever contracts written here.. and the presentation layer will use those contracts with the implementations to be used as an injected dependencies.
 
-Keep in mind that the presentation layer will only gets data as entities and not models, this is why we separate each layer individually and independently.
+the presentation layer will only gets data as entities and not models, this is why we separate each layer individually and independently.
 
 -------------------------------------------------------------------------------
 

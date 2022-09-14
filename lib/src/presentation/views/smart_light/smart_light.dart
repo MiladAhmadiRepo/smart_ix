@@ -21,8 +21,8 @@ class SmartLight extends StatelessWidget {
               controller: model.pc,
               backdropEnabled: true,
               maxHeight: model.isTappedOnColor
-                  ? getProportionateScreenHeight(300)
-                  : getProportionateScreenHeight(510),
+                  ?  300)
+                  :  510),
               color: const Color(0xFFF2F2F2),
               boxShadow: const [],
 

@@ -73,7 +73,7 @@ class ExpandableBottomSheet extends StatelessWidget {
               thickness: 2,
             ),
             SizedBox(
-              height: getProportionateScreenHeight(20),
+              height:  20),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -90,7 +90,7 @@ class ExpandableBottomSheet extends StatelessWidget {
             ),
             SliderTheme(
               data: SliderThemeData(
-                  trackHeight: getProportionateScreenHeight(5),
+                  trackHeight:  5),
                   thumbColor: const Color(0xFF464646),
                   activeTrackColor: const Color(0xFF464646),
                   inactiveTrackColor: Colors.white,
@@ -119,7 +119,7 @@ class ExpandableBottomSheet extends StatelessWidget {
               ],
             ),
             SizedBox(
-              height: getProportionateScreenHeight(9),
+              height:  9),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -153,7 +153,7 @@ class ExpandableBottomSheet extends StatelessWidget {
               ],
             ),
             SizedBox(
-              height: getProportionateScreenHeight(9),
+              height:  9),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -187,7 +187,7 @@ class ExpandableBottomSheet extends StatelessWidget {
               ],
             ),
             SizedBox(
-              height: getProportionateScreenHeight(9),
+              height:  9),
             ),
           ],
         ),

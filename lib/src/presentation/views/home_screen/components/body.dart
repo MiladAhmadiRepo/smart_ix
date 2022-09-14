@@ -1,18 +1,17 @@
-import 'package:domus/config/size_config.dart';
-import 'package:domus/src/screens/home_screen/components/music_widget.dart';
-import 'package:domus/src/screens/home_screen/components/savings_container.dart';
-import 'package:domus/src/screens/home_screen/components/weather_container.dart';
-import 'package:domus/src/screens/set_event_screen/set_event_screen.dart';
-import 'package:domus/src/screens/smart_ac/smart_ac.dart';
-import 'package:domus/src/screens/smart_fan/smart_fan.dart';
-import 'package:domus/src/screens/smart_light/smart_light.dart';
-import 'package:domus/src/screens/smart_speaker/smart_speaker.dart';
-import 'package:domus/view/home_screen_view_model.dart';
-import 'package:domus/src/screens/smart_tv/smart_tv.dart';
-import 'package:flutter/material.dart';
 
+import 'package:flutter/material.dart';
+import 'package:smart_ix/src/presentation/views/home_screen/components/savings_container.dart';
+import 'package:smart_ix/src/presentation/views/home_screen/components/weather_container.dart';
+
+import '../../../blocs/home_screen_view_model.dart';
+import '../../smart_ac/smart_ac.dart';
+import '../../smart_fan/smart_fan.dart';
+import '../../smart_light/smart_light.dart';
+import '../../smart_speaker/smart_speaker.dart';
+import '../../smart_tv/smart_tv.dart';
 import 'add_device_widget.dart';
 import 'dark_container.dart';
+import 'music_widget.dart';
 
 class Body extends StatelessWidget {
   final HomeScreenViewModel model;
@@ -23,8 +22,8 @@ class Body extends StatelessWidget {
     return SingleChildScrollView(
       child: Container(
         padding: EdgeInsets.symmetric(
-          horizontal: getProportionateScreenWidth(7),
-          vertical: getProportionateScreenHeight(7),
+          horizontal:  7,
+          vertical: 7,
         ),
         decoration: const BoxDecoration(
           color: Color(0xFFF2F2F2),
@@ -32,18 +31,33 @@ class Body extends StatelessWidget {
         child: Column(
           children: [
             Padding(
-              padding: EdgeInsets.all(getProportionateScreenHeight(5)),
+              padding: EdgeInsets.symmetric(horizontal:  4),
+              child: Row(
+                children: [
+                  Text(
+                    'Hi, Lex',
+                    style: Theme.of(context).textTheme.headline1,
+                  ),
+                ],
+              ),
+            ),
+            Text(
+              'Living Room',
+              style: Theme.of(context).textTheme.headline3,
+            ),
+            Padding(
+              padding: EdgeInsets.all(5),
               child: WeatherContainer(model: model),
             ),
             Padding(
-              padding: EdgeInsets.all(getProportionateScreenHeight(5)),
+              padding: EdgeInsets.all(5),
               child: SavingsContainer(model: model),
             ),
             Row(
               children: [
                 Expanded(
                   child: Padding(
-                    padding: EdgeInsets.all(getProportionateScreenHeight(5)),
+                    padding: EdgeInsets.all(5),
                     child: DarkContainer(
                       itsOn: model.isLightOn,
                       switchButton: model.lightSwitch,
@@ -60,7 +74,7 @@ class Body extends StatelessWidget {
                 ),
                 Expanded(
                   child: Padding(
-                    padding: EdgeInsets.all(getProportionateScreenHeight(5)),
+                    padding: EdgeInsets.all(5),
                     child: DarkContainer(
                       itsOn: model.isACON,
                       switchButton: model.acSwitch,
@@ -78,14 +92,14 @@ class Body extends StatelessWidget {
               ],
             ),
             Padding(
-              padding: EdgeInsets.all(getProportionateScreenHeight(5)),
+              padding: EdgeInsets.all(5),
               child: const MusicWidget(),
             ),
             Row(
               children: [
                 Expanded(
                   child: Padding(
-                    padding: EdgeInsets.all(getProportionateScreenHeight(5)),
+                    padding: EdgeInsets.all(5),
                     child: DarkContainer(
                       itsOn: model.isSpeakerON,
                       switchButton: model.speakerSwitch,
@@ -102,7 +116,7 @@ class Body extends StatelessWidget {
                 ),
                 Expanded(
                   child: Padding(
-                    padding: EdgeInsets.all(getProportionateScreenHeight(5)),
+                    padding: EdgeInsets.all(5),
                     child: DarkContainer(
                       itsOn: model.isFanON,
                       switchButton: model.fanSwitch,
@@ -120,19 +134,8 @@ class Body extends StatelessWidget {
               ],
             ),
             Padding(
-              padding: EdgeInsets.all(getProportionateScreenHeight(8)),
+              padding: EdgeInsets.all(8),
               child: const AddNewDevice(),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).pushNamed(SetEventScreen.routeName);
-              },
-              child: const Text(
-                'To SetEventScreen',
-                style: TextStyle(
-                  color: Colors.black,
-                ),
-              ),
             ),
             ElevatedButton(
               onPressed: () {

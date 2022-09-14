@@ -17,14 +17,14 @@ class Body extends StatelessWidget {
         children: [
           Padding(
             padding: EdgeInsets.only(
-              left: getProportionateScreenWidth(19),
-              top: getProportionateScreenHeight(5),
+              left:  19),
+              top:  5),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
-                  height: getProportionateScreenHeight(40),
+                  height:  40),
                 ),
                 InkWell(
                     onTap: () {
@@ -47,7 +47,7 @@ class Body extends StatelessWidget {
                   ],
                 ),
                 SizedBox(
-                  height: getProportionateScreenHeight(30),
+                  height:  30),
                 ),
               ],
             ),
@@ -89,8 +89,8 @@ class Body extends StatelessWidget {
               innerWidget: (double value) {
                 return Padding(
                   padding: EdgeInsets.only(
-                    left: getProportionateScreenHeight(12),
-                    top: getProportionateScreenHeight(45),
+                    left:  12),
+                    top:  45),
                   ),
                   child: Column(
                     children: [
@@ -109,7 +109,7 @@ class Body extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: getProportionateScreenHeight(30),
+            height:  30),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -143,7 +143,7 @@ class Body extends StatelessWidget {
             ],
           ),
           SizedBox(
-            height: getProportionateScreenHeight(30),
+            height:  30),
           ),
           // Divider(
           //   thickness: 2,
@@ -156,10 +156,10 @@ class Body extends StatelessWidget {
             style: Theme.of(context).textTheme.headline2,
           ),
           SizedBox(
-            height: getProportionateScreenHeight(20),
+            height:  20),
           ),
           Container(
-            height: getProportionateScreenHeight(50),
+            height:  50),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
               color: Colors.white,
@@ -175,7 +175,7 @@ class Body extends StatelessWidget {
                   .copyWith(color: Colors.white),
               children: <Widget>[
                 SizedBox(
-                  width: getProportionateScreenWidth(70),
+                  width:  70),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
@@ -184,7 +184,7 @@ class Body extends StatelessWidget {
                         color: model.isSelected[0]
                             ? Colors.white
                             : const Color(0xFF808080),
-                        height: getProportionateScreenHeight(
+                        height:  
                           22,
                         ),
                       ),
@@ -196,7 +196,7 @@ class Body extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  width: getProportionateScreenWidth(57.5),
+                  width:  57.5),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
@@ -205,7 +205,7 @@ class Body extends StatelessWidget {
                         color: model.isSelected[1]
                             ? Colors.white
                             : const Color(0xFF808080),
-                        height: getProportionateScreenHeight(
+                        height:  
                           22,
                         ),
                       ),
@@ -217,7 +217,7 @@ class Body extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  width: getProportionateScreenWidth(57.5),
+                  width:  57.5),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
@@ -226,7 +226,7 @@ class Body extends StatelessWidget {
                         color: model.isSelected[2]
                             ? Colors.white
                             : const Color(0xFF808080),
-                        height: getProportionateScreenHeight(
+                        height:  
                           22,
                         ),
                       ),
@@ -238,7 +238,7 @@ class Body extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  width: getProportionateScreenWidth(57.5),
+                  width:  57.5),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
@@ -247,7 +247,7 @@ class Body extends StatelessWidget {
                         color: model.isSelected[3]
                             ? Colors.white
                             : const Color(0xFF808080),
-                        height: getProportionateScreenHeight(
+                        height:  
                           22,
                         ),
                       ),
@@ -266,7 +266,7 @@ class Body extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: getProportionateScreenHeight(20),
+            height:  20),
           ),
         ],
       ),
