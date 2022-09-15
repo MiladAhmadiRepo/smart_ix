@@ -1,8 +1,9 @@
-import 'package:domus/src/screens/smart_light/components/color_dot.dart';
-import 'package:domus/src/screens/smart_light/components/reusable_buttons.dart';
-import 'package:domus/view/smart_light_view_model.dart';
 import 'package:flutter/material.dart';
-import 'package:domus/constant/constant.dart';
+import 'package:smart_ix/src/presentation/views/smart_light/components/reusable_buttons.dart';
+
+import '../../../../config/constant.dart';
+import '../../../blocs/smart_light_view_model.dart';
+import 'color_dot.dart';
 
 class ColorPickerSheet extends StatelessWidget {
   const ColorPickerSheet({Key? key, required this.model}) : super(key: key);
@@ -66,8 +67,7 @@ class ColorPickerSheet extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: Constants.colors
-                  .map(
-                    (e) => ColorDot(
+                  .map((e) => ColorDot(
                       index: e.index,
                       isSelected: e.index == model.selectedIndex,
                       dotColor: e.color,

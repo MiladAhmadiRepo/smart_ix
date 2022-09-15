@@ -1,7 +1,7 @@
-import 'package:domus/config/size_config.dart';
-import 'package:domus/view/smart_speaker_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:sleek_circular_slider/sleek_circular_slider.dart';
+
+import '../../../blocs/smart_speaker_view_model.dart';
 
 class Body extends StatelessWidget {
   final SmartSpeakerViewModel model;
@@ -15,16 +15,11 @@ class Body extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: EdgeInsets.only(
-              left:  19),
-              top:  5),
-            ),
+            padding: EdgeInsets.only(left:  19, top:  5),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
-                  height:  40),
-                ),
+                SizedBox(height:  40),
                 InkWell(
                     onTap: () {
                       Navigator.of(context).pop();
@@ -45,9 +40,7 @@ class Body extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
-                  height:  10),
-                ),
+                SizedBox(height:  10),
               ],
             ),
           ),
@@ -100,9 +93,7 @@ class Body extends StatelessWidget {
               },
             ),
           ),
-          SizedBox(
-            height:  20),
-          ),
+          SizedBox(height:  20),
           Align(
             alignment: Alignment.center,
             child: Column(
@@ -112,9 +103,7 @@ class Body extends StatelessWidget {
                   '3:15 | 4:26',
                   style: Theme.of(context).textTheme.headline3,
                 ),
-                SizedBox(
-                  height:  10),
-                ),
+                SizedBox(height:  10),
                 Text(
                   'STAY',
                   style: Theme.of(context).textTheme.headline1,
@@ -179,9 +168,7 @@ class Body extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(
-            height:  15),
-          ),
+          SizedBox(height:  15),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -252,9 +239,7 @@ class Body extends StatelessWidget {
               )
             ],
           ),
-          SizedBox(
-            height:  15),
-          ),
+          SizedBox(height:  15),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -286,9 +271,7 @@ class Body extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(
-            height:  9),
-          ),
+          SizedBox(height:  9),
         ],
       ),
     );

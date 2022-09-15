@@ -1,0 +1,141 @@
+{
+  "owner": {
+    "user_id": "user27cd8decvt47801",
+    "devices": [
+      {
+        "id": "device27cd88786tyus01",
+        "name": "samsung_ar_condition",
+        "manufacture_name": "samsung_pass",
+        "device_version": "3s",
+        "activity_state": true,
+        "properties": [
+          {
+            "id": "properties5fcd25786ddds05",
+            "name": "celsius_degree",
+            "type_of_value": "int",
+            "current_value": "25",
+            "rang": [],
+            "min_value": "0",
+            "max_value": "40"
+          },
+          {
+            "id": "properties5fcd25786ddds06",
+            "name": "mode",
+            "type_of_value": "string",
+            "current_value": "cool",
+            "rang": [
+              "cool",
+              "air",
+              "hot",
+              "eco"
+            ],
+            "min_value": "",
+            "max_value": ""
+          }
+        ]
+      },
+      {
+        "id": "device27cd88786tyus02",
+        "name": "lighting_xiaomi",
+        "manufacture_name": "xiaomi_devices",
+        "device_version": "2",
+        "activity_state": false,
+        "properties": [
+          {
+            "id": "properties5fcd25786ddds07",
+            "name": "color_of_light",
+            "type_of_value": "string",
+            "current_value": "ffffff",
+            "rang": [],
+            "min_value": "000000",
+            "max_value": "ffffff"
+          },
+          {
+            "id": "properties5fcd25786ddds08",
+            "name": "tone_glow",
+            "type_of_value": "string",
+            "current_value": "warm",
+            "rang": [
+              "warm",
+              "cold"
+            ],
+            "min_value": "",
+            "max_value": ""
+          },
+          {
+            "id": "properties5fcd25786ddds09",
+            "name": "intensity",
+            "type_of_value": "int",
+            "current_value": "50",
+            "rang": [],
+            "min_value": "0",
+            "max_value": "100"
+          }
+        ]
+      },
+      {
+        "id": "device27cd88786tyus03",
+        "name": "fan_lg",
+        "manufacture_name": "lg_cop",
+        "device_version": "55d",
+        "activity_state": true,
+        "properties": [
+          {
+            "id": "properties5fcd25786ddds10",
+            "name": "mode",
+            "type_of_value": "string",
+            "current_value": "air",
+            "rang": [
+              "air",
+              "mid",
+              "breeze"
+            ],
+            "min_value": "",
+            "max_value": ""
+          },
+          {
+            "id": "properties5fcd25786ddds11",
+            "name": "speed",
+            "type_of_value": "int",
+            "current_value": "1",
+            "rang": [],
+            "min_value": "0",
+            "max_value": "4"
+          }
+        ]
+      },
+      {
+        "id": "device27cd88786tyus03",
+        "name": "smart_tv_sony",
+        "manufacture_name": "sony_cop",
+        "device_version": "25d",
+        "activity_state": false,
+        "properties": [
+          {
+            "id": "properties5fcd25786ddds10",
+            "name": "mode",
+            "type_of_value": "string",
+            "current_value": "tv_shows",
+            "rang": [
+              "tv_shows",
+              "movies",
+              "my_list"
+            ],
+            "min_value": "",
+            "max_value": ""
+          },
+          {
+            "id": "properties5fcd25786ddds11",
+            "name": "intensity",
+            "type_of_value": "int",
+            "current_value": "0",
+            "rang": [],
+            "min_value": "0",
+            "max_value": "100"
+          }
+        ]
+      }
+    ],
+    "services": []
+  }
+}

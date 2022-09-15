@@ -1,0 +1,112 @@
+{
+  "owner": {
+    "user_id": "user27cd8decvt47801",
+    "devices": [],
+    "services": [
+      {
+        "id": "service27cd88786tyus02",
+        "name": "news",
+        "company_name": "news_css",
+        "api_version": "1",
+        "activity_state": true,
+        "news": {
+          "status": "ok",
+          "totalResults": 7,
+          "articles": [
+            {
+              "source": {
+                "id": null,
+                "name": "Investor's Business Daily"
+              },
+              "author": "Investor's Business Daily",
+              "title": "Dow Jones Futures: Stocks Dive On Call For Biggest Fed Rate Hike In 40 Years; Apple, Tesla Tumble | Investor's Business Daily - Investor's Business Daily",
+              "description": "A hot inflation report spurred talk of a full-point Fed move next week.",
+              "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-stocks-dive-on-call-for-biggest-fed-rate-hike-in-40-years-apple-tesla-tumble/",
+              "urlToImage": "https://www.investors.com/wp-content/uploads/2022/06/Stock-jeromepowell2022-05-gov.jpg",
+              "publishedAt": "2022-09-14T00:22:00Z",
+              "content": "Dow Jones futures were little changed overnight, along with S&amp;P 500 futures and Nasdaq futures. The stock market rally plunged Tuesday on a hotter-than-expected inflation report, with the major i… [+9966 chars]"
+            },
+            {
+              "source": {
+                "id": null,
+                "name": "ESPN"
+              },
+              "author": "Jeff Legwold",
+              "title": "Denver Broncos 'definitely should have gone for it' on critical fourth down, Nathaniel Hackett says - ESPN",
+              "description": "Denver Broncos coach Nathaniel Hackett said Tuesday he \"definitely\" should have let Russell Wilson run a fourth-and-5 play in the closing seconds of Monday night's loss in Seattle instead of sending kicker Brandon McManus out for a 64-yard field goal try.",
+              "url": "https://www.espn.com/nfl/story/_/id/34587229/denver-broncos-definitely-gone-critical-fourth-nathaniel-hackett-says",
+              "urlToImage": "https://a4.espncdn.com/combiner/i?img=%2Fphoto%2F2022%2F0913%2Fr1061683_1296x729_16%2D9.jpg",
+              "publishedAt": "2022-09-14T00:08:42Z",
+              "content": "ENGLEWOOD, Colo. -- On second thought, Denver Broncos coach Nathaniel Hackett said Tuesday he \"definitely\" should have let quarterback Russell Wilson run a fourth-and-5 play in the closing seconds of… [+3106 chars]"
+            },
+            {
+              "source": {
+                "id": "cnn",
+                "name": "CNN"
+              },
+              "author": "By <a href=\"/profiles/tara-subramaniam\">Tara Subramaniam</a>, <a href=\"/profiles/ivana-kottasova\">Ivana Kottasová</a>, <a href=\"/profiles/eliza-mackintosh\">Eliza Mackintosh</a>, <a href=\"/profiles/adrienne-vogt\">Adrienne Vogt</a> and <a href=\"/profiles/aditi-sandal\">Aditi Sangal</a>, CNN",
+              "title": "September 13, 2022 Russia-Ukraine news - CNN",
+              "description": "As the Ukrainian counteroffensive continues, the Kremlin insists it will achieve its goals in Ukraine. But the collapse of Russian defenses has sparked criticism and prompted calls for Putin's resignation. Follow here for news updates.",
+              "url": "https://www.cnn.com/europe/live-news/russia-ukraine-war-news-09-13-22/index.html",
+              "urlToImage": "https://dynaimage.cdn.cnn.com/cnn/digital-images/org/23e4b4b5-42f9-4f7a-bba3-ff3726c256db.jpg",
+              "publishedAt": "2022-09-13T23:36:00Z",
+              "content": "As a CNN team on the ground surveyed the city of Izium, the signs of Ukrainian victory after months of Russian occupation are clear.\r\nBurned-out tanks and trucks emblazoned with Russia's signature \"Z… [+2009 chars]"
+            },
+            {
+              "source": {
+                "id": null,
+                "name": "YouTube"
+              },
+              "author": null,
+              "title": "Prince Harry REACTS to Military Uniform Controversy | E! News - E! News",
+              "description": null,
+              "url": "https://www.youtube.com/supported_browsers?next_url=https:%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DTKRdh7mE6jk",
+              "urlToImage": null,
+              "publishedAt": "2022-09-13T22:59:48Z",
+              "content": "Your browser isnt supported anymore. Update it to get the best YouTube experience and our latest features. Learn more\r\nRemind me later"
+            },
+            {
+              "source": {
+                "id": null,
+                "name": "Windows Central"
+              },
+              "author": "Jennifer Young, Samuel Tolbert",
+              "title": "GoldenEye 007 remaster has been announced for Xbox, but there's a catch - Windows Central",
+              "description": "The remaster is coming to Xbox Series X|S and Nintendo Switch, with one curious omission.",
+              "url": "https://www.windowscentral.com/gaming/xbox/goldeneye-007-remaster-has-been-announced-for-xbox-but-theres-a-catch",
+              "urlToImage": "https://cdn.mos.cms.futurecdn.net/z9fxybHxyBgG2oWnbzaHG3-1200-80.png",
+              "publishedAt": "2022-09-13T22:56:05Z",
+              "content": "Update (Sep. 13, 2022): Microsoft confirms that GoldenEye 007 will not feature online play on Xbox.\r\n<ul><li>The rumored GoldenEye 007 remaster has been officially confirmed for release in today's Ni… [+3233 chars]"
+            },
+            {
+              "source": {
+                "id": "the-washington-post",
+                "name": "The Washington Post"
+              },
+              "author": "Katie Shepherd",
+              "title": "West Virginia lawmakers pass abortion ban - The Washington Post",
+              "description": "State Republicans moved forward with the ban despite signs in other parts of the country that many American voters do not support the Supreme Court’s ruling.",
+              "url": "https://www.washingtonpost.com/nation/2022/09/13/west-virginia-abortion-ban/",
+              "urlToImage": "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/AXHKHSA4YMI63HHGNASTXUYYMQ.jpg&w=1440",
+              "publishedAt": "2022-09-13T22:43:18Z",
+              "content": "The West Virginia legislature Tuesday passed a bill to prohibit nearly all abortions, making it the second state to pass a new ban since the Supreme Court reversed Roe v. Wade in June.\r\nThe state Sen… [+6279 chars]"
+            },
+            {
+              "source": {
+                "id": null,
+                "name": "9to5Mac"
+              },
+              "author": "Chance Miller",
+              "title": "These iOS 16 apps offer support for the new Lock Screen widgets - 9to5Mac",
+              "description": "As we’ve covered extensively, one of the leading features of iOS 16 is the ability to customize your iPhone’s Lock Screen for the first time. There are new wallpapers, font choices, colors, and filters that you can apply. The biggest change, however, is that …",
+              "url": "https://9to5mac.com/2022/09/13/ios-16-lock-screen-widgets-apps/",
+              "urlToImage": "https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2022/09/lock-screen-widgets.jpg?resize=1200%2C628&quality=82&strip=all&ssl=1",
+              "publishedAt": "2022-09-13T22:04:00Z",
+              "content": "As we’ve covered extensively, one of the leading features of iOS 16 is the ability to customize your iPhone’s Lock Screen for the first time. There are new wallpapers, font choices, colors, and filte… [+11161 chars]"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

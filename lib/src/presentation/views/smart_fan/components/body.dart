@@ -1,12 +1,13 @@
-import 'package:domus/config/size_config.dart';
-import 'package:domus/view/smart_fan_view_model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
+import '../../../blocs/smart_fan_view_model.dart';
+
 class Body extends StatefulWidget {
   const Body({Key? key, required this.model}) : super(key: key);
   final SmartFanViewModel model;
+
   @override
   _BodyState createState() => _BodyState();
 }
@@ -75,22 +76,18 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
           children: [
             Padding(
               padding: EdgeInsets.only(
-                left:  15),
-                top:  7),
+                left: 15,
+                top: 7,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: EdgeInsets.only(
-                      top:  7),
-                    ),
+                    padding: EdgeInsets.only(top: 7),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(
-                          height:  40),
-                        ),
+                        SizedBox(height: 40),
                         InkWell(
                             onTap: () {
                               Navigator.of(context).pop();
@@ -100,13 +97,9 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                           children: [
                             Text(
                               'Living\nRoom',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .headline1!
-                                  .copyWith(
+                              style: Theme.of(context).textTheme.headline1!.copyWith(
                                     fontSize: 45,
-                                    color: const Color(0xFFBDBDBD)
-                                        .withOpacity(0.5),
+                                    color: const Color(0xFFBDBDBD).withOpacity(0.5),
                                   ),
                             ),
                             Text(
@@ -115,16 +108,12 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                             ),
                           ],
                         ),
-                        SizedBox(
-                          height:  26),
-                        ),
+                        SizedBox(height: 26),
                         Text(
                           'Power',
                           style: Theme.of(context).textTheme.headline2,
                         ),
-                        SizedBox(
-                          height:  4),
-                        ),
+                        SizedBox(height: 4),
                         Switch.adaptive(
                           inactiveThumbColor: const Color(0xFFE4E4E4),
                           inactiveTrackColor: Colors.white,
@@ -135,18 +124,12 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                             widget.model.fanSwitch(value);
                           },
                         ),
-                        SizedBox(
-                          height:  20),
-                        ),
-                        SizedBox(
-                          height:  10),
-                        ),
+                        SizedBox(height: 20),
+                        SizedBox(height: 10),
                       ],
                     ),
                   ),
-                  SizedBox(
-                    height:  105),
-                  ),
+                  SizedBox(height: 105),
                 ],
               ),
             ),
@@ -157,8 +140,8 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                   height: 20,
                 ),
                 Container(
-                  height:  260),
-                  width:  120),
+                  height: 260,
+                  width: 120,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(30),
@@ -169,8 +152,7 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                     // height: 250,
                     fit: BoxFit.fill,
                     animate: widget.model.isFanOff ? true : false,
-                    controller:
-                        widget.model.isFanOff ? _controller : _noController,
+                    controller: widget.model.isFanOff ? _controller : _noController,
                   ),
                 )
               ],
@@ -182,11 +164,7 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
           ],
         ),
         Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal:  
-              15,
-            ),
-          ),
+          padding: EdgeInsets.symmetric(horizontal: 15),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -194,9 +172,7 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                 'Mode',
                 style: Theme.of(context).textTheme.headline2,
               ),
-              SizedBox(
-                height:  9),
-              ),
+              SizedBox(height: 9),
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
@@ -207,27 +183,24 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                   fillColor: const Color(0xFF464646),
                   renderBorder: false,
                   borderRadius: BorderRadius.circular(15),
-                  textStyle: Theme.of(context)
-                      .textTheme
-                      .headline2!
-                      .copyWith(color: Colors.white),
+                  textStyle: Theme.of(context).textTheme.headline2!.copyWith(color: Colors.white),
                   children: <Widget>[
                     SizedBox(
-                      width:  76),
+                      width: 76,
                       child: const Text(
                         'Air',
                         textAlign: TextAlign.center,
                       ),
                     ),
                     SizedBox(
-                      width:  76),
+                      width: 76,
                       child: const Text(
                         'Mild',
                         textAlign: TextAlign.center,
                       ),
                     ),
                     SizedBox(
-                      width:  76),
+                      width: 76,
                       child: const Text(
                         'Breeze',
                         textAlign: TextAlign.center,
@@ -240,9 +213,7 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                   isSelected: widget.model.isSelected,
                 ),
               ),
-              SizedBox(
-                height:  20),
-              ),
+              SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -258,12 +229,11 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
               ),
               SliderTheme(
                 data: SliderThemeData(
-                    trackHeight:  5),
+                    trackHeight: 5,
                     thumbColor: const Color(0xFF464646),
                     activeTrackColor: const Color(0xFF464646),
                     inactiveTrackColor: Colors.white,
-                    thumbShape:
-                        const RoundSliderThumbShape(enabledThumbRadius: 8)),
+                    thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 8)),
                 child: Slider(
                   min: 0,
                   max: 5,

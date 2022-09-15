@@ -1,11 +1,10 @@
-import 'package:domus/config/size_config.dart';
-import 'package:domus/src/screens/smart_light/components/date_container.dart';
-import 'package:domus/src/screens/smart_light/components/reusable_buttons.dart';
-import 'package:domus/src/screens/smart_light/components/time_container.dart';
-import 'package:domus/view/smart_light_view_model.dart';
 import 'package:flutter/material.dart';
+import 'package:smart_ix/src/presentation/views/smart_light/components/reusable_buttons.dart';
+import 'package:smart_ix/src/presentation/views/smart_light/components/time_container.dart';
 
+import '../../../blocs/smart_light_view_model.dart';
 import 'advance_setting_container.dart';
+import 'date_container.dart';
 
 class ExpandableBottomSheet extends StatelessWidget {
   const ExpandableBottomSheet({Key? key, required this.model})
@@ -109,9 +108,7 @@ class ExpandableBottomSheet extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
-              height:  10),
-            ),
+            SizedBox(height:  10),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
@@ -130,9 +127,7 @@ class ExpandableBottomSheet extends StatelessWidget {
               'Select the desired time',
               style: Theme.of(context).textTheme.headline5,
             ),
-            SizedBox(
-              height:  10),
-            ),
+            SizedBox(height:  10),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -143,9 +138,7 @@ class ExpandableBottomSheet extends StatelessWidget {
                       'On Time',
                       style: Theme.of(context).textTheme.headline6,
                     ),
-                    const SizedBox(
-                      height: 10,
-                    ),
+                    const SizedBox(height: 10),
                     const TimeContainer(
                         time: '10:27', meridiem: 'PM', active: true),
                   ],

@@ -1,6 +1,6 @@
-import 'package:domus/config/size_config.dart';
-import 'package:domus/view/smart_fan_view_model.dart';
 import 'package:flutter/material.dart';
+
+import '../../../blocs/smart_fan_view_model.dart';
 
 class ExpandableBottomSheet extends StatelessWidget {
   const ExpandableBottomSheet({Key? key, required this.model})
@@ -72,9 +72,7 @@ class ExpandableBottomSheet extends StatelessWidget {
             const Divider(
               thickness: 2,
             ),
-            SizedBox(
-              height:  20),
-            ),
+            SizedBox(height:  20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

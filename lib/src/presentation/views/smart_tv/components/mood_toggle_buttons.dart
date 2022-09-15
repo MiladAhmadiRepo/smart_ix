@@ -1,20 +1,17 @@
-import 'package:domus/config/size_config.dart';
 import 'package:flutter/material.dart';
-import 'package:domus/view/smart_tv_view_model.dart';
+
+import '../../../blocs/smart_tv_view_model.dart';
 
 class MoodToggleButtons extends StatelessWidget {
-  const MoodToggleButtons({Key? key, required this.model})
-      : super(key: key);
+  const MoodToggleButtons({Key? key, required this.model}) : super(key: key);
 
   final SmartTvViewModel model;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:  EdgeInsets.symmetric(
-        horizontal:  
-          15,
-        ),
+      padding: EdgeInsets.symmetric(
+        horizontal: 15,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -23,9 +20,7 @@ class MoodToggleButtons extends StatelessWidget {
             'Mood',
             style: Theme.of(context).textTheme.headline2,
           ),
-          SizedBox(
-            height:  9),
-          ),
+          SizedBox(height: 9),
           Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
@@ -38,7 +33,7 @@ class MoodToggleButtons extends StatelessWidget {
               borderRadius: BorderRadius.circular(15),
               children: <Widget>[
                 SizedBox(
-                  width:  80),
+                  width: 80,
                   child: const Text(
                     'TV Shows',
                     textAlign: TextAlign.center,
@@ -48,7 +43,7 @@ class MoodToggleButtons extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  width:  80),
+                  width: 80,
                   child: const Text(
                     'Movies',
                     textAlign: TextAlign.center,
@@ -58,7 +53,7 @@ class MoodToggleButtons extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  width:  80),
+                  width: 80,
                   child: const Text(
                     'My List',
                     textAlign: TextAlign.center,
@@ -69,14 +64,12 @@ class MoodToggleButtons extends StatelessWidget {
                 ),
               ],
               onPressed: (int index) {
-                model.onToggleTapped(index,context);
+                model.onToggleTapped(index, context);
               },
               isSelected: model.isSelected,
             ),
           ),
-          SizedBox(
-            height:  20),
-          ),
+          SizedBox(height: 20),
         ],
       ),
     );

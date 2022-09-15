@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import '../../../core/utils/constants.dart';
-import '../../models/breaking_news_response_model.dart';
+import '../../models/model_of_news/model_of_news.dart';
 
 class _NewsApiService implements NewsApiService {
   final Dio _dio;
@@ -11,19 +11,19 @@ class _NewsApiService implements NewsApiService {
   }
 
   @override
-  Future<Response<BreakingNewsResponseModel>> getBreakingNewsArticles(
-      {apiKey = kApiKey, country = 'us', category = '', page = 1, pageSize = 100}) async {
+  Future<Response<ModelOfNewses>> getBreakingNews(
+      {apiKey = kApiKey, user_id = 'default', category = '', page = 1, pageSize = 100}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'apiKey': apiKey,
-      r'country': country,
+      r'user_id': user_id,
       r'category': category,
       r'page': page,
       r'pageSize': pageSize
     };
     final _data = <String, dynamic>{};
 
-    final _result = await _dio.request<Map<String, dynamic>>('/top-headlines',
+    final _result = await _dio.request<Map<String, dynamic>>('/top-news',
         queryParameters: queryParameters,
         options: Options(
           extra: _extra,
@@ -32,23 +32,25 @@ class _NewsApiService implements NewsApiService {
         ),
         data: _data);
 
-    final value = BreakingNewsResponseModel.fromJson(_result.data ?? <String, dynamic>{});
+    final value = ModelOfNewses.fromJson(_result.data ?? <String, dynamic>{});
     final response = Response(
       data: value,
-      requestOptions: RequestOptions(path: baseUrl + '/top-headlines'),
+      requestOptions: RequestOptions(path: baseUrl + '/top-news'),
     );
     return response;
   }
+
+
 }
 
 abstract class NewsApiService {
   factory NewsApiService(Dio dio, {String baseUrl}) = _NewsApiService;
 
-  Future<Response<BreakingNewsResponseModel>> getBreakingNewsArticles({
+  Future<Response<ModelOfNewses>> getBreakingNews({
     String apiKey,
-    String country,
+    String user_id,
     String category,
     int page,
     int pageSize,
-  });
+  }  );
 }

@@ -1,0 +1,28 @@
+{
+  "owner": {
+    "user_id": "user27cd8decvt47801",
+    "devices": [],
+    "services": [
+      {
+        "id": "service27cd88786tyus01",
+        "name": "weather",
+        "company_name": "weather_os",
+        "api_version": "3",
+        "activity_state": true,
+        "weather": {
+          "location": {
+            "name": "stuttgart",
+            "country": "germany"
+          },
+          "current": {
+            "last_updated": "2022-09-14 03:30",
+            "temp_c": 15.0,
+            "temp_f": 59.0,
+            "wind_degree": 50,
+            "wind_dir": "ne"
+          }
+        }
+      }
+    ]
+  }
+}

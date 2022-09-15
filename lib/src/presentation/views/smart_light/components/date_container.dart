@@ -1,4 +1,3 @@
-import 'package:domus/config/size_config.dart';
 import 'package:flutter/material.dart';
 
 class DateContainer extends StatelessWidget {
@@ -18,8 +17,8 @@ class DateContainer extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        height:  70),
-        width:  65),
+        height:  70,
+        width:  65,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
           color: active ? const Color(0xFF464646) : Colors.white,

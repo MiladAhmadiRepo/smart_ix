@@ -17,7 +17,7 @@ class MenuList extends StatelessWidget {
         ),
         const Spacer(),
         MenuListItems(
-          iconPath: 'assets/icons/menu_icons/devices.svg',
+          iconPath: 'assets/icons/menu_icons/devices.json.josn.svg',
           itemName: 'Devices',
           function: () {},
         ),

@@ -1,8 +1,8 @@
-import 'package:domus/config/size_config.dart';
-import 'package:domus/src/screens/smart_tv/components/mood_toggle_buttons.dart';
-import 'package:domus/view/smart_tv_view_model.dart';
 import 'package:flutter/material.dart';
-import 'package:domus/src/screens/smart_tv/components/intensity_slider.dart';
+
+import '../../../blocs/smart_tv_view_model.dart';
+import 'intensity_slider.dart';
+import 'mood_toggle_buttons.dart';
 
 class Body extends StatelessWidget {
   final SmartTvViewModel model;
@@ -15,13 +15,11 @@ class Body extends StatelessWidget {
         Align(
           alignment: AlignmentDirectional.topEnd,
           child: Padding(
-            padding: EdgeInsets.only(
-              top:  50),
-            ),
+            padding: EdgeInsets.only(top:  50),
             child: Image.asset(
               'assets/images/tv.png',
-              height:  450),
-              width:  260),
+              height:  450,
+              width:  260,
               fit: BoxFit.contain,
             ),
           ),
@@ -30,22 +28,17 @@ class Body extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsets.only(
-                top:  7),
-              ),
+              padding: EdgeInsets.only(top:  7),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: EdgeInsets.only(
-                      left:  19),
-                      top:  7),
-                    ),
+                    padding: EdgeInsets.only(left:  19,top:  7),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(
-                          height:  40),
+                          height:  40
                         ),
                         InkWell(
                             onTap: () {
@@ -72,14 +65,14 @@ class Body extends StatelessWidget {
                           ],
                         ),
                         SizedBox(
-                          height:  26),
+                          height:  26
                         ),
                         Text(
                           'Power',
                           style: Theme.of(context).textTheme.headline2,
                         ),
                         SizedBox(
-                          height:  4),
+                          height:  4
                         ),
                         Switch.adaptive(
                           inactiveThumbColor: const Color(0xFFE4E4E4),
@@ -92,7 +85,7 @@ class Body extends StatelessWidget {
                           },
                         ),
                         SizedBox(
-                          height:  90),
+                          height:  90
                         ),
                       ],
                     ),

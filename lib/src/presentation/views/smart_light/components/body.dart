@@ -1,9 +1,10 @@
-import 'package:domus/config/size_config.dart';
-import 'package:domus/view/smart_light_view_model.dart';
 import 'package:flutter/material.dart';
+
+import '../../../blocs/smart_light_view_model.dart';
 
 class Body extends StatelessWidget {
   final SmartLightViewModel model;
+
   const Body({Key? key, required this.model}) : super(key: key);
 
   @override
@@ -15,24 +16,16 @@ class Body extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Padding(
-              padding: EdgeInsets.only(
-                left:  19),
-                top:  7),
-              ),
+              padding: EdgeInsets.only(left: 19, top: 7),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: EdgeInsets.only(
-                      left:  19),
-                      top:  7),
-                    ),
+                    padding: EdgeInsets.only(left: 19, top: 7),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(
-                          height:  40),
-                        ),
+                        SizedBox(height: 40),
                         InkWell(
                             onTap: () {
                               Navigator.of(context).pop();
@@ -42,13 +35,9 @@ class Body extends StatelessWidget {
                           children: [
                             Text(
                               'Living\nRoom',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .headline1!
-                                  .copyWith(
+                              style: Theme.of(context).textTheme.headline1!.copyWith(
                                     fontSize: 45,
-                                    color: const Color(0xFFBDBDBD)
-                                        .withOpacity(0.5),
+                                    color: const Color(0xFFBDBDBD).withOpacity(0.5),
                                   ),
                             ),
                             Text(
@@ -57,16 +46,12 @@ class Body extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(
-                          height:  26),
-                        ),
+                        SizedBox(height: 26),
                         Text(
                           'Power',
                           style: Theme.of(context).textTheme.headline2,
                         ),
-                        SizedBox(
-                          height:  4),
-                        ),
+                        SizedBox(height: 4),
                         Switch.adaptive(
                           inactiveThumbColor: const Color(0xFFE4E4E4),
                           inactiveTrackColor: Colors.white,
@@ -77,29 +62,20 @@ class Body extends StatelessWidget {
                             model.lightSwitch(value);
                           },
                         ),
-                        SizedBox(
-                          height:  20),
-                        ),
+                        SizedBox(height: 20),
                         Text(
                           'Color',
                           style: Theme.of(context).textTheme.headline2,
                         ),
-                        SizedBox(
-                          height:  7),
-                        ),
+                        SizedBox(height: 7),
                         InkWell(
                           onTap: model.showColorPanel,
-                          child: Image.asset(
-                            'assets/images/color_wheel.png',
-                            height:  22),
-                          ),
+                          child: Image.asset('assets/images/color_wheel.png', height: 22),
                         ),
                       ],
                     ),
                   ),
-                  SizedBox(
-                    height:  40),
-                  ),
+                  SizedBox(height: 40),
                 ],
               ),
             ),
@@ -107,8 +83,8 @@ class Body extends StatelessWidget {
               children: [
                 Image.asset(
                   'assets/images/lamp.png',
-                  height:  180),
-                  width:  140),
+                  height: 180,
+                  width: 140,
                   fit: BoxFit.contain,
                 ),
 
@@ -116,25 +92,18 @@ class Body extends StatelessWidget {
                 model.isLightOff
                     ? Image.asset(
                         model.lightImage,
-                        height:  190),
-                        width:  140),
+                        height: 190,
+                        width: 140,
                         fit: BoxFit.contain,
                         alignment: Alignment.topCenter,
                       )
-                    : SizedBox(
-                        height:  190),
-                        width:  140),
-                      ),
+                    : SizedBox(height: 190, width: 140),
               ],
             ),
           ],
         ),
         Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal:  
-              15,
-            ),
-          ),
+          padding: EdgeInsets.symmetric(horizontal: 15),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -142,9 +111,7 @@ class Body extends StatelessWidget {
                 'Tone Glow',
                 style: Theme.of(context).textTheme.headline2,
               ),
-              SizedBox(
-                height:  9),
-              ),
+              SizedBox(height: 9),
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
@@ -155,20 +122,17 @@ class Body extends StatelessWidget {
                   fillColor: const Color(0xFF464646),
                   renderBorder: false,
                   borderRadius: BorderRadius.circular(15),
-                  textStyle: Theme.of(context)
-                      .textTheme
-                      .headline2!
-                      .copyWith(color: Colors.white),
+                  textStyle: Theme.of(context).textTheme.headline2!.copyWith(color: Colors.white),
                   children: <Widget>[
                     SizedBox(
-                      width:  115),
+                      width: 115,
                       child: const Text(
                         'Warm',
                         textAlign: TextAlign.center,
                       ),
                     ),
                     SizedBox(
-                      width:  115),
+                      width: 11,
                       child: const Text(
                         'Cold',
                         textAlign: TextAlign.center,
@@ -181,9 +145,7 @@ class Body extends StatelessWidget {
                   isSelected: model.isSelected,
                 ),
               ),
-              SizedBox(
-                height:  20),
-              ),
+              SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -199,12 +161,11 @@ class Body extends StatelessWidget {
               ),
               SliderTheme(
                 data: SliderThemeData(
-                    trackHeight:  5),
+                    trackHeight: 5,
                     thumbColor: const Color(0xFF464646),
                     activeTrackColor: const Color(0xFF464646),
                     inactiveTrackColor: Colors.white,
-                    thumbShape:
-                        const RoundSliderThumbShape(enabledThumbRadius: 8)),
+                    thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 8)),
                 child: Slider(
                   min: 0,
                   max: 100,

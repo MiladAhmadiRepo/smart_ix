@@ -13,7 +13,6 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return Scaffold(
-
       drawer: SizedBox(
           width: getThirtyPercentOfWidth(),
           child: const Menu()),

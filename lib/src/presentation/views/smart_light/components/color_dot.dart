@@ -1,5 +1,6 @@
-import 'package:domus/view/smart_light_view_model.dart';
 import 'package:flutter/material.dart';
+
+import '../../../blocs/smart_light_view_model.dart';
 
 class ColorDot extends StatelessWidget {
   const ColorDot({

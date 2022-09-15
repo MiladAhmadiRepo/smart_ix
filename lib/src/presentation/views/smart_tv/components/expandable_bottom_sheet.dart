@@ -1,6 +1,6 @@
-import 'package:domus/config/size_config.dart';
 import 'package:flutter/material.dart';
-import 'package:domus/view/smart_tv_view_model.dart';
+
+import '../../../blocs/smart_tv_view_model.dart';
 
 class ExpandableBottomSheet extends StatelessWidget {
   const ExpandableBottomSheet({Key? key, required this.model})
@@ -73,7 +73,7 @@ class ExpandableBottomSheet extends StatelessWidget {
               thickness: 2,
             ),
             SizedBox(
-              height:  20),
+              height:  20
             ),
           ],
         ),

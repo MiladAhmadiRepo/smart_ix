@@ -1,12 +1,13 @@
-import 'package:domus/config/size_config.dart';
-import 'package:domus/view/smart_ac_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:sleek_circular_slider/sleek_circular_slider.dart';
 
+import '../../../blocs/smart_ac_view_model.dart';
+
 class Body extends StatelessWidget {
   final SmartACViewModel model;
-  const Body({Key? key, required this.model}) : super(key: key);
+
+  Body({Key? key, required this.model}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,16 +17,11 @@ class Body extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: EdgeInsets.only(
-              left:  19),
-              top:  5),
-            ),
+            padding: EdgeInsets.only(left: 19, top: 5),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
-                  height:  40),
-                ),
+                SizedBox(height: 40),
                 InkWell(
                     onTap: () {
                       Navigator.of(context).pop();
@@ -35,10 +31,10 @@ class Body extends StatelessWidget {
                   children: [
                     Text(
                       'Air\nConditioner',
-                      style: Theme.of(context).textTheme.headline1!.copyWith(
-                            fontSize: 45,
-                            color: const Color(0xFFBDBDBD).withOpacity(0.5),
-                          ),
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline1!
+                          .copyWith(fontSize: 45, color: const Color(0xFFBDBDBD).withOpacity(0.5)),
                     ),
                     Text(
                       'Living\nRoom',
@@ -46,9 +42,7 @@ class Body extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
-                  height:  30),
-                ),
+                SizedBox(height: 30),
               ],
             ),
           ),
@@ -88,10 +82,7 @@ class Body extends StatelessWidget {
               },
               innerWidget: (double value) {
                 return Padding(
-                  padding: EdgeInsets.only(
-                    left:  12),
-                    top:  45),
-                  ),
+                  padding: EdgeInsets.only(left: 12, top: 45),
                   child: Column(
                     children: [
                       Text(
@@ -108,9 +99,7 @@ class Body extends StatelessWidget {
               },
             ),
           ),
-          SizedBox(
-            height:  30),
-          ),
+          SizedBox(height: 30),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -121,9 +110,7 @@ class Body extends StatelessWidget {
                     'Samsung AC',
                     style: Theme.of(context).textTheme.headline2,
                   ),
-                  const SizedBox(
-                    height: 5,
-                  ),
+                  const SizedBox(height: 5),
                   Text(
                     'Connected',
                     style: Theme.of(context).textTheme.headline5,
@@ -142,9 +129,7 @@ class Body extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(
-            height:  30),
-          ),
+          SizedBox(height: 30),
           // Divider(
           //   thickness: 2,
           // ),
@@ -155,11 +140,9 @@ class Body extends StatelessWidget {
             'Mode',
             style: Theme.of(context).textTheme.headline2,
           ),
-          SizedBox(
-            height:  20),
-          ),
+          SizedBox(height: 20),
           Container(
-            height:  50),
+            height: 50,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
               color: Colors.white,
@@ -169,24 +152,21 @@ class Body extends StatelessWidget {
               fillColor: const Color(0xFF464646),
               renderBorder: false,
               borderRadius: BorderRadius.circular(15),
-              textStyle: Theme.of(context)
-                  .textTheme
-                  .headline2!
-                  .copyWith(color: Colors.white),
+              textStyle: Theme.of(context).textTheme.headline2!.copyWith(color: Colors.white),
+              onPressed: (int index) {
+                model.onToggleTapped(index);
+              },
+              isSelected: model.isSelected,
               children: <Widget>[
                 SizedBox(
-                  width:  70),
+                  width: 70,
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       SvgPicture.asset(
                         'assets/icons/svg/cool.svg',
-                        color: model.isSelected[0]
-                            ? Colors.white
-                            : const Color(0xFF808080),
-                        height:  
-                          22,
-                        ),
+                        color: model.isSelected[0] ? Colors.white : const Color(0xFF808080),
+                        height: 22,
                       ),
                       const Text(
                         'Cool',
@@ -196,18 +176,14 @@ class Body extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  width:  57.5),
+                  width: 57.5,
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       SvgPicture.asset(
                         'assets/icons/svg/air.svg',
-                        color: model.isSelected[1]
-                            ? Colors.white
-                            : const Color(0xFF808080),
-                        height:  
-                          22,
-                        ),
+                        color: model.isSelected[1] ? Colors.white : const Color(0xFF808080),
+                        height: 22,
                       ),
                       const Text(
                         'Air',
@@ -217,18 +193,14 @@ class Body extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  width:  57.5),
+                  width: 57.5,
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       SvgPicture.asset(
                         'assets/icons/svg/sun.svg',
-                        color: model.isSelected[2]
-                            ? Colors.white
-                            : const Color(0xFF808080),
-                        height:  
-                          22,
-                        ),
+                        color: model.isSelected[2] ? Colors.white : const Color(0xFF808080),
+                        height: 22,
                       ),
                       const Text(
                         'Hot',
@@ -238,19 +210,13 @@ class Body extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  width:  57.5),
+                  width: 57.5,
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      SvgPicture.asset(
-                        'assets/icons/svg/eco.svg',
-                        color: model.isSelected[3]
-                            ? Colors.white
-                            : const Color(0xFF808080),
-                        height:  
-                          22,
-                        ),
-                      ),
+                      SvgPicture.asset('assets/icons/svg/eco.svg',
+                          color: model.isSelected[3] ? Colors.white : const Color(0xFF808080),
+                          height: 22),
                       const Text(
                         'Eco',
                         textAlign: TextAlign.center,
@@ -259,15 +225,9 @@ class Body extends StatelessWidget {
                   ),
                 ),
               ],
-              onPressed: (int index) {
-                model.onToggleTapped(index);
-              },
-              isSelected: model.isSelected,
             ),
           ),
-          SizedBox(
-            height:  20),
-          ),
+          SizedBox(height: 20),
         ],
       ),
     );

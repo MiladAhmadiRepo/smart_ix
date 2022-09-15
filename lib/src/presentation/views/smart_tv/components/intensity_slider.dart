@@ -1,6 +1,6 @@
-import 'package:domus/config/size_config.dart';
 import 'package:flutter/material.dart';
-import 'package:domus/view/smart_tv_view_model.dart';
+
+import '../../../blocs/smart_tv_view_model.dart';
 
 class Intensity extends StatelessWidget {
   const Intensity({Key? key, required this.model})
@@ -13,11 +13,7 @@ class Intensity extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal:  
-              15,
-            ),
-          ),
+          padding: EdgeInsets.symmetric(horizontal:15),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -34,7 +30,7 @@ class Intensity extends StatelessWidget {
         ),
         SliderTheme(
           data: SliderThemeData(
-              trackHeight:  5),
+              trackHeight:  5,
               thumbColor: const Color(0xFF464646),
               activeTrackColor: const Color(0xFF464646),
               inactiveTrackColor: Colors.white,
@@ -50,11 +46,7 @@ class Intensity extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal:  
-              15,
-            ),
-          ),
+          padding: EdgeInsets.symmetric(horizontal: 15),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

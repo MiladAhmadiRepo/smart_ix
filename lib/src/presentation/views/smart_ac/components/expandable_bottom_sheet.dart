@@ -1,10 +1,9 @@
-import 'package:domus/config/size_config.dart';
-import 'package:domus/view/smart_ac_view_model.dart';
 import 'package:flutter/material.dart';
 
+import '../../../blocs/smart_ac_view_model.dart';
+
 class ExpandableBottomSheet extends StatelessWidget {
-  const ExpandableBottomSheet({Key? key, required this.model})
-      : super(key: key);
+  const ExpandableBottomSheet({Key? key, required this.model}) : super(key: key);
 
   final SmartACViewModel model;
 
@@ -72,9 +71,7 @@ class ExpandableBottomSheet extends StatelessWidget {
             const Divider(
               thickness: 2,
             ),
-            SizedBox(
-              height:  20),
-            ),
+            SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -90,12 +87,11 @@ class ExpandableBottomSheet extends StatelessWidget {
             ),
             SliderTheme(
               data: SliderThemeData(
-                  trackHeight:  5),
+                  trackHeight: 5,
                   thumbColor: const Color(0xFF464646),
                   activeTrackColor: const Color(0xFF464646),
                   inactiveTrackColor: const Color(0xFFC4C4C4),
-                  thumbShape:
-                      const RoundSliderThumbShape(enabledThumbRadius: 8)),
+                  thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 8)),
               child: Slider(
                 min: 1,
                 max: 10,
