@@ -19,8 +19,6 @@ class RemoteWeathersBloc extends Bloc<RemoteWeathersEvent, RemoteWeathersState> 
   }
 
   late Weathers _weathers;
-  int _page = 1;
-  static const int _pageSize = 20;
 
   void _getWeathersEventToState(
       RemoteWeathersEvent event, Emitter<RemoteWeathersState> emit) async {
@@ -28,13 +26,11 @@ class RemoteWeathersBloc extends Bloc<RemoteWeathersEvent, RemoteWeathersState> 
 
     if (dataState is DataSuccess && dataState.data != null) {
       final Weathers weathers = dataState.data as Weathers;
-      final noMoreData = weathers.services[0].news.articles.length < _pageSize;
       _weathers = weathers;
-      _page++;
-      emit(RemoteWeathersDone(_weathers, noMoreData: noMoreData));
+      // emit(RemoteWeathersDone(_weathers, noMoreData: noMoreData));
     }
     if (dataState is DataFailed) {
-      emit(RemoteWeathersError(dataState.error));
+      // emit(RemoteWeathersError(dataState.error));
     }
   }
 }
