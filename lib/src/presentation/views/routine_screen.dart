@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:test_code/main.dart';
+
+import '../../config/colors.dart';
 
 class RoutineScreen extends StatefulWidget {
   const RoutineScreen({Key? key}) : super(key: key);

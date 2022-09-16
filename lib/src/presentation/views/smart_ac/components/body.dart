@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:sleek_circular_slider/sleek_circular_slider.dart';
 
-import '../../../blocs/smart_ac_view_model.dart';
-
 class Body extends StatelessWidget {
-  final SmartACViewModel model;
+  // final SmartACViewModel model;
 
-  Body({Key? key, required this.model}) : super(key: key);
+  Body({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -122,9 +120,9 @@ class Body extends StatelessWidget {
                 inactiveTrackColor: Colors.white,
                 activeColor: Colors.white,
                 activeTrackColor: const Color(0xFF464646),
-                value: model.isACon,
+                value:/* model.isACon*/true,
                 onChanged: (value) {
-                  model.acSwitch(value);
+                  // model.acSwitch(value);
                 },
               ),
             ],
@@ -154,9 +152,9 @@ class Body extends StatelessWidget {
               borderRadius: BorderRadius.circular(15),
               textStyle: Theme.of(context).textTheme.headline2!.copyWith(color: Colors.white),
               onPressed: (int index) {
-                model.onToggleTapped(index);
+                // model.onToggleTapped(index);
               },
-              isSelected: model.isSelected,
+              isSelected: /*model.isSelected*/[true, false, false, false],
               children: <Widget>[
                 SizedBox(
                   width: 70,
@@ -165,7 +163,7 @@ class Body extends StatelessWidget {
                     children: [
                       SvgPicture.asset(
                         'assets/icons/svg/cool.svg',
-                        color: model.isSelected[0] ? Colors.white : const Color(0xFF808080),
+                        color: /*model.isSelected[0]*/true ? Colors.white : const Color(0xFF808080),
                         height: 22,
                       ),
                       const Text(
@@ -182,7 +180,7 @@ class Body extends StatelessWidget {
                     children: [
                       SvgPicture.asset(
                         'assets/icons/svg/air.svg',
-                        color: model.isSelected[1] ? Colors.white : const Color(0xFF808080),
+                        color: /*model.isSelected[1]*/false ? Colors.white : const Color(0xFF808080),
                         height: 22,
                       ),
                       const Text(
@@ -199,7 +197,7 @@ class Body extends StatelessWidget {
                     children: [
                       SvgPicture.asset(
                         'assets/icons/svg/sun.svg',
-                        color: model.isSelected[2] ? Colors.white : const Color(0xFF808080),
+                        color:/* model.isSelected[2]*/true ? Colors.white : const Color(0xFF808080),
                         height: 22,
                       ),
                       const Text(
@@ -215,7 +213,7 @@ class Body extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       SvgPicture.asset('assets/icons/svg/eco.svg',
-                          color: model.isSelected[3] ? Colors.white : const Color(0xFF808080),
+                          color: /*model.isSelected[3]*/false ? Colors.white : const Color(0xFF808080),
                           height: 22),
                       const Text(
                         'Eco',

@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:sleek_circular_slider/sleek_circular_slider.dart';
 
-import '../../../blocs/smart_speaker_view_model.dart';
 
 class Body extends StatelessWidget {
-  final SmartSpeakerViewModel model;
-  const Body({Key? key, required this.model}) : super(key: key);
+  // final SmartSpeakerViewModel model;
+  const Body({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -264,9 +263,9 @@ class Body extends StatelessWidget {
                 inactiveTrackColor: Colors.white,
                 activeColor: Colors.white,
                 activeTrackColor: const Color(0xFF464646),
-                value: model.isSpeakeron,
+                value: /*model.isSpeakeron*/true,
                 onChanged: (value) {
-                  model.speakerSwitch(value);
+                  // model.speakerSwitch(value);
                 },
               ),
             ],

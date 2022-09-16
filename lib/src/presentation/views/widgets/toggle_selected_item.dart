@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../main.dart';
+import '../../../config/colors.dart';
+
 
 class ToggleSelectedItem extends StatefulWidget {
   final List<String> items;

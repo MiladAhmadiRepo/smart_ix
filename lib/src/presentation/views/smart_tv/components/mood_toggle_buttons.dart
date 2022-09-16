@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../../blocs/smart_tv_view_model.dart';
 
 class MoodToggleButtons extends StatelessWidget {
-  const MoodToggleButtons({Key? key, required this.model}) : super(key: key);
+  const MoodToggleButtons({Key? key,}) : super(key: key);
 
-  final SmartTvViewModel model;
+  // final SmartTvViewModel model;
 
   @override
   Widget build(BuildContext context) {
@@ -64,9 +63,9 @@ class MoodToggleButtons extends StatelessWidget {
                 ),
               ],
               onPressed: (int index) {
-                model.onToggleTapped(index, context);
+                // model.onToggleTapped(index, context);
               },
-              isSelected: model.isSelected,
+              isSelected: /*model.isSelected*/[false,true,false],
             ),
           ),
           SizedBox(height: 20),

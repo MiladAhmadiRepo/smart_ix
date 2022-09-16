@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../../blocs/smart_light_view_model.dart';
 
 class Body extends StatelessWidget {
-  final SmartLightViewModel model;
+  // final SmartLightViewModel model;
 
-  const Body({Key? key, required this.model}) : super(key: key);
+  const Body({Key? key,}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -57,9 +56,9 @@ class Body extends StatelessWidget {
                           inactiveTrackColor: Colors.white,
                           activeColor: Colors.white,
                           activeTrackColor: const Color(0xFF464646),
-                          value: model.isLightOff,
+                          value: /*model.isLightOff*/true,
                           onChanged: (value) {
-                            model.lightSwitch(value);
+                            // model.lightSwitch(value);
                           },
                         ),
                         SizedBox(height: 20),
@@ -69,7 +68,7 @@ class Body extends StatelessWidget {
                         ),
                         SizedBox(height: 7),
                         InkWell(
-                          onTap: model.showColorPanel,
+                          onTap: /*model.showColorPanel*/(){},
                           child: Image.asset('assets/images/color_wheel.png', height: 22),
                         ),
                       ],
@@ -89,9 +88,10 @@ class Body extends StatelessWidget {
                 ),
 
                 ///todo: Position this image in correct manner
-                model.isLightOff
+                /*model.isLightOff*/true
                     ? Image.asset(
-                        model.lightImage,
+                        // model.lightImage,
+                  'assets/images/purple.png',
                         height: 190,
                         width: 140,
                         fit: BoxFit.contain,
@@ -140,9 +140,9 @@ class Body extends StatelessWidget {
                     ),
                   ],
                   onPressed: (int index) {
-                    model.onToggleTapped(index);
+                    // model.onToggleTapped(index);
                   },
-                  isSelected: model.isSelected,
+                  isSelected: /*model.isSelected*/[true,false],
                 ),
               ),
               SizedBox(height: 20),
@@ -154,7 +154,7 @@ class Body extends StatelessWidget {
                     style: Theme.of(context).textTheme.headline2,
                   ),
                   Text(
-                    '${model.lightIntensity.toInt()}%',
+                    '${/*model.lightIntensity.toInt()*/20}%',
                     style: Theme.of(context).textTheme.headline2,
                   ),
                 ],
@@ -170,9 +170,9 @@ class Body extends StatelessWidget {
                   min: 0,
                   max: 100,
                   onChanged: (val) {
-                    model.changeLightIntensity(val);
+                    // model.changeLightIntensity(val);
                   },
-                  value: model.lightIntensity,
+                  value: /*model.lightIntensity*/20,
                 ),
               ),
               Row(

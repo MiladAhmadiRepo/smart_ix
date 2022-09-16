@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import '../../../config/size_config.dart';
-import '../../widgets/custom_bottom_nav_bar.dart';
-import '../menu_page/menu_screen.dart';
+import '../../../config/screen_config.dart';
 import 'components/body.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -13,13 +10,10 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return Scaffold(
-      drawer: SizedBox(
-          width: getThirtyPercentOfWidth(),
-          child: const Menu()),
       body: Body(
-        model: model,
+
       ),
-      bottomNavigationBar: CustomBottomNavBar(model: model),
+      // bottomNavigationBar: CustomBottomNavBar(model: model),
     );
   }
 }

@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 
-import '../../../blocs/smart_tv_view_model.dart';
 import 'intensity_slider.dart';
 import 'mood_toggle_buttons.dart';
 
 class Body extends StatelessWidget {
-  final SmartTvViewModel model;
-  const Body({Key? key, required this.model}) : super(key: key);
+  // final SmartTvViewModel model;
+  const Body({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -79,9 +78,9 @@ class Body extends StatelessWidget {
                           inactiveTrackColor: Colors.white,
                           activeColor: Colors.white,
                           activeTrackColor: const Color(0xFF464646),
-                          value: model.isTvOff,
+                          value: /*model.isTvOff*/true,
                           onChanged: (value) {
-                            model.tvSwitch(value);
+                            // model.tvSwitch(value);
                           },
                         ),
                         SizedBox(
@@ -93,8 +92,8 @@ class Body extends StatelessWidget {
                 ],
               ),
             ),
-            MoodToggleButtons(model: model),
-            Intensity(model: model),
+            MoodToggleButtons(/*model: model*/),
+            Intensity(/*model: model*/),
           ],
         ),
       ],

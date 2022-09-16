@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'components/body.dart';
 import 'components/color_pick_sheet.dart';
-import 'components/expandable_bottom_sheet.dart';
 
 class SmartLight extends StatelessWidget {
   static String routeName = '/smart-light';
@@ -9,6 +8,8 @@ class SmartLight extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Body(model: model);
+    return  Body(
+        // model: model
+    );
   }
 }

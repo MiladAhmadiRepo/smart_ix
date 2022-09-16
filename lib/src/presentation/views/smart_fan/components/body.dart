@@ -2,11 +2,19 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
-import '../../../blocs/smart_fan_view_model.dart';
 
 class Body extends StatefulWidget {
-  const Body({Key? key, required this.model}) : super(key: key);
-  final SmartFanViewModel model;
+    Body({Key? key, }) : super(key: key);
+  // final SmartFanViewModel model;
+  bool isFanOff = false;
+  final List<bool> isSelected = [true, false, false];
+  double speed = 2;
+  final List<int> duration = [10000, 1000, 800, 600, 400, 200];
+
+  ///keeping track of all three factors - even index will do the task
+  int selectedIndex = 0;
+  Color lightColor = const Color(0xFF7054FF);
+  String fanImage = 'assets/images/fan.png';
 
   @override
   _BodyState createState() => _BodyState();
@@ -17,21 +25,21 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
   late final AnimationController _noController;
 
   int getDuration(double speed) {
-    if (widget.model.speed == 0) return widget.model.duration[0].toInt();
-    if (widget.model.speed > 0 && widget.model.speed <= 1) {
-      return widget.model.duration[1].toInt();
+    if (widget.speed == 0) return widget.duration[0].toInt();
+    if (widget.speed > 0 && widget.speed <= 1) {
+      return widget.duration[1].toInt();
     }
-    if (widget.model.speed > 1 && widget.model.speed <= 2) {
-      return widget.model.duration[2].toInt();
+    if (widget.speed > 1 && widget.speed <= 2) {
+      return widget.duration[2].toInt();
     }
-    if (widget.model.speed > 2 && widget.model.speed <= 3) {
-      return widget.model.duration[3].toInt();
+    if (widget.speed > 2 && widget.speed <= 3) {
+      return widget.duration[3].toInt();
     }
-    if (widget.model.speed > 3 && widget.model.speed <= 4) {
-      return widget.model.duration[4].toInt();
+    if (widget.speed > 3 && widget.speed <= 4) {
+      return widget.duration[4].toInt();
     }
-    if (widget.model.speed > 4 && widget.model.speed <= 5) {
-      return widget.model.duration[5].toInt();
+    if (widget.speed > 4 && widget.speed <= 5) {
+      return widget.duration[5].toInt();
     } else {
       return 0;
     }
@@ -45,16 +53,16 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
       duration: const Duration(seconds: 1000),
     )..repeat();
     if (kDebugMode) {
-      print(widget.model.speed);
+      print(widget.speed);
     }
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: getDuration(widget.model.speed)),
+      duration: Duration(milliseconds: getDuration(widget.speed)),
     )..repeat();
   }
 
   void changespeed(AnimationController c) {
-    c.duration = Duration(milliseconds: getDuration(widget.model.speed));
+    c.duration = Duration(milliseconds: getDuration(widget.speed));
     if (c.isAnimating) c.forward();
     c.repeat();
   }
@@ -119,9 +127,9 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                           inactiveTrackColor: Colors.white,
                           activeColor: Colors.white,
                           activeTrackColor: const Color(0xFF464646),
-                          value: widget.model.isFanOff,
+                          value: widget.isFanOff,
                           onChanged: (value) {
-                            widget.model.fanSwitch(value);
+                            // widget.fanSwitch(value);
                           },
                         ),
                         SizedBox(height: 20),
@@ -151,8 +159,8 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                     // width: 260,
                     // height: 250,
                     fit: BoxFit.fill,
-                    animate: widget.model.isFanOff ? true : false,
-                    controller: widget.model.isFanOff ? _controller : _noController,
+                    animate: widget.isFanOff ? true : false,
+                    controller: widget.isFanOff ? _controller : _noController,
                   ),
                 )
               ],
@@ -208,9 +216,9 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                     ),
                   ],
                   onPressed: (int index) {
-                    widget.model.onToggleTapped(index);
+                    // widget.onToggleTapped(index);
                   },
-                  isSelected: widget.model.isSelected,
+                  isSelected: widget.isSelected,
                 ),
               ),
               SizedBox(height: 20),
@@ -222,7 +230,7 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                     style: Theme.of(context).textTheme.headline2,
                   ),
                   Text(
-                    '${widget.model.speed.toInt()}',
+                    '${widget.speed.toInt()}',
                     style: Theme.of(context).textTheme.headline2,
                   ),
                 ],
@@ -239,9 +247,9 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                   max: 5,
                   onChanged: (val) {
                     changespeed(_controller);
-                    widget.model.changeSpeed(val);
+                    // widget.changeSpeed(val);
                   },
-                  value: widget.model.speed,
+                  value: widget.speed,
                 ),
               ),
               Row(

@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:smart_ix/src/presentation/views/smart_light/components/reusable_buttons.dart';
-
-import '../../../../config/constant.dart';
-import '../../../blocs/smart_light_view_model.dart';
+import '../../../../config/colors.dart';
 import 'color_dot.dart';
 
 class ColorPickerSheet extends StatelessWidget {
-  const ColorPickerSheet({Key? key, required this.model}) : super(key: key);
+  const ColorPickerSheet({Key? key}) : super(key: key);
 
-  final SmartLightViewModel model;
+  // final SmartLightViewModel model;
 
   @override
   Widget build(BuildContext context) {
@@ -66,25 +64,25 @@ class ColorPickerSheet extends StatelessWidget {
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: Constants.colors
+              children:  colors
                   .map((e) => ColorDot(
                       index: e.index,
-                      isSelected: e.index == model.selectedIndex,
+                      isSelected: e.index == /*model.selectedIndex*/2,
                       dotColor: e.color,
-                      model: model,
+                      // model: model,
                     ),
                   )
                   .toList(),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: Constants.dotColors2
+              children:  dotColors2
                   .map(
                     (e) => ColorDot(
                       index: e.value,
                       isSelected: false,
                       dotColor: e,
-                      model: model,
+                      // model: model,
                     ),
                   )
                   .toList(),
@@ -101,7 +99,7 @@ class ColorPickerSheet extends StatelessWidget {
                         active: false,
                         buttonText: 'Cancel',
                         onPress: () {
-                          model.pc.close();
+                          // model.pc.close();
                         }),
                   ),
                 ),
@@ -112,8 +110,8 @@ class ColorPickerSheet extends StatelessWidget {
                         active: true,
                         buttonText: 'Set Color',
                         onPress: () {
-                          model.pc.close();
-                          model.changeImage();
+                          // model.pc.close();
+                          // model.changeImage();
                         }),
                   ),
                 ),

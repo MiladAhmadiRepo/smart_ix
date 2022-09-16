@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 
-import '../../../blocs/smart_tv_view_model.dart';
 
 class Intensity extends StatelessWidget {
-  const Intensity({Key? key, required this.model})
+  const Intensity({Key? key,  })
       : super(key: key);
 
-  final SmartTvViewModel model;
+  // final SmartTvViewModel model;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +21,7 @@ class Intensity extends StatelessWidget {
                 style: Theme.of(context).textTheme.headline2,
               ),
               Text(
-                '${model.lightIntensity.toInt()}%',
+                '${/*model.lightIntensity.toInt()*/10}%',
                 style: Theme.of(context).textTheme.headline2,
               ),
             ],
@@ -40,9 +39,9 @@ class Intensity extends StatelessWidget {
             min: 0,
             max: 100,
             onChanged: (val) {
-              model.changeTvIntensity(val);
+              // model.changeTvIntensity(val);
             },
-            value: model.lightIntensity,
+            value: /*model.lightIntensity*/10,
           ),
         ),
         Padding(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:test_code/main.dart';
+
+import '../../config/colors.dart';
 
 class DevicesScreen extends StatefulWidget {
   const DevicesScreen({Key? key}) : super(key: key);

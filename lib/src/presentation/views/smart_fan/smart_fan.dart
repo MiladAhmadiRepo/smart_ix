@@ -1,8 +1,4 @@
-import 'package:domus/provider/base_view.dart';
-import 'package:domus/src/screens/smart_fan/components/expandable_bottom_sheet.dart';
-import 'package:domus/view/smart_fan_view_model.dart';
 import 'package:flutter/material.dart';
-import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'components/body.dart';
 
 class SmartFan extends StatelessWidget {
@@ -14,7 +10,7 @@ class SmartFan extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFFF2F2F2),
       body: Body(
-        model: model,
+        // model: model,
       ),
     );
   }

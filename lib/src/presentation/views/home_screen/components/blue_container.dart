@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../../../config/colors.dart';
+
 class DarkContainer extends StatelessWidget {
   final String iconAsset;
   final VoidCallback onTap;
@@ -27,16 +29,14 @@ class DarkContainer extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        width:  140,
-        height:  140,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           color: itsOn
-              ? const Color.fromRGBO(0, 0, 0, 1)
-              : const Color(0xffededed),
+              ? color_9
+              : color_0,
         ),
         child: Padding(
-          padding: EdgeInsets.symmetric(
+          padding: const EdgeInsets.symmetric(
             horizontal:  10,
             vertical:  6,
           ),
@@ -52,24 +52,20 @@ class DarkContainer extends StatelessWidget {
                     height: 50,
                     decoration: BoxDecoration(
                       color: itsOn
-                          ? const Color.fromRGBO(45, 45, 45, 1)
-                          : const Color(0xffdadada),
+                          ? color_10
+                          : color_12,
                       borderRadius:
                           const BorderRadius.all(Radius.elliptical(45, 45)),
                     ),
-                    child: SvgPicture.asset(
-                      iconAsset,
-                      color: itsOn ? Colors.amber : const Color(0xFF808080),
+                    child: Padding(
+                      padding: const EdgeInsets.all(5),
+                      child: SvgPicture.asset(
+                        iconAsset,
+                        color: itsOn ? color_0: color_13,
+                      ),
                     ),
                   ),
-                  GestureDetector(
-                    onTap: switchFav,
-                    child:  Icon(
-                      Icons.star_rounded,
-                      color: isFav ?  Colors.amber:const Color(0xFF808080),
-                      // color: Color(0xFF808080),
-                    ),
-                  ),
+
                 ],
               ),
               Column(
@@ -78,15 +74,15 @@ class DarkContainer extends StatelessWidget {
                   Text(
                     device,
                     textAlign: TextAlign.left,
-                    style: Theme.of(context).textTheme.headline2!.copyWith(
-                          color: itsOn ? Colors.white : Colors.black,
+                    style: Theme.of(context).textTheme.headline6!.copyWith(
+                          color: itsOn ? color_0 : color_14,
                         ),
                   ),
                   Text(
                     deviceCount,
                     textAlign: TextAlign.left,
                     style: const TextStyle(
-                        color: Color.fromRGBO(166, 166, 166, 1),
+                        color: color_13,
                         fontSize: 13,
                         letterSpacing: 0,
                         fontWeight: FontWeight.normal,
@@ -100,8 +96,8 @@ class DarkContainer extends StatelessWidget {
                   Text(
                     itsOn ? 'On' : 'Off',
                     textAlign: TextAlign.left,
-                    style: Theme.of(context).textTheme.headline2!.copyWith(
-                          color: itsOn ? Colors.white : Colors.black,
+                    style: Theme.of(context).textTheme.headline4!.copyWith(
+                          color: itsOn ? color_0 : color_14,
                         ),
                   ),
                   GestureDetector(
@@ -112,9 +108,9 @@ class DarkContainer extends StatelessWidget {
                       padding: const EdgeInsets.all(2),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
-                        color: itsOn ? Colors.black : const Color(0xffd6d6d6),
+                        color: itsOn ? color_10 : color_11,
                         border: Border.all(
-                          color: const Color.fromRGBO(255, 255, 255, 1),
+                          color: color_0,
                           width: itsOn ? 2 : 0,
                         ),
                       ),
@@ -125,7 +121,7 @@ class DarkContainer extends StatelessWidget {
                             width: 20,
                             height: 20,
                             decoration: BoxDecoration(
-                              color: Colors.white,
+                              color: color_0,
                               borderRadius: BorderRadius.circular(50),
                             ),
                           ),

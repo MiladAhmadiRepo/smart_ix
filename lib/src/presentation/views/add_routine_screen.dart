@@ -1,9 +1,10 @@
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:test_code/routine_name_dialog.dart';
-import 'package:test_code/main.dart';
-import 'package:test_code/routine_when_screen.dart';
+import 'package:smart_ix/src/presentation/views/routine_action_screen.dart';
+import 'package:smart_ix/src/presentation/views/routine_name_dialog.dart';
+
+import '../../config/colors.dart';
 
 class AddRoutineScreen extends StatefulWidget {
   const AddRoutineScreen({Key? key}) : super(key: key);

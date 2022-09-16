@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../blocs/smart_light_view_model.dart';
 
 class ColorDot extends StatelessWidget {
   const ColorDot({
@@ -8,19 +7,19 @@ class ColorDot extends StatelessWidget {
     required this.isSelected,
     required this.dotColor,
     required this.index,
-    required this.model,
+    // required this.model,
   }) : super(key: key);
 
   final bool isSelected;
   final Color dotColor;
   final int index;
-  final SmartLightViewModel model;
+  // final SmartLightViewModel model;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        model.changeColor(currentIndex: index);
+        // model.changeColor(currentIndex: index);
       },
       child: Container(
         height: 22,
