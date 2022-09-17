@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'package:dio/dio.dart';
-import 'package:smart_ix/src/domain/entities/newses.dart';
+import 'package:smart_ix/src/domain/entities/newses/newses.dart';
 import '../../core/params/news_request.dart';
 import '../../core/resources/data_state.dart';
 import '../../domain/repositories/newses_repository.dart';

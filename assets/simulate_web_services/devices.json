@@ -5,7 +5,7 @@
       {
         "id": "device27cd88786tyus01",
         "name": "samsung_ar_condition",
-        "manufacture_name": "samsung_pass",
+        "manufacture_name": "samsung cop",
         "device_version": "3s",
         "activity_state": true,
         "properties": [
@@ -37,7 +37,7 @@
       {
         "id": "device27cd88786tyus02",
         "name": "lighting_xiaomi",
-        "manufacture_name": "xiaomi_devices",
+        "manufacture_name": "Xiaomi Devices",
         "device_version": "2",
         "activity_state": false,
         "properties": [
@@ -76,7 +76,7 @@
       {
         "id": "device27cd88786tyus03",
         "name": "fan_lg",
-        "manufacture_name": "lg_cop",
+        "manufacture_name": "LG Cop",
         "device_version": "55d",
         "activity_state": true,
         "properties": [
@@ -107,7 +107,7 @@
       {
         "id": "device27cd88786tyus03",
         "name": "smart_tv_sony",
-        "manufacture_name": "sony_cop",
+        "manufacture_name": "Sony Cop",
         "device_version": "25d",
         "activity_state": false,
         "properties": [

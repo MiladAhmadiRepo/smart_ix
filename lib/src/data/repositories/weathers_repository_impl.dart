@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import '../../core/params/weather_request.dart';
 import '../../core/resources/data_state.dart';
-import '../../domain/entities/weathers.dart';
+import '../../domain/entities/weathers/weathers.dart';
 import '../../domain/repositories/weathers_repository.dart';
 import '../datasources/remote/weathers_api_service.dart';
 

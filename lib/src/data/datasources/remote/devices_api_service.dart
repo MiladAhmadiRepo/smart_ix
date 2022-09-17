@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
+import 'package:smart_ix/src/data/models/model_of_devices/owner_entity.dart';
 import '../../../core/utils/constants.dart';
-import '../../models/model_of_devices/model_of_devices.dart';
+import '../../models/model_of_devices/devices_entity.dart';
 import '../../models/model_of_news/model_of_news.dart';
 
 class _DeviceApiService implements DeviceApiService {
@@ -12,7 +13,7 @@ class _DeviceApiService implements DeviceApiService {
   }
 
   @override
-  Future<Response<ModelOfDevices>> getDevice(
+  Future<Response<OwnerEntity>> getDevice(
       {apiKey = kApiKey, user_id = 'default',  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -30,7 +31,7 @@ class _DeviceApiService implements DeviceApiService {
         ),
         data: _data);
 
-    final value = ModelOfDevices.fromJson(_result.data ?? <String, dynamic>{});
+    final value = OwnerEntity.fromJson(_result.data ?? <String, dynamic>{});
     final response = Response(
       data: value,
       requestOptions: RequestOptions(path: baseUrl + '/top-news'),
@@ -44,7 +45,7 @@ class _DeviceApiService implements DeviceApiService {
 abstract class DeviceApiService {
   factory DeviceApiService(Dio dio, {String baseUrl}) = _DeviceApiService;
 
-  Future<Response<ModelOfDevices>> getDevice({
+  Future<Response<OwnerEntity>> getDevice({
     String apiKey,
     String user_id,
   }  );

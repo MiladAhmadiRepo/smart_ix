@@ -46,6 +46,7 @@ dependencies:
   sleek_circular_slider: ^2.0.1
   freezed: ^2.1.0+1
   dropdown_search: ^5.0.2
+  json_annotation: ^4.6.0
 
 
 dev_dependencies:
@@ -68,6 +69,7 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
+    - assets/simulate_web_services/
     - assets/images/favourite.png
     - assets/images/
     - assets/icons/

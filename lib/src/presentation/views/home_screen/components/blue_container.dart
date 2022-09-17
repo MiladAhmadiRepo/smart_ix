@@ -7,7 +7,7 @@ class DarkContainer extends StatelessWidget {
   final String iconAsset;
   final VoidCallback onTap;
   final String device;
-  final String deviceCount;
+  final String companyName;
   final bool itsOn;
   final VoidCallback switchButton;
   final bool isFav;
@@ -17,7 +17,7 @@ class DarkContainer extends StatelessWidget {
     required this.iconAsset,
     required this.onTap,
     required this.device,
-    required this.deviceCount,
+    required this.companyName,
     required this.itsOn,
     required this.switchButton,
     required this.isFav,
@@ -58,7 +58,7 @@ class DarkContainer extends StatelessWidget {
                           const BorderRadius.all(Radius.elliptical(45, 45)),
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.all(5),
+                      padding: const EdgeInsets.all(10),
                       child: SvgPicture.asset(
                         iconAsset,
                         color: itsOn ? color_0: color_13,
@@ -79,10 +79,10 @@ class DarkContainer extends StatelessWidget {
                         ),
                   ),
                   Text(
-                    deviceCount,
+                    companyName,
                     textAlign: TextAlign.left,
-                    style: const TextStyle(
-                        color: color_13,
+                    style:   TextStyle(
+                        color: itsOn ? color_0 : color_13,
                         fontSize: 13,
                         letterSpacing: 0,
                         fontWeight: FontWeight.normal,

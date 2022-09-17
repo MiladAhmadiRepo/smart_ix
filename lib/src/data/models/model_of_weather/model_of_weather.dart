@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:smart_ix/src/domain/entities/weathers.dart';
+import 'package:smart_ix/src/domain/entities/weathers/weathers.dart';
 
 part 'model_of_weather.freezed.dart';
 part 'model_of_weather.g.dart';

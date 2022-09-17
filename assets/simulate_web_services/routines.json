@@ -1,0 +1,62 @@
+{
+  "id": 21,
+  "owner": {
+    "user_id": "user27cd8decvt47801",
+    "when": [
+      {
+        "device": {
+          "id": "device27cd88786tyus01",
+          "name": "samsung_ar_condition",
+          "activity_state": true,
+          "properties": {
+            "id": "properties5fcd25786ddds05",
+            "name": "celsius_degree",
+            "type_of_value": "int",
+            "expected_value": "25",
+            "less_than": true,
+            "more_than": false,
+            "equal": false
+          }
+        }
+      },
+      {
+        "services": {
+          "id": "service27cd88786tyus02",
+          "service_name": "news",
+          "api_version": "1",
+          "activity_state": true
+        }
+      }
+    ],
+    "then": [
+      {
+        "device": [
+          {
+            "id": "device27cd88786tyus01",
+            "name": "samsung_ar_condition",
+            "activity_state": false,
+            "properties": {
+              "id": "properties5fcd25786ddds05",
+              "name": "celsius_degree",
+              "type_of_value": "int",
+              "expected_value": "25",
+              "less_than": true,
+              "more_than": false,
+              "equal": false
+            }
+          }
+        ]
+      },
+      {
+        "services": [
+          {
+            "id": "service27cd88786tyus02",
+            "service_name": "weather",
+            "api_version": "1",
+            "activity_state": true
+          }
+        ]
+      }
+    ]
+  }
+}

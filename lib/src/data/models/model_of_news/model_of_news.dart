@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import '../../../domain/entities/newses.dart';
+import '../../../domain/entities/newses/newses.dart';
 part 'model_of_news.freezed.dart';
 part 'model_of_news.g.dart';
 //------------------------------------------------------------------------------------
