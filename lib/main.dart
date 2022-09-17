@@ -7,6 +7,7 @@ import 'package:smart_ix/src/injector.dart';
 import 'package:smart_ix/src/presentation/blocs/devices/devices_bloc.dart';
 import 'package:smart_ix/src/presentation/blocs/home/home_bloc.dart';
 import 'package:smart_ix/src/presentation/blocs/newses/news_bloc.dart';
+import 'package:smart_ix/src/presentation/blocs/routines/routines_bloc.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,11 +25,15 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider<NewsesBloc>(
           // lazy: false,
-          create: (_) => injector<NewsesBloc>()..add(  GetNewses()),
+          create: (_) => injector<NewsesBloc>()..add(GetNewses()),
         ),
         BlocProvider<DevicesBloc>(
           lazy: false,
-        create: (_) => injector<DevicesBloc>()..add(  GetDevices()),
+        create: (_) => injector<DevicesBloc>()..add(GetDevices()),
+        ),
+        BlocProvider<RoutinesBloc>(
+          lazy: false,
+          create: (_) => injector<RoutinesBloc>()..add(GetRoutines()),
         ),
         BlocProvider<HomeBloc>(
           lazy: false,

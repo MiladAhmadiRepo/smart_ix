@@ -2,9 +2,16 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:smart_ix/src/domain/usecases/get_newses_usecase.dart';
+import 'package:smart_ix/src/domain/usecases/routines/get_routines_usecase.dart';
+import 'package:smart_ix/src/domain/usecases/routines/insert_routines_usecase.dart';
+import 'package:smart_ix/src/domain/usecases/routines/remove_routines_usecase.dart';
+import 'package:smart_ix/src/domain/usecases/routines/update_routines_usecase.dart';
 import 'package:smart_ix/src/presentation/blocs/devices/devices_bloc.dart';
 import 'package:smart_ix/src/presentation/blocs/home/home_bloc.dart';
+import 'package:smart_ix/src/presentation/blocs/routines/routines_bloc.dart';
 
+import 'core/utils/constants.dart';
+import 'data/datasources/local/app_database.dart';
 import 'data/datasources/remote/devices_api_service.dart';
 import 'data/datasources/remote/newses_api_service.dart';
 import 'data/repositories/devices_repository_impl.dart';
@@ -17,6 +24,11 @@ import 'presentation/blocs/newses/news_bloc.dart';
 final injector = GetIt.instance;
 
 Future<void> initializeDependencies() async {
+
+  //database
+  final database = await $FloorAppDatabase.databaseBuilder(kDatabaseName).build();
+  injector.registerSingleton<AppDatabase>(database);
+
   // Dio client
   injector.registerSingleton<Dio>(Dio());
 
@@ -29,9 +41,15 @@ Future<void> initializeDependencies() async {
   // UseCases
   injector.registerSingleton<GetNewsesUseCase>(GetNewsesUseCase(injector()));
   injector.registerSingleton<GetDevicesUseCase>(GetDevicesUseCase(injector()));
+  // UseCases Database
+  injector.registerSingleton<GetRoutinesUseCase>(GetRoutinesUseCase(injector()));
+  injector.registerSingleton<RemoveRoutinesUseCase>(RemoveRoutinesUseCase(injector()));
+  injector.registerSingleton<InsertRoutinesUseCase>(InsertRoutinesUseCase(injector()));
+  injector.registerSingleton<UpdateRoutinesUseCase>(UpdateRoutinesUseCase(injector()));
 
   // Blocs
   injector.registerFactory<NewsesBloc>(() => NewsesBloc(injector()));
   injector.registerFactory<DevicesBloc>(() => DevicesBloc(injector()));
-  injector.registerFactory<HomeBloc>(() => HomeBloc());
+  injector.registerFactory<RoutinesBloc>(() => RoutinesBloc(injector(),injector(),injector(),injector()));
+  injector.registerFactory<HomeBloc>(() => HomeBloc( ));
 }

@@ -21,7 +21,7 @@ class RoutinesEntity {
 	RoutinesEntity(id ?? this.id,
 		owner ?? this.owner);
 	Routines mapToDomain() =>
- Routines(this.id, this.owner?.mapToDomain());
+ Routines(this.id!, this.owner!.mapToDomain());
 	factory RoutinesEntity.mapFromDomain(Routines? domain) =>
  RoutinesEntity(domain?.id, OwnerEntity.mapFromDomain(domain?.owner));
 }

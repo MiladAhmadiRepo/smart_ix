@@ -7,7 +7,6 @@ import '../entities/routines/routines.dart';
 
 abstract class RoutinesRepository {
   Future<List<Routines>> getRoutines( );
-  Future<void> saveRoutines(Routines routines);
   Future<void> removeRoutines(Routines routines);
   Future<void> insertRoutines(Routines routines);
   Future<void> updateRoutines(Routines routines);
