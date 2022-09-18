@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:smart_ix/src/presentation/views/smart_tv/smart_tv.dart';
 import '../../../../config/colors.dart';
-import '../../../../config/screen_config.dart';
+import '../../../../core/utils/screen_config.dart';
 import '../../../blocs/devices/devices_bloc.dart';
 import '../../smart_ac/smart_ac.dart';
 import '../../smart_fan/smart_fan.dart';

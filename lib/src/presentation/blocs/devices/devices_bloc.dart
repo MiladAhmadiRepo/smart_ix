@@ -15,7 +15,7 @@ part 'devices_state.dart';
 
 class DevicesBloc extends Bloc<DevicesEvent, DevicesState> {
   final GetDevicesUseCase _getDevicesUseCase;
-  late List<Devices> devicesInstance;
+  List<Devices> devicesInstance=[];
   bool light_activity_state=false;
   String light_company_name='';
   bool ar_activity_state=false;

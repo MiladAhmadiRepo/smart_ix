@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../core/utils/constants.dart';
+import '../../../blocs/routines/routines_bloc.dart';
 
 Future<void> routineNameDialog(BuildContext context) async {
   TextEditingController _textFieldController = TextEditingController();
@@ -6,28 +10,26 @@ Future<void> routineNameDialog(BuildContext context) async {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text('Enter Routine Name'),
+          title: const Text(enterRoutineNameString),
           content: TextField(
-            onChanged: (value) {
-
-            },
+            onChanged: (value) {},
             controller: _textFieldController,
-            decoration: InputDecoration(hintText: "Text Field in Dialog"),
+            decoration: const InputDecoration(hintText: nameOfRoutineString),
           ),
           actions: <Widget>[
             TextButton(
-
-              child: Text('CANCEL'),
+              child: const Text(cancelString),
               onPressed: () {
                 Navigator.pop(context);
-
               },
             ),
             TextButton(
-
-              child: Text('OK'),
+              child: const Text(submitString),
               onPressed: () {
-                  Navigator.pop(context);
+                context
+                    .read<RoutinesBloc>()
+                    .add(SetRoutineName(routineName: _textFieldController.value.text.toString()));
+                Navigator.pop(context);
               },
             ),
           ],

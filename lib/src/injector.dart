@@ -16,8 +16,10 @@ import 'data/datasources/remote/devices_api_service.dart';
 import 'data/datasources/remote/newses_api_service.dart';
 import 'data/repositories/devices_repository_impl.dart';
 import 'data/repositories/newses_repository_impl.dart';
+import 'data/repositories/routines_repository_impl.dart';
 import 'domain/repositories/devices_repository.dart';
 import 'domain/repositories/newses_repository.dart';
+import 'domain/repositories/routines_repository.dart';
 import 'domain/usecases/get_devices_usecase.dart';
 import 'presentation/blocs/newses/news_bloc.dart';
 
@@ -37,11 +39,13 @@ Future<void> initializeDependencies() async {
   injector.registerSingleton<DeviceApiService>(DeviceApiService(injector()));
   injector.registerSingleton<NewsesRepository>(NewsesRepositoryImpl(injector()));
   injector.registerSingleton<DevicesRepository>(DevicesRepositoryImpl(injector()));
+  injector.registerSingleton<RoutinesRepository>(RoutinesRepositoryImpl(injector()));
 
   // UseCases
   injector.registerSingleton<GetNewsesUseCase>(GetNewsesUseCase(injector()));
   injector.registerSingleton<GetDevicesUseCase>(GetDevicesUseCase(injector()));
-  // UseCases Database
+
+  // Database UseCases
   injector.registerSingleton<GetRoutinesUseCase>(GetRoutinesUseCase(injector()));
   injector.registerSingleton<RemoveRoutinesUseCase>(RemoveRoutinesUseCase(injector()));
   injector.registerSingleton<InsertRoutinesUseCase>(InsertRoutinesUseCase(injector()));
@@ -49,7 +53,8 @@ Future<void> initializeDependencies() async {
 
   // Blocs
   injector.registerFactory<NewsesBloc>(() => NewsesBloc(injector()));
-  injector.registerFactory<DevicesBloc>(() => DevicesBloc(injector()));
-  injector.registerFactory<RoutinesBloc>(() => RoutinesBloc(injector(),injector(),injector(),injector()));
+  // injector.registerFactory<DevicesBloc>(() => DevicesBloc(injector()));
+  injector.registerSingleton<DevicesBloc>(DevicesBloc(injector()));
+  injector.registerFactory<RoutinesBloc>(() => RoutinesBloc(injector(),injector(),injector(),injector(),injector()));
   injector.registerFactory<HomeBloc>(() => HomeBloc( ));
 }

@@ -4,7 +4,7 @@
     "devices": [
       {
         "id": "device27cd88786tyus01",
-        "name": "samsung_ar_condition",
+        "name": "Samsung Air Condition",
         "manufacture_name": "samsung cop",
         "device_version": "3s",
         "activity_state": true,
@@ -36,7 +36,7 @@
       },
       {
         "id": "device27cd88786tyus02",
-        "name": "lighting_xiaomi",
+        "name": "Lighting Xiaomi",
         "manufacture_name": "Xiaomi Devices",
         "device_version": "2",
         "activity_state": false,
@@ -75,7 +75,7 @@
       },
       {
         "id": "device27cd88786tyus03",
-        "name": "fan_lg",
+        "name": "LG Fan",
         "manufacture_name": "LG Cop",
         "device_version": "55d",
         "activity_state": true,
@@ -105,8 +105,8 @@
         ]
       },
       {
-        "id": "device27cd88786tyus03",
-        "name": "smart_tv_sony",
+        "id": "device27cd88786tyus04",
+        "name": "Smart Tv Sony",
         "manufacture_name": "Sony Cop",
         "device_version": "25d",
         "activity_state": false,
