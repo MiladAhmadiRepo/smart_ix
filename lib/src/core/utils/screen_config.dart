@@ -16,7 +16,12 @@ class SizeConfig {
 }
 
 
-double getTenPercentOfWidth()=> SizeConfig.screenWidth + 0.10;
-double getThirtyPercentOfWidth()=> SizeConfig.screenWidth + 0.30;
-double getFivePercentOfHeight()=> SizeConfig.screenHeight + 0.05;
-double getEightPercentOfHeight()=> SizeConfig.screenHeight + 0.08;
+double getTenPercentOfWidth()=> SizeConfig.screenWidth * 0.10;
+double getThirtyPercentOfWidth()=> SizeConfig.screenWidth * 0.30;
+double getSeventyPercentOfWidth()=> SizeConfig.screenWidth * 0.70;
+double getFivePercentOfHeight()=> SizeConfig.screenHeight * 0.05;
+double getEightPercentOfHeight()=> SizeConfig.screenHeight * 0.08;
+double getFortyPercentOfHeight()=> SizeConfig.screenHeight * 0.40;
+double getThirtyPercentOfHeight()=> SizeConfig.screenHeight * 0.30;
+double getFifteenPercentOfHeight()=> SizeConfig.screenHeight * 0.15;
+double getTenPercentOfHeight()=> SizeConfig.screenHeight * 0.10;

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:smart_ix/src/presentation/blocs/routines/routines_bloc.dart';
 import 'package:smart_ix/src/presentation/views/routines_screen/add_routine_screen.dart';
 
 import '../../../config/colors.dart';
@@ -70,6 +72,7 @@ class _RoutineScreenState extends State<RoutineScreen> {
               color: color_5,
             ),
             onPressed: () {
+              context.read<RoutinesBloc>().clearRoutineData();
               Navigator.of(context).pushNamed('add_routine_screen');
             },
           )
@@ -100,7 +103,7 @@ class _RoutineScreenState extends State<RoutineScreen> {
                   elevation: 4,
                   margin: const EdgeInsets.symmetric(vertical: 6),
                   child: ListTile(
-                    shape: RoundedRectangleBorder(
+                    shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(
                           Radius.circular(10)),),
                     tileColor: color_1,

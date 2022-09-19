@@ -18,6 +18,7 @@ const Color color_12= Color(0xffdadada);
 const Color color_13= Color(0xFF808080);
 const Color color_14= Color(0xFF000000);
 const Color color_15= Color(0xFFF2F2F2);
+const Color color_16= Color(0xFF464646);
 
  List<Color> dotColors1 = [
   const Color(0xFF9659D4),

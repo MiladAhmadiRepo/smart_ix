@@ -9,7 +9,6 @@ import '../routines_screen/routine_screen.dart';
 import 'components/home_body.dart';
 
 class HomeScreen extends StatefulWidget {
-  static String routeName = '/home-screen';
 
   HomeScreen({Key? key}) : super(key: key);
 

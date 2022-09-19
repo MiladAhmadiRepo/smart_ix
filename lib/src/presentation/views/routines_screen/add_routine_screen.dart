@@ -8,7 +8,7 @@ import '../../../config/colors.dart';
 import '../../../core/utils/constants.dart';
 import '../../../core/utils/screen_config.dart';
 import '../../blocs/routines/routines_bloc.dart';
-import 'widgets/routine_name_dialog.dart';
+import 'routine_name_dialog.dart';
 
 class AddRoutineScreen extends StatefulWidget {
   const AddRoutineScreen({Key? key}) : super(key: key);
@@ -25,32 +25,30 @@ class _AddRoutineState extends State<AddRoutineScreen> {
     {"id": 2, "name": "Aragon", "age": 40},
     {"id": 3, "name": "Bob", "age": 5},
     {"id": 4, "name": "Barbara", "age": 35},
-    {"id": 5, "name": "Candy", "age": 21},
-    {"id": 6, "name": "Colin", "age": 55},
-    {"id": 7, "name": "Audra", "age": 30},
-    {"id": 8, "name": "Banana", "age": 14},
-    {"id": 9, "name": "Caversky", "age": 100},
-    {"id": 10, "name": "Becky", "age": 32},
   ];
 
   // This list holds the data for the list view
-  List<Map<String, dynamic>> _foundUsers = [];
+  List<Map<String, dynamic>> _foundRoutines = [];
 
   @override
   initState() {
     // at the beginning, all users are shown
-    _foundUsers = _allData;
+    _foundRoutines = _allData;
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<RoutinesBloc,RoutinesState>(
+    return BlocBuilder<RoutinesBloc, RoutinesState>(
       builder: (BuildContext context, state) {
-       return Scaffold(
-          appBar:  AppBar(
-            title: const Center(child: Text(addRoutineString,style: TextStyle(color: color_5),)),
-            leading:  TextButton(
+        return Scaffold(
+          appBar: AppBar(
+            title: const Center(
+                child: Text(
+              addRoutineString,
+              style: TextStyle(color: color_5),
+            )),
+            leading: TextButton(
               onPressed: () {
                 // context.read<RoutinesBloc>().add(InsertRoutines(routines: routines))
                 Navigator.pop(context);
@@ -77,26 +75,12 @@ class _AddRoutineState extends State<AddRoutineScreen> {
                 child: Column(
                   children: [
                     Expanded(
-                        flex: 1,
-                        child: GestureDetector(
-                          child: const Card(
-                            elevation: 2,
-                            child: ListTile(
-                              contentPadding: EdgeInsets.symmetric(
-                                vertical: 2,
-                                horizontal: 10,
-                              ),
-                              title: Text(
-                                enterRoutineNameString,
-                                style: TextStyle(color: color_8),
-                              ),
-                              subtitle: Text(exCookString),
-                            ),
-                          ),
-                          onTap: () {
-                            routineNameDialog(context);
-                          },
-                        )),
+                      flex: 1,
+                      child: BlocBuilder<RoutinesBloc, RoutinesState>(
+                          builder: (BuildContext context, state) {
+                        return RoutineNameSection();
+                      }),
+                    ),
                     Expanded(
                         flex: 1,
                         child: GestureDetector(
@@ -126,7 +110,6 @@ class _AddRoutineState extends State<AddRoutineScreen> {
                         child: Card(
                           elevation: 2,
                           child: ListTile(
-
                             title: Text(
                               'Add Action',
                               style: TextStyle(color: color_8),
@@ -136,50 +119,51 @@ class _AddRoutineState extends State<AddRoutineScreen> {
                         )),
                     Expanded(
                       flex: 5,
-                      child: _foundUsers.isNotEmpty
+                      child: _foundRoutines.isNotEmpty
                           ? Card(
-                        elevation: 4,
-                        margin: const EdgeInsets.all(5),
-                        child: ListView.builder(
-                          itemCount: _foundUsers.length,
-                          itemBuilder: (context, index) => Card(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10.0),
-                            ),
-                            key: ValueKey(_foundUsers[index]["id"]),
-                            color: Colors.white,
-                            elevation: 0,
-                            margin: const EdgeInsets.symmetric(vertical: 6),
-                            child: ListTile(
-                              shape: const RoundedRectangleBorder(
-                                borderRadius: BorderRadius.all(Radius.circular(10)),
-                              ),
-                              tileColor: color_1,
-                              leading: Container(
-                                padding: const EdgeInsets.all(10),
-                                decoration:
-                                const BoxDecoration(shape: BoxShape.circle, color: Colors.white),
-                                child: SvgPicture.asset(
-                                  'assets/icons/svg/air.svg',
-                                  color: color_8,
-                                  width: 20,
-                                  height: 20,
+                              elevation: 4,
+                              margin: const EdgeInsets.all(5),
+                              child: ListView.builder(
+                                itemCount: _foundRoutines.length,
+                                itemBuilder: (context, index) => Card(
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10.0),
+                                  ),
+                                  key: ValueKey(_foundRoutines[index]["id"]),
+                                  color: Colors.white,
+                                  elevation: 0,
+                                  margin: const EdgeInsets.symmetric(vertical: 6),
+                                  child: ListTile(
+                                    shape: const RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                                    ),
+                                    tileColor: color_1,
+                                    leading: Container(
+                                      padding: const EdgeInsets.all(10),
+                                      decoration: const BoxDecoration(
+                                          shape: BoxShape.circle, color: Colors.white),
+                                      child: SvgPicture.asset(
+                                        'assets/icons/svg/air.svg',
+                                        color: color_8,
+                                        width: 20,
+                                        height: 20,
+                                      ),
+                                    ),
+                                    contentPadding: const EdgeInsets.symmetric(
+                                      vertical: 2,
+                                      horizontal: 10,
+                                    ),
+                                    title: Text(_foundRoutines[index]['name']),
+                                    subtitle:
+                                        Text('${_foundRoutines[index]["age"].toString()} years old'),
+                                  ),
                                 ),
                               ),
-                              contentPadding: const EdgeInsets.symmetric(
-                                vertical: 2,
-                                horizontal: 10,
-                              ),
-                              title: Text(_foundUsers[index]['name']),
-                              subtitle: Text('${_foundUsers[index]["age"].toString()} years old'),
-                            ),
-                          ),
-                        ),
-                      )
+                            )
                           : const Text(
-                        'No results found',
-                        style: TextStyle(fontSize: 24),
-                      ),
+                              'No results found',
+                              style: TextStyle(fontSize: 24),
+                            ),
                     ),
                   ],
                 ),
@@ -190,6 +174,33 @@ class _AddRoutineState extends State<AddRoutineScreen> {
       },
     );
   }
+}
 
+class RoutineNameSection extends StatelessWidget {
+  const RoutineNameSection({
+     Key? key,
+  }) : super(key: key);
 
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      child:   Card(
+        elevation: 2,
+        child: ListTile(
+          contentPadding: const EdgeInsets.symmetric(
+            vertical: 2,
+            horizontal: 10,
+          ),
+          title: Text(
+            context.read<RoutinesBloc>().getRoutineName(),
+            style: const TextStyle(color: color_8),
+          ),
+          subtitle: const Text(exCookString),
+        ),
+      ),
+      onTap: () {
+        routineNameDialog(context);
+      },
+    );
+  }
 }

@@ -44,18 +44,20 @@ dependencies:
   lottie: ^1.4.2
   font_awesome_flutter: ^10.2.1
   sleek_circular_slider: ^2.0.1
-  freezed: ^2.1.0+1
   dropdown_search: ^5.0.2
   json_annotation: ^4.6.0
+  freezed: ^2.1.0+1
 
 
 dev_dependencies:
+  test:
   flutter_test:
     sdk: flutter
+  flutter_lints: ^2.0.0
   floor_generator: ^1.3.0
   build_runner: ^2.1.2
-  flutter_lints: ^2.0.0
   json_serializable: ^6.3.2
+  bloc_test: ^9.1.0
 
 #  logger: any  #for logging purpose
 # For information on the generic Dart part of this file, see the

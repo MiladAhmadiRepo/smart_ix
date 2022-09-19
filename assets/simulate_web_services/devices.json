@@ -11,7 +11,7 @@
         "properties": [
           {
             "id": "properties5fcd25786ddds05",
-            "name": "celsius_degree",
+            "name": "Celsius Degree",
             "type_of_value": "int",
             "current_value": "25",
             "rang": [],
@@ -20,8 +20,8 @@
           },
           {
             "id": "properties5fcd25786ddds06",
-            "name": "mode",
-            "type_of_value": "string",
+            "name": "Mode",
+            "type_of_value": "String",
             "current_value": "cool",
             "rang": [
               "cool",
@@ -43,8 +43,8 @@
         "properties": [
           {
             "id": "properties5fcd25786ddds07",
-            "name": "color_of_light",
-            "type_of_value": "string",
+            "name": "Color Of Light",
+            "type_of_value": "String",
             "current_value": "ffffff",
             "rang": [],
             "min_value": "000000",
@@ -52,8 +52,8 @@
           },
           {
             "id": "properties5fcd25786ddds08",
-            "name": "tone_glow",
-            "type_of_value": "string",
+            "name": "Tone Glow",
+            "type_of_value": "String",
             "current_value": "warm",
             "rang": [
               "warm",
@@ -64,7 +64,7 @@
           },
           {
             "id": "properties5fcd25786ddds09",
-            "name": "intensity",
+            "name": "Intensity",
             "type_of_value": "int",
             "current_value": "50",
             "rang": [],
@@ -82,8 +82,8 @@
         "properties": [
           {
             "id": "properties5fcd25786ddds10",
-            "name": "mode",
-            "type_of_value": "string",
+            "name": "Mode",
+            "type_of_value": "String",
             "current_value": "air",
             "rang": [
               "air",
@@ -95,7 +95,7 @@
           },
           {
             "id": "properties5fcd25786ddds11",
-            "name": "speed",
+            "name": "Speed",
             "type_of_value": "int",
             "current_value": "1",
             "rang": [],
@@ -113,8 +113,8 @@
         "properties": [
           {
             "id": "properties5fcd25786ddds10",
-            "name": "mode",
-            "type_of_value": "string",
+            "name": "Mode",
+            "type_of_value": "String",
             "current_value": "tv_shows",
             "rang": [
               "tv_shows",
@@ -126,7 +126,7 @@
           },
           {
             "id": "properties5fcd25786ddds11",
-            "name": "intensity",
+            "name": "Intensity",
             "type_of_value": "int",
             "current_value": "0",
             "rang": [],

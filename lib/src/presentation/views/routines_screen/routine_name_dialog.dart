@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/utils/constants.dart';
-import '../../../blocs/routines/routines_bloc.dart';
+import '../../../core/utils/constants.dart';
+import '../../blocs/routines/routines_bloc.dart';
 
 Future<void> routineNameDialog(BuildContext context) async {
   TextEditingController _textFieldController = TextEditingController();

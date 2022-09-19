@@ -16,15 +16,20 @@ class SetRoutineName extends RoutinesEvent {
   List<Object> get props => [routineName];
 }
 
-class PrepareListOfDevicesAndServicesEvent extends RoutinesEvent {
-  const PrepareListOfDevicesAndServicesEvent();
+class LoadPropertiesEvent extends RoutinesEvent {
+  final Devices selectedDevicesAndServices;
+  final String whenThen;
+  const LoadPropertiesEvent( this.selectedDevicesAndServices,this.whenThen);
+  @override
+  List<Object> get props => [selectedDevicesAndServices,whenThen];
 }
 
-class LoadPropertiesEvent extends RoutinesEvent {
-  final String devicesAndServicesId;
-  const LoadPropertiesEvent( this.devicesAndServicesId);
+class SelectPropertyEvent extends RoutinesEvent {
+  final Properties selectedProperty;
+  final String whenThen;
+  const SelectPropertyEvent( this.selectedProperty,this.whenThen);
   @override
-  List<Object> get props => [devicesAndServicesId];
+  List<Object> get props => [selectedProperty,whenThen];
 }
 
 class GetRoutines extends RoutinesEvent {
