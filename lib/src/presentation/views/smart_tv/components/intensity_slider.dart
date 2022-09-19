@@ -1,56 +1,75 @@
 import 'package:flutter/material.dart';
+import 'package:smart_ix/src/config/colors.dart';
 
+import '../../../../core/utils/constants.dart';
 
-class Intensity extends StatelessWidget {
-  const Intensity({Key? key,  })
-      : super(key: key);
+class Intensity extends StatefulWidget {
+  const Intensity({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  State<Intensity> createState() => _IntensityState();
+}
+
+class _IntensityState extends State<Intensity> {
+  double changeValue = 10;
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal:15),
+          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Intensity',
-                style: Theme.of(context).textTheme.headline2,
+                intensityString,
+                style: Theme.of(context).textTheme.headline2!.copyWith(
+                      fontFamily: "Lexend",
+                      fontSize: 30,
+                    ),
               ),
               Text(
-                '${10}%',
-                style: Theme.of(context).textTheme.headline2,
+                '${changeValue.toInt()}%',
+                style: Theme.of(context).textTheme.headline2!.copyWith(
+                      fontFamily: "Lexend",
+                      fontSize: 30,
+                    ),
               ),
             ],
           ),
         ),
         SliderTheme(
-          data: SliderThemeData(
-              trackHeight:  5,
-              thumbColor: const Color(0xFF464646),
-              activeTrackColor: const Color(0xFF464646),
-              inactiveTrackColor: Colors.white,
-              thumbShape:
-              const RoundSliderThumbShape(enabledThumbRadius: 8)),
+          data: const SliderThemeData(
+              trackHeight: 5,
+              thumbColor: color_16,
+              activeTrackColor: color_16,
+              inactiveTrackColor: color_0,
+              thumbShape: RoundSliderThumbShape(enabledThumbRadius: 8)),
           child: Slider(
             min: 0,
             max: 100,
             onChanged: (val) {
+              setState(() {
+                changeValue = val;
+              });
             },
-            value:10,
+            value: changeValue,
           ),
         ),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 15),
+          padding: const EdgeInsets.symmetric(horizontal: 15),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Off',
+                offString,
                 style: Theme.of(context).textTheme.bodyText1,
               ),
               Text(
-                '100%',
+                oneHundredString,
                 style: Theme.of(context).textTheme.bodyText1,
               ),
             ],

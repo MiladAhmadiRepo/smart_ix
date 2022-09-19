@@ -3,7 +3,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:sleek_circular_slider/sleek_circular_slider.dart';
 
 class Body extends StatelessWidget {
-  // final SmartACViewModel model;
 
   Body({Key? key}) : super(key: key);
 
@@ -35,7 +34,7 @@ class Body extends StatelessWidget {
                           .copyWith(fontSize: 45, color: const Color(0xFFBDBDBD).withOpacity(0.5)),
                     ),
                     Text(
-                      'Living\nRoom',
+                      'Air\nConditioner',
                       style: Theme.of(context).textTheme.headline1,
                     ),
                   ],

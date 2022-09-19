@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/utils/constants.dart';
 
-class MoodToggleButtons extends StatelessWidget {
+
+class MoodToggleButtons extends StatefulWidget {
   const MoodToggleButtons({Key? key,}) : super(key: key);
+
+  @override
+  State<MoodToggleButtons> createState() => _MoodToggleButtonsState();
+}
+
+class _MoodToggleButtonsState extends State<MoodToggleButtons> {
+  List<bool> isSelectedList=[false,true,false];
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -14,7 +23,10 @@ class MoodToggleButtons extends StatelessWidget {
         children: [
           Text(
             'Mood',
-            style: Theme.of(context).textTheme.headline2,
+            style: Theme.of(context).textTheme.headline2!.copyWith(
+              fontFamily: "Lexend",
+              fontSize: 30,
+            ),
           ),
           const SizedBox(height: 9),
           Container(
@@ -28,34 +40,38 @@ class MoodToggleButtons extends StatelessWidget {
               renderBorder: false,
               borderRadius: BorderRadius.circular(15),
               onPressed: (int index) {
-
+                setState(() {
+                  for (int i = 0; i < isSelectedList.length; i++) {
+                    isSelectedList[i] = i == index;
+                  }
+                });
               },
-              isSelected:const [false,true,false],
+              isSelected:isSelectedList ,
               children: const <Widget>[
-                SizedBox(
-                  width: 80,
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 15),
                   child: Text(
-                    'TV Shows',
+                    tvShowString,
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 16,
                     ),
                   ),
                 ),
-                SizedBox(
-                  width: 80,
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 15),
                   child: Text(
-                    'Movies',
+                    moviesString,
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 16,
                     ),
                   ),
                 ),
-                SizedBox(
-                  width: 80,
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 15),
                   child: Text(
-                    'My List',
+                    myListString,
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 16,

@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:smart_ix/src/core/utils/constants.dart';
 
 
 class Body extends StatefulWidget {
@@ -104,7 +105,7 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                         Stack(
                           children: [
                             Text(
-                              'Living\nRoom',
+                              'Smart\nFan',
                               style: Theme.of(context).textTheme.headline1!.copyWith(
                                     fontSize: 45,
                                     color: const Color(0xFFBDBDBD).withOpacity(0.5),
@@ -118,7 +119,7 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                         ),
                         SizedBox(height: 26),
                         Text(
-                          'Power',
+                          powerString,
                           style: Theme.of(context).textTheme.headline2,
                         ),
                         SizedBox(height: 4),

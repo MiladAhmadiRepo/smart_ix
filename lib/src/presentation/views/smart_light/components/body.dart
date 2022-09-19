@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
 
+import '../../../../config/colors.dart';
+import '../../../../core/utils/constants.dart';
 
-class Body extends StatelessWidget {
-  // final SmartLightViewModel model;
+class Body extends StatefulWidget {
+  Body({
+    Key? key,
+  }) : super(key: key);
 
-  const Body({Key? key,}) : super(key: key);
+  @override
+  State<Body> createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
+  bool switchOnOff = false;
 
   @override
   Widget build(BuildContext context) {
@@ -15,16 +24,16 @@ class Body extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Padding(
-              padding: EdgeInsets.only(left: 19, top: 7),
+              padding: const EdgeInsets.only(left: 19, top: 7),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: EdgeInsets.only(left: 19, top: 7),
+                    padding: const EdgeInsets.only(left: 19, top: 7),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(height: 40),
+                        const SizedBox(height: 40),
                         InkWell(
                             onTap: () {
                               Navigator.of(context).pop();
@@ -47,28 +56,33 @@ class Body extends StatelessWidget {
                         ),
                         SizedBox(height: 26),
                         Text(
-                          'Power',
-                          style: Theme.of(context).textTheme.headline2,
+                          powerString,
+                          style: Theme.of(context).textTheme.headline2!.copyWith(
+                                fontFamily: "Lexend",
+                                fontSize: 30,
+                              ),
                         ),
                         SizedBox(height: 4),
                         Switch.adaptive(
-                          inactiveThumbColor: const Color(0xFFE4E4E4),
-                          inactiveTrackColor: Colors.white,
-                          activeColor: Colors.white,
-                          activeTrackColor: const Color(0xFF464646),
-                          value: /*model.isLightOff*/true,
+                          inactiveThumbColor: color_18,
+                          inactiveTrackColor: color_0,
+                          activeColor: color_16,
+                          activeTrackColor: color_16,
+                          value: switchOnOff,
                           onChanged: (value) {
-                            // model.lightSwitch(value);
+                            // model.tvSwitch(value);
+                            switchOnOff = !switchOnOff;
+                            setState(() {});
                           },
                         ),
-                        SizedBox(height: 20),
+                        SizedBox(height: 90),
                         Text(
                           'Color',
                           style: Theme.of(context).textTheme.headline2,
                         ),
                         SizedBox(height: 7),
                         InkWell(
-                          onTap: /*model.showColorPanel*/(){},
+                          onTap: /*model.showColorPanel*/ () {},
                           child: Image.asset('assets/images/color_wheel.png', height: 22),
                         ),
                       ],
@@ -88,10 +102,10 @@ class Body extends StatelessWidget {
                 ),
 
                 ///todo: Position this image in correct manner
-                /*model.isLightOff*/true
+                /*model.isLightOff*/ true
                     ? Image.asset(
                         // model.lightImage,
-                  'assets/images/purple.png',
+                        'assets/images/purple.png',
                         height: 190,
                         width: 140,
                         fit: BoxFit.contain,
@@ -142,7 +156,7 @@ class Body extends StatelessWidget {
                   onPressed: (int index) {
                     // model.onToggleTapped(index);
                   },
-                  isSelected: /*model.isSelected*/[true,false],
+                  isSelected: /*model.isSelected*/ [true, false],
                 ),
               ),
               SizedBox(height: 20),
@@ -154,7 +168,7 @@ class Body extends StatelessWidget {
                     style: Theme.of(context).textTheme.headline2,
                   ),
                   Text(
-                    '${/*model.lightIntensity.toInt()*/20}%',
+                    '${/*model.lightIntensity.toInt()*/ 20}%',
                     style: Theme.of(context).textTheme.headline2,
                   ),
                 ],
@@ -172,7 +186,7 @@ class Body extends StatelessWidget {
                   onChanged: (val) {
                     // model.changeLightIntensity(val);
                   },
-                  value: /*model.lightIntensity*/20,
+                  value: /*model.lightIntensity*/ 20,
                 ),
               ),
               Row(

@@ -23,6 +23,7 @@ class HomeBody extends StatelessWidget {
         // This next line does the trick.
         scrollDirection: Axis.horizontal,
         children: <Widget>[
+          SizedBox(width: 10,),
           ServiceWidget(imagePath: weatherSvgPath, serviceName: weatherString),
           SizedBox(width: 10,),
           ServiceWidget(imagePath: newsSvgPath, serviceName: newsString),
@@ -43,10 +44,10 @@ class HomeBody extends StatelessWidget {
                     context.read<DevicesBloc>().add(const LightSwitch());
                   },
                   onTap: () {
-                    Navigator.of(context).pushNamed(SmartLight.routeName);
+                    Navigator.of(context).pushNamed(smartLight);
                   },
-                  iconAsset: 'assets/icons/svg/light.svg',
-                  device: 'Lightening',
+                  iconAsset:lightSvgPath,
+                  device: lighteningString,
                   companyName: context.read<DevicesBloc>().light_company_name,
                   switchFav: () {},
                   isFav: false,
