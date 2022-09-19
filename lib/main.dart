@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider<RoutinesBloc>(
           lazy: false,
-          create: (_) => injector<RoutinesBloc>()..add(GetRoutines()),
+          create: (_) => injector<RoutinesBloc>(),
         ),
         BlocProvider<HomeBloc>(
           lazy: false,

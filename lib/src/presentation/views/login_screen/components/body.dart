@@ -39,7 +39,7 @@ class _BodyState extends State<Body> {
           Stack(
             children: [
               Image.asset(
-                loginScreenImageString,
+                loginScreenImagePath,
                 height: getThirtyPercentOfHeight(),
                 width: double.infinity,
                 fit: BoxFit.fill,
@@ -59,10 +59,23 @@ class _BodyState extends State<Body> {
                       ),
                       Text(
                         homeString,
-                        style: Theme.of(context)
-                            .textTheme
-                            .headline1!
-                            .copyWith(color: Colors.black, fontSize: 40),
+                        style: Theme.of(context).textTheme.headline1!.copyWith(
+                          color: color_11,
+                          fontSize: 40,
+                          fontFamily: "Poppins",
+                          shadows: <Shadow>[
+                            const Shadow(
+                              offset: Offset(5.0, 5.0),
+                              blurRadius: 3.0,
+                              color: color_0,
+                            ),
+                            const Shadow(
+                              offset: Offset(5.0, 5.0),
+                              blurRadius: 8.0,
+                              color: color_5,
+                            ),
+                          ],
+                        ),
                       )
                     ],
                   )),

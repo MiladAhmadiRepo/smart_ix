@@ -3,13 +3,10 @@ import 'package:flutter/material.dart';
 
 class MoodToggleButtons extends StatelessWidget {
   const MoodToggleButtons({Key? key,}) : super(key: key);
-
-  // final SmartTvViewModel model;
-
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(
+      padding: const EdgeInsets.symmetric(
         horizontal: 15,
       ),
       child: Column(
@@ -19,7 +16,7 @@ class MoodToggleButtons extends StatelessWidget {
             'Mood',
             style: Theme.of(context).textTheme.headline2,
           ),
-          SizedBox(height: 9),
+          const SizedBox(height: 9),
           Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
@@ -30,10 +27,14 @@ class MoodToggleButtons extends StatelessWidget {
               fillColor: const Color(0xFF464646),
               renderBorder: false,
               borderRadius: BorderRadius.circular(15),
-              children: <Widget>[
+              onPressed: (int index) {
+
+              },
+              isSelected:const [false,true,false],
+              children: const <Widget>[
                 SizedBox(
                   width: 80,
-                  child: const Text(
+                  child: Text(
                     'TV Shows',
                     textAlign: TextAlign.center,
                     style: TextStyle(
@@ -43,7 +44,7 @@ class MoodToggleButtons extends StatelessWidget {
                 ),
                 SizedBox(
                   width: 80,
-                  child: const Text(
+                  child: Text(
                     'Movies',
                     textAlign: TextAlign.center,
                     style: TextStyle(
@@ -53,7 +54,7 @@ class MoodToggleButtons extends StatelessWidget {
                 ),
                 SizedBox(
                   width: 80,
-                  child: const Text(
+                  child: Text(
                     'My List',
                     textAlign: TextAlign.center,
                     style: TextStyle(
@@ -62,10 +63,6 @@ class MoodToggleButtons extends StatelessWidget {
                   ),
                 ),
               ],
-              onPressed: (int index) {
-                // model.onToggleTapped(index, context);
-              },
-              isSelected: /*model.isSelected*/[false,true,false],
             ),
           ),
           SizedBox(height: 20),

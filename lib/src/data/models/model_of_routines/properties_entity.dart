@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:smart_ix/src/domain/entities/routines/properties.dart';
+
+import '../../../domain/entities/devices/properties.dart';
 part 'properties_entity.g.dart';
 
 @JsonSerializable(fieldRename: FieldRename.snake)
@@ -8,18 +9,18 @@ class PropertiesEntity {
   final String? id;
   final String? name;
   final String? typeOfValue;
-  final String? expectedValue;
-  final bool? lessThan;
-  final bool? moreThan;
-  final bool? equal;
+  final String? currentValue;
+  final List<dynamic>? rang;
+  final String? minValue;
+  final String? maxValue;
 
 	PropertiesEntity(this.id,
 		this.name,
 		this.typeOfValue,
-		this.expectedValue,
-		this.lessThan,
-		this.moreThan,
-		this.equal);
+		this.currentValue,
+		this.rang,
+		this.minValue,
+		this.maxValue);
 		factory PropertiesEntity.fromJson(Map<String, dynamic> json) =>
       _$PropertiesEntityFromJson(json);
 		Map<String, dynamic> toJson() => _$PropertiesEntityToJson(this);
@@ -27,19 +28,19 @@ class PropertiesEntity {
 	PropertiesEntity copyWith({String? id,
 		String? name,
 		String? typeOfValue,
-		String? expectedValue,
-		bool? lessThan,
-		bool? moreThan,
-		bool? equal}) => 
+		String? currentValue,
+		List<Object>? rang,
+		String? minValue,
+		String? maxValue}) => 
 	PropertiesEntity(id ?? this.id,
 		name ?? this.name,
 		typeOfValue ?? this.typeOfValue,
-		expectedValue ?? this.expectedValue,
-		lessThan ?? this.lessThan,
-		moreThan ?? this.moreThan,
-		equal ?? this.equal);
+		currentValue ?? this.currentValue,
+		rang ?? this.rang,
+		minValue ?? this.minValue,
+		maxValue ?? this.maxValue);
 	Properties mapToDomain() =>
- Properties(this.id, this.name, this.typeOfValue, this.expectedValue, this.lessThan, this.moreThan, this.equal);
+ Properties(this.id, this.name, this.typeOfValue, this.currentValue, this.rang, this.minValue, this.maxValue);
 	factory PropertiesEntity.mapFromDomain(Properties? domain) =>
- PropertiesEntity(domain?.id, domain?.name, domain?.typeOfValue, domain?.expectedValue, domain?.lessThan, domain?.moreThan, domain?.equal);
+ PropertiesEntity(domain?.id, domain?.name, domain?.typeOfValue, domain?.currentValue, domain?.rang, domain?.minValue, domain?.maxValue);
 }

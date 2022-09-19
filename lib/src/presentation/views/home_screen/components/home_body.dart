@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:smart_ix/src/presentation/views/smart_tv/smart_tv.dart';
 import '../../../../config/colors.dart';
+import '../../../../core/utils/constants.dart';
 import '../../../../core/utils/screen_config.dart';
 import '../../../blocs/devices/devices_bloc.dart';
 import '../../smart_ac/smart_ac.dart';
@@ -123,8 +124,8 @@ class HomeBody extends StatelessWidget {
                   iconAsset: 'assets/icons/svg/light.svg',
                   device: 'Lightening',
                   companyName: context.read<DevicesBloc>().light_company_name,
-                  switchFav: /*model.lightFav*/ () {},
-                  isFav: /*model.isLightFav*/ false,
+                  switchFav:  () {},
+                  isFav: false,
                 ),
               ),
             ),
@@ -132,8 +133,8 @@ class HomeBody extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(5),
                 child: DarkContainer(
-                  itsOn: /*model.isACON*/ context.read<DevicesBloc>().ar_activity_state,
-                  switchButton: /*model.acSwitch*/ () {
+                  itsOn:  context.read<DevicesBloc>().ar_activity_state,
+                  switchButton: () {
                     context.read<DevicesBloc>().add(const ArSwitch());
                   },
                   onTap: () {
@@ -142,8 +143,8 @@ class HomeBody extends StatelessWidget {
                   iconAsset: 'assets/icons/svg/ac.svg',
                   device: 'Samsung Air Condition',
                   companyName: context.read<DevicesBloc>().ar_company_name,
-                  switchFav: /*model.acFav*/ () {},
-                  isFav: /*model.isACFav*/ false,
+                  switchFav:  () {},
+                  isFav:  false,
                 ),
               ),
             ),
@@ -155,18 +156,18 @@ class HomeBody extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(5),
                 child: DarkContainer(
-                  itsOn: /*model.isSpeakerON*/ context.read<DevicesBloc>().smarttv_activity_state,
-                  switchButton: /*model.speakerSwitch*/ () {
+                  itsOn: context.read<DevicesBloc>().smarttv_activity_state,
+                  switchButton: () {
                     context.read<DevicesBloc>().add(const SmartTvSwitch());
                   },
                   onTap: () {
-                    Navigator.of(context).pushNamed(SmartTV.routeName);
+                    Navigator.of(context).pushNamed(smartTvScreen);
                   },
                   iconAsset: 'assets/icons/svg/smart_tv.svg',
                   device: 'SmartTv',
                   companyName: context.read<DevicesBloc>().smartv_company_name,
-                  switchFav: /*model.speakerFav*/ () {},
-                  isFav: /*model.isSpeakerFav*/ false,
+                  switchFav:  () {},
+                  isFav: false,
                 ),
               ),
             ),
@@ -174,8 +175,8 @@ class HomeBody extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(5),
                 child: DarkContainer(
-                  itsOn: /*model.isFanON*/ context.read<DevicesBloc>().fan_activity_state,
-                  switchButton: /*model.fanSwitch*/ () {
+                  itsOn:  context.read<DevicesBloc>().fan_activity_state,
+                  switchButton:  () {
                     context.read<DevicesBloc>().add(const FanSwitch());
                   },
                   onTap: () {
@@ -184,8 +185,8 @@ class HomeBody extends StatelessWidget {
                   iconAsset: 'assets/icons/svg/fan.svg',
                   device: 'Fan',
                   companyName: context.read<DevicesBloc>().fan_company_name,
-                  switchFav: /*model.fanFav*/ () {},
-                  isFav: /*model.isFanFav*/ false,
+                  switchFav:() {},
+                  isFav: false,
                 ),
               ),
             ),

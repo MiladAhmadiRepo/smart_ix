@@ -1,17 +1,18 @@
 import 'dart:convert';
 
 import 'package:floor/floor.dart';
-import 'package:smart_ix/src/domain/entities/routines/owner.dart';
+import 'package:smart_ix/src/domain/entities/routines/owner_routine.dart';
 
 
-class OwnerTypeConverter extends TypeConverter<Owner, String> {
+class OwnerTypeConverter extends TypeConverter<OwnerRoutine, String> {
   @override
-  Owner decode(String databaseValue) {
-    return Owner.fromJson(jsonDecode(databaseValue));
+  OwnerRoutine decode(String databaseValue) {
+    Map<String, dynamic> mapData= Map<String, dynamic>.from(jsonDecode(databaseValue));
+    return OwnerRoutine.fromJson(mapData);
   }
 
   @override
-  String encode(Owner owner) {
-    return owner.toJson().toString();
+  String encode(OwnerRoutine owner) {
+    return json.encode(owner.toJson());
   }
 }

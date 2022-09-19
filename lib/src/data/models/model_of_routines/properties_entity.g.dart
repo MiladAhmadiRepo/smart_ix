@@ -11,10 +11,10 @@ PropertiesEntity _$PropertiesEntityFromJson(Map<String, dynamic> json) =>
       json['id'] as String?,
       json['name'] as String?,
       json['type_of_value'] as String?,
-      json['expected_value'] as String?,
-      json['less_than'] as bool?,
-      json['more_than'] as bool?,
-      json['equal'] as bool?,
+      json['current_value'] as String?,
+      json['rang'] as List<dynamic>?,
+      json['min_value'] as String?,
+      json['max_value'] as String?,
     );
 
 Map<String, dynamic> _$PropertiesEntityToJson(PropertiesEntity instance) =>
@@ -22,8 +22,8 @@ Map<String, dynamic> _$PropertiesEntityToJson(PropertiesEntity instance) =>
       'id': instance.id,
       'name': instance.name,
       'type_of_value': instance.typeOfValue,
-      'expected_value': instance.expectedValue,
-      'less_than': instance.lessThan,
-      'more_than': instance.moreThan,
-      'equal': instance.equal,
+      'current_value': instance.currentValue,
+      'rang': instance.rang,
+      'min_value': instance.minValue,
+      'max_value': instance.maxValue,
     };

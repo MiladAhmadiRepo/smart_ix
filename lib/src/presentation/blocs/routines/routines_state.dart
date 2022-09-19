@@ -1,12 +1,11 @@
 part of 'routines_bloc.dart';
 
 abstract class RoutinesState extends Equatable {
-  final Routines? routines;
-  final DioError? error;
-  const RoutinesState({this.routines, this.error});
+
+  const RoutinesState();
 
   @override
-  List<Object> get props => [routines ?? Object(), error ?? Object()];
+  List<Object> get props => [];
 }
 
 class RoutinesLoadingState extends RoutinesState {
@@ -47,8 +46,11 @@ class LoadTextFieldSelectedItemState extends RoutinesState {
   const LoadTextFieldSelectedItemState( );
 }
 
-class RoutinesDone extends RoutinesState {
-  const RoutinesDone(Routines routines) : super(routines: routines);
+class RoutinesDoneState extends RoutinesState {
+  final List<Routines> listOfRoutines;
+  const RoutinesDoneState(this. listOfRoutines)  ;
+  List<Object> get props => [listOfRoutines];
+
 }
 
 class RoutinesShowNothing extends RoutinesState {
@@ -56,5 +58,5 @@ class RoutinesShowNothing extends RoutinesState {
 }
 
 class RoutinesError extends RoutinesState {
-  const RoutinesError(DioError? error) : super(error: error);
+  const RoutinesError(DioError? error)  ;
 }

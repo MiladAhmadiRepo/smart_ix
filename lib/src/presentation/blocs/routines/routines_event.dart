@@ -33,7 +33,10 @@ class SelectPropertyEvent extends RoutinesEvent {
 }
 
 class GetRoutines extends RoutinesEvent {
-  const GetRoutines();
+   final String filterName;
+  const GetRoutines(this.filterName);
+  @override
+  List<Object> get props => [filterName];
 }
 
 class RemoveRoutines extends RoutinesEvent {
@@ -51,8 +54,8 @@ class UpdateRoutines extends RoutinesEvent {
 }
 
 class InsertRoutines extends RoutinesEvent {
-  final Routines routines;
-  const InsertRoutines({required this.routines});
-  @override
-  List<Object> get props => [routines];
+  // final Routines routines;
+  const InsertRoutines();
+  // @override
+  // List<Object> get props => [routines];
 }

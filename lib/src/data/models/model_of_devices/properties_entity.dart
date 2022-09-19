@@ -9,7 +9,7 @@ class PropertiesEntity {
   final String? name;
   final String? typeOfValue;
   final String? currentValue;
-  final List<Object>? rang;
+  final List<dynamic>? rang;
   final String? minValue;
   final String? maxValue;
 

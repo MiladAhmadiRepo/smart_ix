@@ -4,14 +4,14 @@
     "devices": [
       {
         "id": "device27cd88786tyus01",
-        "name": "Samsung Air Condition",
-        "manufacture_name": "samsung cop",
+        "name": "SamsungAirCondition",
+        "manufacture_name": "SamsungCop",
         "device_version": "3s",
         "activity_state": true,
         "properties": [
           {
             "id": "properties5fcd25786ddds05",
-            "name": "Celsius Degree",
+            "name": "CelsiusDegree",
             "type_of_value": "int",
             "current_value": "25",
             "rang": [],
@@ -36,14 +36,14 @@
       },
       {
         "id": "device27cd88786tyus02",
-        "name": "Lighting Xiaomi",
-        "manufacture_name": "Xiaomi Devices",
+        "name": "LightingXiaomi",
+        "manufacture_name": "XiaomiDevices",
         "device_version": "2",
         "activity_state": false,
         "properties": [
           {
             "id": "properties5fcd25786ddds07",
-            "name": "Color Of Light",
+            "name": "ColorOfLight",
             "type_of_value": "String",
             "current_value": "ffffff",
             "rang": [],
@@ -52,7 +52,7 @@
           },
           {
             "id": "properties5fcd25786ddds08",
-            "name": "Tone Glow",
+            "name": "ToneGlow",
             "type_of_value": "String",
             "current_value": "warm",
             "rang": [
@@ -75,8 +75,8 @@
       },
       {
         "id": "device27cd88786tyus03",
-        "name": "LG Fan",
-        "manufacture_name": "LG Cop",
+        "name": "LGFan",
+        "manufacture_name": "LGCop",
         "device_version": "55d",
         "activity_state": true,
         "properties": [
@@ -106,8 +106,8 @@
       },
       {
         "id": "device27cd88786tyus04",
-        "name": "Smart Tv Sony",
-        "manufacture_name": "Sony Cop",
+        "name": "SmartTvSony",
+        "manufacture_name": "SonyCop",
         "device_version": "25d",
         "activity_state": false,
         "properties": [

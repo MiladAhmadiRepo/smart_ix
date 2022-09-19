@@ -4,7 +4,6 @@ import 'intensity_slider.dart';
 import 'mood_toggle_buttons.dart';
 
 class Body extends StatelessWidget {
-  // final SmartTvViewModel model;
   const Body({Key? key}) : super(key: key);
 
   @override
@@ -47,7 +46,7 @@ class Body extends StatelessWidget {
                         Stack(
                           children: [
                             Text(
-                              'Living\nRoom',
+                              'Smart\nTV',
                               style: Theme.of(context)
                                   .textTheme
                                   .headline1!

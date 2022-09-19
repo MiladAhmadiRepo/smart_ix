@@ -12,7 +12,7 @@ PropertiesEntity _$PropertiesEntityFromJson(Map<String, dynamic> json) =>
       json['name'] as String?,
       json['type_of_value'] as String?,
       json['current_value'] as String?,
-      (json['rang'] as List<dynamic>?)?.map((e) => e as Object).toList(),
+      json['rang'] as List<dynamic>?,
       json['min_value'] as String?,
       json['max_value'] as String?,
     );

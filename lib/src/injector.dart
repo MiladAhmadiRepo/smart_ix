@@ -1,4 +1,3 @@
-
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:smart_ix/src/domain/usecases/get_newses_usecase.dart';
@@ -9,7 +8,6 @@ import 'package:smart_ix/src/domain/usecases/routines/update_routines_usecase.da
 import 'package:smart_ix/src/presentation/blocs/devices/devices_bloc.dart';
 import 'package:smart_ix/src/presentation/blocs/home/home_bloc.dart';
 import 'package:smart_ix/src/presentation/blocs/routines/routines_bloc.dart';
-
 import 'core/utils/constants.dart';
 import 'data/datasources/local/app_database.dart';
 import 'data/datasources/remote/devices_api_service.dart';
@@ -26,10 +24,12 @@ import 'presentation/blocs/newses/news_bloc.dart';
 final injector = GetIt.instance;
 
 Future<void> initializeDependencies() async {
-
   //database
   final database = await $FloorAppDatabase.databaseBuilder(kDatabaseName).build();
   injector.registerSingleton<AppDatabase>(database);
+  // SharedPreferences database = await SharedPreferences.getInstance();
+  // injector.registerSingleton<SharedPreferences>(database);
+  // injector.registerSingleton<RoutinesDao>(RoutinesDao());
 
   // Dio client
   injector.registerSingleton<Dio>(Dio());
@@ -55,6 +55,7 @@ Future<void> initializeDependencies() async {
   injector.registerFactory<NewsesBloc>(() => NewsesBloc(injector()));
   // injector.registerFactory<DevicesBloc>(() => DevicesBloc(injector()));
   injector.registerSingleton<DevicesBloc>(DevicesBloc(injector()));
-  injector.registerFactory<RoutinesBloc>(() => RoutinesBloc(injector(),injector(),injector(),injector(),injector()));
-  injector.registerFactory<HomeBloc>(() => HomeBloc( ));
+  injector.registerFactory<RoutinesBloc>(
+      () => RoutinesBloc(injector(), injector(), injector(), injector(), injector()));
+  injector.registerFactory<HomeBloc>(() => HomeBloc());
 }

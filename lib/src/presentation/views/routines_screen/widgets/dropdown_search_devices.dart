@@ -20,7 +20,7 @@ class DropdownSearchDevices extends StatelessWidget {
       itemAsString: (devices) {
         return devices.name!;
       },
-      selectedItem: context.read<RoutinesBloc>().getWhenSelectedDevicesOrServices(),
+      selectedItem: context.read<RoutinesBloc>().getWhenOrThenSelectedDevicesOrServices(whenOrThen),
       dropdownDecoratorProps: const DropDownDecoratorProps(
         dropdownSearchDecoration: InputDecoration(
           labelText: devicesOrServicesString,

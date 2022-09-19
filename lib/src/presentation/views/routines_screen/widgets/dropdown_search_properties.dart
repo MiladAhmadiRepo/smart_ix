@@ -23,7 +23,7 @@ class DropdownSearchProperties extends StatelessWidget {
           itemAsString: (property) {
             return property.name!;
           },
-          selectedItem: context.read<RoutinesBloc>().getWhenSelectedProperty(),
+          selectedItem: context.read<RoutinesBloc>().getWhenOrThenSelectedProperty(whenOrThen),
           dropdownDecoratorProps: const DropDownDecoratorProps(
             dropdownSearchDecoration: InputDecoration(
               labelText: propertyOrServiceString,

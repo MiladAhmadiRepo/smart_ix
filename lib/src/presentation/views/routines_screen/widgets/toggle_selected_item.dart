@@ -24,7 +24,7 @@ class _ToggleSelectedItemState extends State<ToggleSelectedItem> {
 
   @override
   void didChangeDependencies() {
-    selectedIndex = context.read<RoutinesBloc>().getWhenToggleButton();
+    selectedIndex = context.read<RoutinesBloc>().getWhenOrThenToggleButton(widget.whenOrThen);
     super.didChangeDependencies();
   }
 
@@ -43,6 +43,7 @@ class _ToggleSelectedItemState extends State<ToggleSelectedItem> {
           height: getTenPercentOfHeight(),
           child: ToggleButtons(
             onPressed: (int index) {
+              context.read<RoutinesBloc>().setWhenOrThenToggleButton(index,widget.whenOrThen);
               setState(() {
                 // The button that is tapped is set to true, and the others to false.
                 for (int i = 0; i < _selectedStates.length; i++) {

@@ -7,12 +7,23 @@ part of 'when_entity.dart';
 // **************************************************************************
 
 WhenEntity _$WhenEntityFromJson(Map<String, dynamic> json) => WhenEntity(
-      json['device'] == null
+      json['devices'] == null
           ? null
-          : DeviceEntity.fromJson(json['device'] as Map<String, dynamic>),
+          : DevicesEntity.fromJson(json['devices'] as Map<String, dynamic>),
+      json['properties'] == null
+          ? null
+          : PropertiesEntity.fromJson(
+              json['properties'] as Map<String, dynamic>),
+      json['value'] as String?,
+      json['option'] as String?,
+      json['toggle'] as int?,
     );
 
 Map<String, dynamic> _$WhenEntityToJson(WhenEntity instance) =>
     <String, dynamic>{
-      'device': instance.device,
+      'devices': instance.devices,
+      'properties': instance.properties,
+      'value': instance.value,
+      'option': instance.option,
+      'toggle': instance.toggle,
     };

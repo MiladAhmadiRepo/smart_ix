@@ -8,11 +8,13 @@ import '../../../blocs/routines/routines_bloc.dart';
 
 class OptionSelectedItem extends StatefulWidget {
   final String whenOrThen;
-  const OptionSelectedItem(this.whenOrThen,{super.key});
+
+  const OptionSelectedItem(this.whenOrThen, {super.key});
 
   @override
   State<OptionSelectedItem> createState() => _OptionSelectedItemState();
 }
+
 enum ActivityState { On, Off }
 
 class _OptionSelectedItemState extends State<OptionSelectedItem> {
@@ -20,17 +22,18 @@ class _OptionSelectedItemState extends State<OptionSelectedItem> {
 
   @override
   void didChangeDependencies() {
-    _activityState =
-        ActivityState.values.byName(context.read<RoutinesBloc>().getWhenOptionValue("On"));
+    _activityState = ActivityState.values
+        .byName(context.read<RoutinesBloc>().getWhenOrThenOptionValue("On",ActivityState, widget.whenOrThen));
     super.didChangeDependencies();
   }
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<RoutinesBloc, RoutinesState>(builder: (BuildContext context, state) {
       if (state is LoadOptionSelectedItemState) {
         return SizedBox(
           width: SizeConfig.screenWidth,
-          height: getTenPercentOfHeight (),
+          height: getTenPercentOfHeight(),
           child: Card(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10.0),
@@ -48,6 +51,8 @@ class _OptionSelectedItemState extends State<OptionSelectedItem> {
                       onChanged: (ActivityState? value) {
                         setState(() {
                           _activityState = value;
+                          context.read<RoutinesBloc>().setWhenOrThenOptionValue(
+                              ActivityState.values[value!.index].name, widget.whenOrThen);
                         });
                       },
                     ),
@@ -62,6 +67,8 @@ class _OptionSelectedItemState extends State<OptionSelectedItem> {
                       onChanged: (ActivityState? value) {
                         setState(() {
                           _activityState = value;
+                          context.read<RoutinesBloc>().setWhenOrThenOptionValue(
+                              ActivityState.values[value!.index].name, widget.whenOrThen);
                         });
                       },
                     ),

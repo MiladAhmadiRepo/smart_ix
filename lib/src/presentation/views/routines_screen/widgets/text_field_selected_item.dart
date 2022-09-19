@@ -19,7 +19,7 @@ class _TextFieldSelectedItemState extends State<TextFieldSelectedItem> {
 
   @override
   void didChangeDependencies() {
-    _textEditingController.text= context.read<RoutinesBloc>().getWhenValue();
+    _textEditingController.text= context.read<RoutinesBloc>().getWhenOrThenValue(widget.whenOrThen);
     super.didChangeDependencies();
   }
 
@@ -37,6 +37,9 @@ class _TextFieldSelectedItemState extends State<TextFieldSelectedItem> {
             color: color_0,
             elevation: 4,
             child:   TextField(
+              onChanged: (value) {
+                context.read<RoutinesBloc>().setWhenOrThenValue( value,widget.whenOrThen);
+              },
               controller: _textEditingController,
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),

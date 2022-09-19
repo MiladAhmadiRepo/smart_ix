@@ -1,36 +1,39 @@
+import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:smart_ix/src/config/colors.dart';
+import 'package:smart_ix/src/presentation/views/routines_screen/widgets/Loading.dart';
 import 'package:smart_ix/src/presentation/views/routines_screen/widgets/dropdown_search_devices.dart';
 import 'package:smart_ix/src/presentation/views/routines_screen/widgets/dropdown_search_properties.dart';
 import 'package:smart_ix/src/presentation/views/routines_screen/widgets/option_and_text_selected_item.dart';
 import 'package:smart_ix/src/presentation/views/routines_screen/widgets/option_selected_item.dart';
 import 'package:smart_ix/src/presentation/views/routines_screen/widgets/text_field_selected_item.dart';
 import 'package:smart_ix/src/presentation/views/routines_screen/widgets/toggle_selected_item.dart';
+
+import '../../../config/colors.dart';
 import '../../../core/utils/constants.dart';
 import '../../blocs/routines/routines_bloc.dart';
 
-class RoutineWhenScreen extends StatefulWidget {
-  const RoutineWhenScreen({Key? key}) : super(key: key);
+
+
+class RoutineThenScreen extends StatefulWidget {
+  const RoutineThenScreen({Key? key}) : super(key: key);
 
   @override
-  State<RoutineWhenScreen> createState() => _RoutineWhenScreenState();
+  State<RoutineThenScreen> createState() => _RoutineThenScreenState();
 }
 
-class _RoutineWhenScreenState extends State<RoutineWhenScreen> {
+class _RoutineThenScreenState extends State<RoutineThenScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<RoutinesBloc, RoutinesState>(builder: (BuildContext context, state) {
       if (state is RoutinesShowNothing) {
-        return const Scaffold(
-          body: Center(child: SizedBox(width: 50, height: 50, child: CircularProgressIndicator())),
-        );
+        return loadingWidget();
       } else {
         return Scaffold(
             appBar: AppBar(
               leading: TextButton(
                 onPressed: () {
-                  context.read<RoutinesBloc>().submitWhenSection();
+                  context.read<RoutinesBloc>().submitThenSection();
                   Navigator.pop(context);
                 },
                 child: const Text(saveString),
@@ -57,12 +60,12 @@ class _RoutineWhenScreenState extends State<RoutineWhenScreen> {
                   ),
                   child: Column(
                     children: [
-                      DropdownSearchDevices("when"),
-                      DropdownSearchProperties("when"),
-                      OptionAndTextSelectedItem("when"),
-                      OptionSelectedItem("when"),
-                      ToggleSelectedItem("when"),
-                      TextFieldSelectedItem("when"),
+                      DropdownSearchDevices("then"),
+                      DropdownSearchProperties("then"),
+                      OptionAndTextSelectedItem("then"),
+                      OptionSelectedItem("then"),
+                      ToggleSelectedItem("then"),
+                      TextFieldSelectedItem("then"),
                     ],
                   ),
                 ),
