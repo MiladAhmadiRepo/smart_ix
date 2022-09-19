@@ -2,7 +2,7 @@
 
 Smart Ix Flutter project.
 
-<img src="https://drive.google.com/file/d/15pHj2uTUZRRHgGnYhQYi5u0npPfcgm2s/view?usp=sharing" alt="J" style="max-width: 100%;">
+<img src="https://i.postimg.cc/PxhBKWBp/pic1.png" alt="J" style="max-width: 100%;">
 
 -------------------------------------------------------------------------------
 
