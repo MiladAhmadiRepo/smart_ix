@@ -23,87 +23,11 @@ class HomeBody extends StatelessWidget {
         // This next line does the trick.
         scrollDirection: Axis.horizontal,
         children: <Widget>[
-          Container(
-            height: 70.0,
-            width: 70.0,
-            child: Column(
-              children: [
-                Container(
-                  width: 50,
-                  height: 50,
-                  decoration: const BoxDecoration(
-                    color: /*itsOn*/ true ? color_10 : color_12,
-                    borderRadius: BorderRadius.all(Radius.elliptical(45, 45)),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8),
-                    child: SvgPicture.asset(
-                      'assets/icons/svg/weather.svg',
-                      color: /*itsOn*/ true ? color_0 : color_13,
-                    ),
-                  ),
-                ),
-                const Center(
-                  child: Text("Weather",
-                      style: TextStyle(color: /*itsOn*/ true ? color_10 : color_14, fontSize: 12)),
-                ),
-              ],
-            ),
-          ),
-          Container(
-            height: 70.0,
-            width: 70.0,
-            child: Column(
-              children: [
-                Container(
-                  width: 50,
-                  height: 50,
-                  decoration: const BoxDecoration(
-                    color: /*itsOn*/ true ? color_10 : color_12,
-                    borderRadius: BorderRadius.all(Radius.elliptical(45, 45)),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8),
-                    child: SvgPicture.asset(
-                      'assets/icons/svg/news.svg',
-                      color: /*itsOn*/ true ? color_0 : color_13,
-                    ),
-                  ),
-                ),
-                const Center(
-                  child: Text("News",
-                      style: TextStyle(color: /*itsOn*/ true ? color_10 : color_14, fontSize: 12)),
-                ),
-              ],
-            ),
-          ),
-          Container(
-            height: 70.0,
-            width: 70.0,
-            child: Column(
-              children: [
-                Container(
-                  width: 50,
-                  height: 50,
-                  decoration: const BoxDecoration(
-                    color: /*itsOn*/ true ? color_10 : color_12,
-                    borderRadius: BorderRadius.all(Radius.elliptical(45, 45)),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8),
-                    child: SvgPicture.asset(
-                      'assets/icons/svg/music.svg',
-                      color: /*itsOn*/ true ? color_0 : color_13,
-                    ),
-                  ),
-                ),
-                const Center(
-                  child: Text("Music",
-                      style: TextStyle(color: /*itsOn*/ true ? color_10 : color_14, fontSize: 12)),
-                ),
-              ],
-            ),
-          ),
+          ServiceWidget(imagePath: weatherSvgPath, serviceName: weatherString),
+          SizedBox(width: 10,),
+          ServiceWidget(imagePath: newsSvgPath, serviceName: newsString),
+          SizedBox(width: 10,),
+          ServiceWidget(imagePath: musicSvgPath, serviceName: musicString),
         ],
       );
 
@@ -124,7 +48,7 @@ class HomeBody extends StatelessWidget {
                   iconAsset: 'assets/icons/svg/light.svg',
                   device: 'Lightening',
                   companyName: context.read<DevicesBloc>().light_company_name,
-                  switchFav:  () {},
+                  switchFav: () {},
                   isFav: false,
                 ),
               ),
@@ -133,7 +57,7 @@ class HomeBody extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(5),
                 child: DarkContainer(
-                  itsOn:  context.read<DevicesBloc>().ar_activity_state,
+                  itsOn: context.read<DevicesBloc>().ar_activity_state,
                   switchButton: () {
                     context.read<DevicesBloc>().add(const ArSwitch());
                   },
@@ -143,8 +67,8 @@ class HomeBody extends StatelessWidget {
                   iconAsset: 'assets/icons/svg/ac.svg',
                   device: 'Samsung Air Condition',
                   companyName: context.read<DevicesBloc>().ar_company_name,
-                  switchFav:  () {},
-                  isFav:  false,
+                  switchFav: () {},
+                  isFav: false,
                 ),
               ),
             ),
@@ -166,7 +90,7 @@ class HomeBody extends StatelessWidget {
                   iconAsset: 'assets/icons/svg/smart_tv.svg',
                   device: 'SmartTv',
                   companyName: context.read<DevicesBloc>().smartv_company_name,
-                  switchFav:  () {},
+                  switchFav: () {},
                   isFav: false,
                 ),
               ),
@@ -175,8 +99,8 @@ class HomeBody extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(5),
                 child: DarkContainer(
-                  itsOn:  context.read<DevicesBloc>().fan_activity_state,
-                  switchButton:  () {
+                  itsOn: context.read<DevicesBloc>().fan_activity_state,
+                  switchButton: () {
                     context.read<DevicesBloc>().add(const FanSwitch());
                   },
                   onTap: () {
@@ -185,7 +109,7 @@ class HomeBody extends StatelessWidget {
                   iconAsset: 'assets/icons/svg/fan.svg',
                   device: 'Fan',
                   companyName: context.read<DevicesBloc>().fan_company_name,
-                  switchFav:() {},
+                  switchFav: () {},
                   isFav: false,
                 ),
               ),
@@ -197,7 +121,7 @@ class HomeBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    return BlocBuilder<DevicesBloc,DevicesState>(
+    return BlocBuilder<DevicesBloc, DevicesState>(
       builder: (BuildContext context, state) {
         if (state is DevicesDone) {
           return SingleChildScrollView(
@@ -245,7 +169,9 @@ class HomeBody extends StatelessWidget {
                       ),
                     ),
                     //load devices
-                    for (Widget row in devices(context,))
+                    for (Widget row in devices(
+                      context,
+                    ))
                       Expanded(flex: 4, child: row),
                     //add new device
                     const Expanded(
@@ -254,6 +180,10 @@ class HomeBody extends StatelessWidget {
                         padding: EdgeInsets.all(8),
                         child: AddNewDevice(),
                       ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Container(),
                     ),
                   ],
                 ),
@@ -265,6 +195,44 @@ class HomeBody extends StatelessWidget {
               child: SizedBox(width: 50, height: 50, child: CircularProgressIndicator()));
         }
       },
+    );
+  }
+}
+
+class ServiceWidget extends StatelessWidget {
+  final String imagePath;
+  final String serviceName;
+
+  const ServiceWidget({
+    required this.imagePath,
+    required this.serviceName,
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Container(
+          width: 50,
+          height: 50,
+          decoration: const BoxDecoration(
+            color: true ? color_10 : color_12,
+            borderRadius: BorderRadius.all(Radius.elliptical(45, 45)),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(8),
+            child: SvgPicture.asset(
+              imagePath,
+              color: true ? color_0 : color_13,
+            ),
+          ),
+        ),
+        Center(
+          child: Text(serviceName,
+              style: const TextStyle(color: true ? color_10 : color_14, fontSize: 12)),
+        ),
+      ],
     );
   }
 }

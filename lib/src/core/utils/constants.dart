@@ -21,6 +21,9 @@ const String kDatabaseName="app_database.db";
 //images and SVGs path
 const String loginScreenImagePath='assets/images/login.png';
 const String airSvgPath='assets/icons/svg/air.svg';
+const String weatherSvgPath= 'assets/icons/svg/weather.svg';
+const String newsSvgPath= 'assets/icons/svg/news.svg';
+const String musicSvgPath= 'assets/icons/svg/music.svg';
 
 //text in all part of app
 const String routineString='Routine';
@@ -40,8 +43,10 @@ const String equalString="Equal";
 const String lessThanString="Less Than";
 const String moreThanString="More Than";
 const String enterAValueString="Enter A Value";
+const String weatherString="Weather";
+const String newsString="News";
+const String musicString="Music";
 
-//login screen strings
 const String doNotHaveAccountString='Don\'t have an account yet?';
 const String getStartedString='Get Started';
 const String passwordString='Password';
