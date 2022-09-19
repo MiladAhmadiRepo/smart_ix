@@ -2,6 +2,8 @@
 
 Smart Ix Flutter project.
 
+<img src="https://drive.google.com/file/d/15pHj2uTUZRRHgGnYhQYi5u0npPfcgm2s/view?usp=sharing" alt="J" style="max-width: 100%;">
+
 -------------------------------------------------------------------------------
 
 # what is the task :
