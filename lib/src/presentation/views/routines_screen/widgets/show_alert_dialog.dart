@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/utils/constants.dart';
+import '../../../../core/constants.dart';
 
 showAlertDialog(BuildContext context, String title, String content) {
   Widget okButton = TextButton(

@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smart_ix/src/presentation/blocs/home/home_bloc.dart';
 
 import '../../config/colors.dart';
-import '../../core/utils/constants.dart';
+import '../../core/constants.dart';
 
 class SwitchWidget extends StatefulWidget {
   bool switchOnOff;
@@ -19,31 +19,27 @@ class SwitchWidget extends StatefulWidget {
 class _SwitchWidgetState extends State<SwitchWidget> {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomeBloc, HomeState>(
-      builder: (context, state) {
-        return Column(
-          children: [
-            Text(
-              powerString,
-              style: Theme.of(context).textTheme.headline2!.copyWith(
-                    fontFamily: "Lexend",
-                    fontSize: 30,
-                  ),
-            ),
-            const SizedBox(height: 4),
-            Switch.adaptive(
-              inactiveThumbColor: color_18,
-              inactiveTrackColor: color_0,
-              activeColor: color_16,
-              activeTrackColor: color_16,
-              value: widget.switchOnOff,
-              onChanged: (value) {
-                context.read<HomeBloc>().add(widget.switchOnOffRelatedToBlocEvent);
-              },
-            )
-          ],
-        );
-      },
+    return Column(
+      children: [
+        Text(
+          powerString,
+          style: Theme.of(context).textTheme.headline2!.copyWith(
+            fontFamily: "Lexend",
+            fontSize: 30,
+          ),
+        ),
+        const SizedBox(height: 4),
+        Switch.adaptive(
+          inactiveThumbColor: color_18,
+          inactiveTrackColor: color_0,
+          activeColor: color_16,
+          activeTrackColor: color_16,
+          value: widget.switchOnOff,
+          onChanged: (value) {
+            context.read<HomeBloc>().add(widget.switchOnOffRelatedToBlocEvent);
+          },
+        )
+      ],
     );
   }
 }

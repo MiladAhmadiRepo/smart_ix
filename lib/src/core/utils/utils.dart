@@ -1,7 +1,7 @@
 //number validation
 import 'package:smart_ix/src/domain/entities/routines/routines.dart';
 
-import 'constants.dart';
+import '../constants.dart';
 
 String? fieldValidation(String? value,bool isPassword){
   if (value != null && value.isEmpty) {

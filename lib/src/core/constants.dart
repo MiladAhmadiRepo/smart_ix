@@ -7,8 +7,9 @@ const String addRoutineScreen = '/add_routine_screen';
 const String routineWhenScreen = '/routine_when_screen';
 const String routineThenScreen = '/routine_then_screen';
 const String smartTvScreen = '/smart-tv';
-const String smartLight = '/smart-light';
-const String smartAc = '/smart-ac';
+const String smartLightScreen = '/smart-light';
+const String smartAcScreen = '/smart-ac';
+const String smartFanScreen = '/smart-fan';
 
 
 //Api
@@ -24,6 +25,7 @@ const String loginScreenImagePath = 'assets/images/login.png';
 const String lampPath =  'assets/images/lamp.png';
 const String purplePath =  'assets/images/purple.png';
 const String colorWheelPath =  'assets/images/color_wheel.png';
+const String fanImagePath = 'assets/images/fan.png';
 
 const String airSvgPath = 'assets/icons/svg/air.svg';
 const String weatherSvgPath = 'assets/icons/svg/weather.svg';
@@ -32,6 +34,8 @@ const String musicSvgPath = 'assets/icons/svg/music.svg';
 const String tvSvgPath = 'assets/images/tv.png';
 const String lightSvgPath =  'assets/icons/svg/light.svg';
 const String acSvgPath =  'assets/icons/svg/ac.svg';
+const String fanSvgPath =  'assets/icons/svg/fan.svg';
+const String fanLottiePath =  'assets/Lottie/fan.json';
 
 
 //text in all part of app
@@ -91,3 +95,12 @@ const String  coldString = 'Cold' ;
 const String  smartLightString = 'SmartLight' ;
 const String  samsungAcString = 'Samsung Air Condition' ;
 const String  colorString = "Color" ;
+const String  fanString = 'Fan' ;
+const String  smartFanString = 'Smart\nFan' ;
+const String  airString = 'Air' ;
+const String  mildString = 'Mild' ;
+const String  breezeString = 'Breeze' ;
+const String  airConditionerString = 'Air\nConditioner' ;
+const String  ecoString = 'Eco' ;
+const String  hotString =  'Hot' ;
+const String  coolString =  'Cool' ;

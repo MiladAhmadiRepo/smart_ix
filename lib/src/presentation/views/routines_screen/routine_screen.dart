@@ -7,7 +7,7 @@ import 'package:smart_ix/src/presentation/views/routines_screen/add_routine_scre
 import 'package:smart_ix/src/presentation/views/routines_screen/widgets/Loading.dart';
 
 import '../../../config/colors.dart';
-import '../../../core/utils/constants.dart';
+import '../../../core/constants.dart';
 import '../../../core/utils/utils.dart';
 
 class RoutineScreen extends StatefulWidget {

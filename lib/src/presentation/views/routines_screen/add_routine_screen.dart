@@ -6,7 +6,7 @@ import 'package:smart_ix/src/presentation/views/routines_screen/routine_when_scr
 import 'package:smart_ix/src/presentation/views/routines_screen/widgets/show_alert_dialog.dart';
 
 import '../../../config/colors.dart';
-import '../../../core/utils/constants.dart';
+import '../../../core/constants.dart';
 import '../../../core/utils/screen_config.dart';
 import '../../../domain/entities/routines/routines.dart';
 import '../../blocs/routines/routines_bloc.dart';

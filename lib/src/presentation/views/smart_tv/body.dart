@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../config/colors.dart';
-import '../../../core/utils/constants.dart';
+import '../../../core/constants.dart';
+import '../../blocs/home/home_bloc.dart';
+import '../../widgets/SmartLabel.dart';
 import '../../widgets/intensity_slider.dart';
 import '../../widgets/mood_toggle_buttons.dart';
+import '../../widgets/switch_widget.dart';
 
 class Body extends StatefulWidget {
   const Body({Key? key}) : super(key: key);
@@ -17,6 +21,8 @@ class _BodyState extends State<Body> {
 
   @override
   Widget build(BuildContext context) {
+    return BlocBuilder<HomeBloc, HomeState>(
+  builder: (context, state) {
     return Stack(
       children: [
         Align(
@@ -50,46 +56,10 @@ class _BodyState extends State<Body> {
                               Navigator.of(context).pop();
                             },
                             child: const Icon(Icons.arrow_back_outlined)),
-                        Stack(
-                          children: [
-                            Text(
-                              smartTvString,
-                              style: Theme.of(context).textTheme.headline1!.copyWith(
-                                    fontSize: 45,
-                                    fontFamily: "Poppins",
-                                    color: color_17.withOpacity(0.5),
-                                  ),
-                            ),
-                            Text(
-                              smartTvString,
-                              style: Theme.of(context).textTheme.headline1!.copyWith(
-                                    fontFamily: "Lexend",
-                                    fontSize: 50,
-                                  ),
-                            ),
-                          ],
-                        ),
+                        const SmartLabel(smartTvString),
                         SizedBox(height: 26),
-                        Text(
-                          powerString,
-                          style: Theme.of(context).textTheme.headline2!.copyWith(
-                            fontFamily: "Lexend",
-                            fontSize: 30,
-                          ),
-                        ),
-                        SizedBox(height: 4),
-                        Switch.adaptive(
-                          inactiveThumbColor: color_18,
-                          inactiveTrackColor: color_0,
-                          activeColor: color_16,
-                          activeTrackColor: color_16,
-                          value: switchOnOff,
-                          onChanged: (value) {
-                            // model.tvSwitch(value);
-                            switchOnOff = !switchOnOff;
-                            setState(() {});
-                          },
-                        ),
+                        SwitchWidget(context.read<HomeBloc>().switchSmartTv,
+                            SwitchSmartTvEvent()),
                         SizedBox(height: 90),
                       ],
                     ),
@@ -105,5 +75,7 @@ class _BodyState extends State<Body> {
         ),
       ],
     );
+  },
+);
   }
 }

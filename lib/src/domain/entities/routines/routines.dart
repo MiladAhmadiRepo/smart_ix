@@ -1,7 +1,7 @@
 import 'package:floor/floor.dart';
 import 'package:smart_ix/src/domain/entities/routines/owner_routine.dart';
 
-import '../../../core/utils/constants.dart';
+import '../../../core/constants.dart';
 @Entity(tableName:kArticlesTableName)
 class Routines {
 	@PrimaryKey(autoGenerate: true)

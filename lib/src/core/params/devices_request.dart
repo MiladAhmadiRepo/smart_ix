@@ -1,4 +1,4 @@
-import 'package:smart_ix/src/core/utils/constants.dart';
+import 'package:smart_ix/src/core/constants.dart';
 
 class DevicesRequestParams {
   final String apiKey;

@@ -5,7 +5,7 @@ import 'package:smart_ix/src/domain/entities/routines/owner_routine.dart';
 import 'package:smart_ix/src/domain/entities/routines/routines.dart';
 import 'package:smart_ix/src/domain/entities/routines/when.dart';
 import 'package:smart_ix/src/presentation/blocs/devices/devices_bloc.dart';
-import '../../../core/utils/constants.dart';
+import '../../../core/constants.dart';
 import '../../../core/utils/utils.dart';
 import '../../../domain/entities/devices/devices.dart';
 import '../../../domain/entities/devices/properties.dart';

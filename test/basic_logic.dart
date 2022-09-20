@@ -9,12 +9,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:smart_ix/main.dart';
+import 'package:smart_ix/src/core/utils/utils.dart';
 import 'package:smart_ix/src/presentation/blocs/home/home_bloc.dart';
 
 void main() {
   test('field Validation', () {
-    final homeBloc = HomeBloc();
-    String? result = homeBloc.fieldValidation(null, true);
+    String? result = fieldValidation(null, true);
     expect(result, null);
   });
 }

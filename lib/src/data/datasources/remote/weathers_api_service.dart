@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import '../../../core/utils/constants.dart';
+import '../../../core/constants.dart';
 import '../../models/model_of_news/model_of_news.dart';
 import '../../models/model_of_weather/model_of_weather.dart';
 

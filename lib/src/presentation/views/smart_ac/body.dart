@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:sleek_circular_slider/sleek_circular_slider.dart';
+import 'package:smart_ix/src/core/constants.dart';
+
+import '../../blocs/home/home_bloc.dart';
+import '../../widgets/SmartLabel.dart';
+import '../../widgets/mood_toggle_buttons.dart';
+import '../../widgets/switch_widget.dart';
 
 class Body extends StatelessWidget {
 
@@ -24,21 +31,7 @@ class Body extends StatelessWidget {
                       Navigator.of(context).pop();
                     },
                     child: const Icon(Icons.arrow_back_outlined)),
-                Stack(
-                  children: [
-                    Text(
-                      'Air\nConditioner',
-                      style: Theme.of(context)
-                          .textTheme
-                          .headline1!
-                          .copyWith(fontSize: 45, color: const Color(0xFFBDBDBD).withOpacity(0.5)),
-                    ),
-                    Text(
-                      'Air\nConditioner',
-                      style: Theme.of(context).textTheme.headline1,
-                    ),
-                  ],
-                ),
+                const SmartLabel(airConditionerString),
                 SizedBox(height: 30),
               ],
             ),
@@ -56,16 +49,15 @@ class Body extends StatelessWidget {
                 customColors: CustomSliderColors(
                   trackColor: const Color(0xFFBDBDBD),
                   progressBarColor: const Color(0xFF464646),
-                  // hideShadow: true,
                   shadowColor: const Color(0xFFBDBDBD).withOpacity(0.1),
                   shadowMaxOpacity: 1,
-                  shadowStep: 25,
+                  shadowStep: 10,
                 ),
                 customWidths: CustomSliderWidths(
-                  progressBarWidth: 22,
-                  handlerSize: 25,
-                  trackWidth: 22,
-                  shadowWidth: 50,
+                  progressBarWidth: 15,
+                  handlerSize: 20,
+                  trackWidth: 15,
+                  shadowWidth: 20,
                 ),
               ),
               onChange: (double value) {
@@ -84,11 +76,11 @@ class Body extends StatelessWidget {
                     children: [
                       Text(
                         '${value.toInt()}°',
-                        style: Theme.of(context).textTheme.headline1,
+                        style: Theme.of(context).textTheme.headline3,
                       ),
                       Text(
                         'Celcius',
-                        style: Theme.of(context).textTheme.headline3,
+                        style: Theme.of(context).textTheme.headline5,
                       ),
                     ],
                   ),
@@ -97,133 +89,15 @@ class Body extends StatelessWidget {
             ),
           ),
           SizedBox(height: 30),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Samsung AC',
-                    style: Theme.of(context).textTheme.headline2,
-                  ),
-                  const SizedBox(height: 5),
-                  Text(
-                    'Connected',
-                    style: Theme.of(context).textTheme.headline5,
-                  )
-                ],
-              ),
-              Switch.adaptive(
-                inactiveThumbColor: const Color(0xFFE4E4E4),
-                inactiveTrackColor: Colors.white,
-                activeColor: Colors.white,
-                activeTrackColor: const Color(0xFF464646),
-                value:/* model.isACon*/true,
-                onChanged: (value) {
-                  // model.acSwitch(value);
-                },
-              ),
-            ],
-          ),
+          SwitchWidget(context.read<HomeBloc>().switchAc,
+              SwitchAcEvent()),
           SizedBox(height: 30),
-          // Divider(
-          //   thickness: 2,
-          // ),
-          // SizedBox(
-          //   height: 15,
-          // ),
-          Text(
-            'Mode',
-            style: Theme.of(context).textTheme.headline2,
-          ),
-          SizedBox(height: 20),
-          Container(
-            height: 50,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-              color: Colors.white,
-            ),
-            child: ToggleButtons(
-              selectedColor: Colors.white,
-              fillColor: const Color(0xFF464646),
-              renderBorder: false,
-              borderRadius: BorderRadius.circular(15),
-              textStyle: Theme.of(context).textTheme.headline2!.copyWith(color: Colors.white),
-              onPressed: (int index) {
-                // model.onToggleTapped(index);
-              },
-              isSelected: /*model.isSelected*/[true, false, false, false],
-              children: <Widget>[
-                SizedBox(
-                  width: 70,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      SvgPicture.asset(
-                        'assets/icons/svg/cool.svg',
-                        color: /*model.isSelected[0]*/true ? Colors.white : const Color(0xFF808080),
-                        height: 22,
-                      ),
-                      const Text(
-                        'Cool',
-                        textAlign: TextAlign.center,
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  width: 57.5,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      SvgPicture.asset(
-                        'assets/icons/svg/air.svg',
-                        color: /*model.isSelected[1]*/false ? Colors.white : const Color(0xFF808080),
-                        height: 22,
-                      ),
-                      const Text(
-                        'Air',
-                        textAlign: TextAlign.center,
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  width: 57.5,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      SvgPicture.asset(
-                        'assets/icons/svg/sun.svg',
-                        color:/* model.isSelected[2]*/true ? Colors.white : const Color(0xFF808080),
-                        height: 22,
-                      ),
-                      const Text(
-                        'Hot',
-                        textAlign: TextAlign.center,
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  width: 57.5,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      SvgPicture.asset('assets/icons/svg/eco.svg',
-                          color: /*model.isSelected[3]*/false ? Colors.white : const Color(0xFF808080),
-                          height: 22),
-                      const Text(
-                        'Eco',
-                        textAlign: TextAlign.center,
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
+          MoodToggleButtons(modeString, [
+            airString,
+            coolString,
+            ecoString,
+            hotString,
+          ]),
           SizedBox(height: 20),
         ],
       ),

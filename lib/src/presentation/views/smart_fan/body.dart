@@ -1,21 +1,24 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lottie/lottie.dart';
-import 'package:smart_ix/src/core/utils/constants.dart';
+import 'package:smart_ix/src/core/constants.dart';
+
+import '../../../config/colors.dart';
+import '../../blocs/home/home_bloc.dart';
+import '../../widgets/SmartLabel.dart';
+import '../../widgets/mood_toggle_buttons.dart';
+import '../../widgets/switch_widget.dart';
 
 
 class Body extends StatefulWidget {
     Body({Key? key, }) : super(key: key);
-  // final SmartFanViewModel model;
   bool isFanOff = false;
   final List<bool> isSelected = [true, false, false];
   double speed = 2;
   final List<int> duration = [10000, 1000, 800, 600, 400, 200];
-
-  ///keeping track of all three factors - even index will do the task
   int selectedIndex = 0;
   Color lightColor = const Color(0xFF7054FF);
-  String fanImage = 'assets/images/fan.png';
 
   @override
   _BodyState createState() => _BodyState();
@@ -84,7 +87,7 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Padding(
-              padding: EdgeInsets.only(
+              padding: const EdgeInsets.only(
                 left: 15,
                 top: 7,
               ),
@@ -92,47 +95,20 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: EdgeInsets.only(top: 7),
+                    padding: const EdgeInsets.only(top: 7),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(height: 40),
+                        const SizedBox(height: 40),
                         InkWell(
                             onTap: () {
                               Navigator.of(context).pop();
                             },
                             child: const Icon(Icons.arrow_back_outlined)),
-                        Stack(
-                          children: [
-                            Text(
-                              'Smart\nFan',
-                              style: Theme.of(context).textTheme.headline1!.copyWith(
-                                    fontSize: 45,
-                                    color: const Color(0xFFBDBDBD).withOpacity(0.5),
-                                  ),
-                            ),
-                            Text(
-                              'Smart\nFan',
-                              style: Theme.of(context).textTheme.headline1,
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 26),
-                        Text(
-                          powerString,
-                          style: Theme.of(context).textTheme.headline2,
-                        ),
-                        SizedBox(height: 4),
-                        Switch.adaptive(
-                          inactiveThumbColor: const Color(0xFFE4E4E4),
-                          inactiveTrackColor: Colors.white,
-                          activeColor: Colors.white,
-                          activeTrackColor: const Color(0xFF464646),
-                          value: widget.isFanOff,
-                          onChanged: (value) {
-                            // widget.fanSwitch(value);
-                          },
-                        ),
+                        const SmartLabel(smartFanString),
+                        const SizedBox(height: 26),
+                        SwitchWidget(context.read<HomeBloc>().switchSmartFan,
+                            SwitchSmartFanEvent()),
                         SizedBox(height: 20),
                         SizedBox(height: 10),
                       ],
@@ -150,15 +126,13 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                 ),
                 Container(
                   height: 260,
-                  width: 120,
+                  width: 250,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(30),
                   ),
                   child: Lottie.asset(
-                    'assets/Lottie/fan.json',
-                    // width: 260,
-                    // height: 250,
+                    fanLottiePath,
                     fit: BoxFit.fill,
                     animate: widget.isFanOff ? true : false,
                     controller: widget.isFanOff ? _controller : _noController,
@@ -173,76 +147,35 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
           ],
         ),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 15),
+          padding: EdgeInsets.symmetric(horizontal: 0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'Mode',
-                style: Theme.of(context).textTheme.headline2,
-              ),
-              SizedBox(height: 9),
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  color: Colors.white,
-                ),
-                child: ToggleButtons(
-                  selectedColor: Colors.white,
-                  fillColor: const Color(0xFF464646),
-                  renderBorder: false,
-                  borderRadius: BorderRadius.circular(15),
-                  textStyle: Theme.of(context).textTheme.headline2!.copyWith(color: Colors.white),
-                  children: <Widget>[
-                    SizedBox(
-                      width: 76,
-                      child: const Text(
-                        'Air',
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    SizedBox(
-                      width: 76,
-                      child: const Text(
-                        'Mild',
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    SizedBox(
-                      width: 76,
-                      child: const Text(
-                        'Breeze',
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ],
-                  onPressed: (int index) {
-                    // widget.onToggleTapped(index);
-                  },
-                  isSelected: widget.isSelected,
-                ),
-              ),
-              SizedBox(height: 20),
+              MoodToggleButtons(modeString ,[airString,mildString,breezeString]),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     'Speed',
-                    style: Theme.of(context).textTheme.headline2,
-                  ),
+                    style: Theme.of(context).textTheme.headline2!.copyWith(
+                      fontFamily: "Lexend",
+                      fontSize: 30,
+                    ),                  ),
                   Text(
                     '${widget.speed.toInt()}',
-                    style: Theme.of(context).textTheme.headline2,
-                  ),
+                    style: Theme.of(context).textTheme.headline2!.copyWith(
+                      fontFamily: "Lexend",
+                      fontSize: 30,
+                    ),                  ),
                 ],
               ),
               SliderTheme(
-                data: SliderThemeData(
+                data: const SliderThemeData(
                     trackHeight: 5,
-                    thumbColor: const Color(0xFF464646),
-                    activeTrackColor: const Color(0xFF464646),
-                    inactiveTrackColor: Colors.white,
-                    thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 8)),
+                    thumbColor: color_16,
+                    activeTrackColor: color_16,
+                    inactiveTrackColor: color_0,
+                    thumbShape: RoundSliderThumbShape(enabledThumbRadius: 8)),
                 child: Slider(
                   min: 0,
                   max: 5,
@@ -253,18 +186,21 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                   value: widget.speed,
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Off',
-                    style: Theme.of(context).textTheme.bodyText1,
-                  ),
-                  Text(
-                    '100%',
-                    style: Theme.of(context).textTheme.bodyText1,
-                  ),
-                ],
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      offString,
+                      style: Theme.of(context).textTheme.bodyText1,
+                    ),
+                    Text(
+                      oneHundredString,
+                      style: Theme.of(context).textTheme.bodyText1,
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
@@ -273,3 +209,4 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
     );
   }
 }
+

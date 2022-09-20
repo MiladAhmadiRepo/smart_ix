@@ -8,7 +8,7 @@ import 'package:smart_ix/src/domain/usecases/routines/update_routines_usecase.da
 import 'package:smart_ix/src/presentation/blocs/devices/devices_bloc.dart';
 import 'package:smart_ix/src/presentation/blocs/home/home_bloc.dart';
 import 'package:smart_ix/src/presentation/blocs/routines/routines_bloc.dart';
-import 'core/utils/constants.dart';
+import 'core/constants.dart';
 import 'data/datasources/local/app_database.dart';
 import 'data/datasources/remote/devices_api_service.dart';
 import 'data/datasources/remote/newses_api_service.dart';

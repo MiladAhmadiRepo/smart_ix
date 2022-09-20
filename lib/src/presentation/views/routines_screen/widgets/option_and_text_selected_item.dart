@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smart_ix/src/core/utils/screen_config.dart';
 
-import '../../../../core/utils/constants.dart';
+import '../../../../core/constants.dart';
 import '../../../../core/utils/utils.dart';
 import '../../../blocs/routines/routines_bloc.dart';
 

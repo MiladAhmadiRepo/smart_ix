@@ -7,7 +7,7 @@ import 'package:smart_ix/src/presentation/views/routines_screen/widgets/option_a
 import 'package:smart_ix/src/presentation/views/routines_screen/widgets/option_selected_item.dart';
 import 'package:smart_ix/src/presentation/views/routines_screen/widgets/text_field_selected_item.dart';
 import 'package:smart_ix/src/presentation/views/routines_screen/widgets/toggle_selected_item.dart';
-import '../../../core/utils/constants.dart';
+import '../../../core/constants.dart';
 import '../../blocs/routines/routines_bloc.dart';
 
 class RoutineWhenScreen extends StatefulWidget {

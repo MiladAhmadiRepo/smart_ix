@@ -1,6 +1,6 @@
 import 'package:smart_ix/src/config/routes/app_routes.dart';
 import 'package:smart_ix/src/config/themes/app_theme.dart';
-import 'package:smart_ix/src/core/utils/constants.dart';
+import 'package:smart_ix/src/core/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smart_ix/src/injector.dart';

@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:smart_ix/src/presentation/views/smart_tv/smart_tv.dart';
 import '../../../../config/colors.dart';
-import '../../../../core/utils/constants.dart';
+import '../../../../core/constants.dart';
 import '../../../../core/utils/screen_config.dart';
 import '../../../blocs/devices/devices_bloc.dart';
 import '../../smart_ac/smart_ac.dart';
@@ -44,7 +44,7 @@ class HomeBody extends StatelessWidget {
                     context.read<DevicesBloc>().add(const LightSwitch());
                   },
                   onTap: () {
-                    Navigator.of(context).pushNamed(smartLight);
+                    Navigator.of(context).pushNamed(smartLightScreen);
                   },
                   iconAsset:lightSvgPath,
                   device: lighteningString,
@@ -63,7 +63,7 @@ class HomeBody extends StatelessWidget {
                     context.read<DevicesBloc>().add(const ArSwitch());
                   },
                   onTap: () {
-                    Navigator.of(context).pushNamed(smartAc);
+                    Navigator.of(context).pushNamed(smartAcScreen);
                   },
                   iconAsset: acSvgPath,
                   device: samsungAcString,
@@ -105,10 +105,10 @@ class HomeBody extends StatelessWidget {
                     context.read<DevicesBloc>().add(const FanSwitch());
                   },
                   onTap: () {
-                    Navigator.of(context).pushNamed(SmartFan.routeName);
+                    Navigator.of(context).pushNamed(smartFanScreen);
                   },
-                  iconAsset: 'assets/icons/svg/fan.svg',
-                  device: 'Fan',
+                  iconAsset: fanSvgPath,
+                  device: fanString,
                   companyName: context.read<DevicesBloc>().fan_company_name,
                   switchFav: () {},
                   isFav: false,

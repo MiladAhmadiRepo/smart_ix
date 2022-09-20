@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:smart_ix/src/presentation/views/device_screen/devices_screen.dart';
 import 'package:smart_ix/src/presentation/views/home_screen/home_screen.dart';
 import 'package:smart_ix/src/presentation/views/routines_screen/add_routine_screen.dart';
+import 'package:smart_ix/src/presentation/views/smart_ac/smart_ac.dart';
+import 'package:smart_ix/src/presentation/views/smart_fan/smart_fan.dart';
 import 'package:smart_ix/src/presentation/views/smart_light/smart_light.dart';
 import 'package:smart_ix/src/presentation/views/smart_tv/smart_tv.dart';
 
@@ -26,6 +28,10 @@ class AppRoutes {
         return _materialRoute(SmartTV());
       case '/smart-light':
         return _materialRoute(SmartLight());
+      case '/smart-fan':
+        return _materialRoute(SmartFan());
+      case '/smart-ac':
+        return _materialRoute(SmartAC());
       default:
         return null;
     }

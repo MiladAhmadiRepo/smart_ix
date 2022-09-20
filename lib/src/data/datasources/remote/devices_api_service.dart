@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:smart_ix/src/data/models/model_of_devices/owner_entity.dart';
-import '../../../core/utils/constants.dart';
+import '../../../core/constants.dart';
 import '../../models/model_of_devices/devices_entity.dart';
 import '../../models/model_of_news/model_of_news.dart';
 

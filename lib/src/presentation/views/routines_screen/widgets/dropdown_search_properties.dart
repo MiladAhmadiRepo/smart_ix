@@ -2,7 +2,7 @@ import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/utils/constants.dart';
+import '../../../../core/constants.dart';
 import '../../../../domain/entities/devices/devices.dart';
 import '../../../../domain/entities/devices/properties.dart';
 import '../../../blocs/routines/routines_bloc.dart';

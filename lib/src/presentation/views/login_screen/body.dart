@@ -4,7 +4,7 @@ import 'package:smart_ix/src/presentation/blocs/home/home_bloc.dart';
 import 'package:smart_ix/src/presentation/blocs/routines/routines_bloc.dart';
 
 import '../../../config/colors.dart';
-import '../../../core/utils/constants.dart';
+import '../../../core/constants.dart';
 import '../../../core/utils/screen_config.dart';
 import '../../../core/utils/utils.dart';
 import '../home_screen/home_screen.dart';

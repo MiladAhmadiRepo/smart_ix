@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../config/colors.dart';
-import '../../core/utils/constants.dart';
+import '../../core/constants.dart';
 import '../blocs/home/home_bloc.dart';
 
 BottomNavigationBar getCustomBottomNavBar (HomeBloc homeBloc)=> BottomNavigationBar(
