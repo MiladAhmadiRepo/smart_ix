@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:smart_ix/src/config/colors.dart';
 
-import '../../../../core/utils/constants.dart';
+import '../../core/utils/constants.dart';
 
 
 class MoodToggleButtons extends StatefulWidget {
@@ -13,7 +14,13 @@ class MoodToggleButtons extends StatefulWidget {
 }
 
 class _MoodToggleButtonsState extends State<MoodToggleButtons> {
-  List<bool> isSelectedList=[false,true,false];
+  List<bool> isSelectedList=[];
+  @override
+  void initState() {
+    isSelectedList=widget.listOfToggles.map((e) => false).toList();
+    isSelectedList[0]=true;
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -34,11 +41,11 @@ class _MoodToggleButtonsState extends State<MoodToggleButtons> {
           Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
-              color: Colors.white,
+              color: color_0,
             ),
             child: ToggleButtons(
-              selectedColor: Colors.white,
-              fillColor: const Color(0xFF464646),
+              selectedColor: color_0,
+              fillColor: color_16,
               renderBorder: false,
               borderRadius: BorderRadius.circular(15),
               onPressed: (int index) {
@@ -61,7 +68,7 @@ class _MoodToggleButtonsState extends State<MoodToggleButtons> {
               )).toList(),
             ),
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
         ],
       ),
     );

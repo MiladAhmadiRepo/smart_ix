@@ -11,7 +11,7 @@ BottomNavigationBar getCustomBottomNavBar (HomeBloc homeBloc)=> BottomNavigation
       unselectedItemColor: color_5,
       elevation: 0,
       onTap: (int index){
-        homeBloc.add(BottomSheetTapped(index));
+        homeBloc.add(BottomSheetTappedEvent(index));
       },
       items:   <BottomNavigationBarItem>[
         BottomNavigationBarItem(

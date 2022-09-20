@@ -3,6 +3,16 @@ import 'package:smart_ix/src/domain/entities/routines/routines.dart';
 
 import 'constants.dart';
 
+String? fieldValidation(String? value,bool isPassword){
+  if (value != null && value.isEmpty) {
+    return isPassword? pleaseEnterPasswordString:pleaseEnterUsernameString;
+  }
+  if (value != null && value.length < 3) {
+    return mustBeMoreThanString;
+  }
+  return null;
+}
+
 String? numberValidation(String? number) {
   if (number == null || number.isEmpty) {
     return pleaseEnterNumberValueString;

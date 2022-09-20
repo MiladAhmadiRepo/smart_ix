@@ -40,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return PageView.builder(
       controller: context.read<HomeBloc>().pageController,
       onPageChanged: (index) {
-        context.read<HomeBloc>().add(PageChanged(index));
+        context.read<HomeBloc>().add(PageChangedEvent(index));
       },
       itemCount: ListOfPageView.length,
       itemBuilder: (BuildContext context, int index) {

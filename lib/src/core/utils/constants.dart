@@ -8,6 +8,7 @@ const String routineWhenScreen = '/routine_when_screen';
 const String routineThenScreen = '/routine_then_screen';
 const String smartTvScreen = '/smart-tv';
 const String smartLight = '/smart-light';
+const String smartAc = '/smart-ac';
 
 
 //Api
@@ -20,12 +21,18 @@ const String kDatabaseName = "app_database.db";
 
 //images and SVGs path
 const String loginScreenImagePath = 'assets/images/login.png';
+const String lampPath =  'assets/images/lamp.png';
+const String purplePath =  'assets/images/purple.png';
+const String colorWheelPath =  'assets/images/color_wheel.png';
+
 const String airSvgPath = 'assets/icons/svg/air.svg';
 const String weatherSvgPath = 'assets/icons/svg/weather.svg';
 const String newsSvgPath = 'assets/icons/svg/news.svg';
 const String musicSvgPath = 'assets/icons/svg/music.svg';
 const String tvSvgPath = 'assets/images/tv.png';
 const String lightSvgPath =  'assets/icons/svg/light.svg';
+const String acSvgPath =  'assets/icons/svg/ac.svg';
+
 
 //text in all part of app
 const String routineString = 'Routine';
@@ -82,3 +89,5 @@ const String  toneGlowString = 'Tone Glow' ;
 const String  warmString = 'Warm' ;
 const String  coldString = 'Cold' ;
 const String  smartLightString = 'SmartLight' ;
+const String  samsungAcString = 'Samsung Air Condition' ;
+const String  colorString = "Color" ;

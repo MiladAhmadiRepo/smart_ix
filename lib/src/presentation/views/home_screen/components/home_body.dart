@@ -63,10 +63,10 @@ class HomeBody extends StatelessWidget {
                     context.read<DevicesBloc>().add(const ArSwitch());
                   },
                   onTap: () {
-                    Navigator.of(context).pushNamed(SmartAC.routeName);
+                    Navigator.of(context).pushNamed(smartAc);
                   },
-                  iconAsset: 'assets/icons/svg/ac.svg',
-                  device: 'Samsung Air Condition',
+                  iconAsset: acSvgPath,
+                  device: samsungAcString,
                   companyName: context.read<DevicesBloc>().ar_company_name,
                   switchFav: () {},
                   isFav: false,
@@ -170,22 +170,9 @@ class HomeBody extends StatelessWidget {
                       ),
                     ),
                     //load devices
-                    for (Widget row in devices(
-                      context,
-                    ))
+                    for (Widget row in devices(context,))
                       Expanded(flex: 4, child: row),
-                    //add new device
-                    const Expanded(
-                      flex: 1,
-                      child: Padding(
-                        padding: EdgeInsets.all(8),
-                        child: AddNewDevice(),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: Container(),
-                    ),
+
                   ],
                 ),
               ),
@@ -215,14 +202,14 @@ class ServiceWidget extends StatelessWidget {
     return Column(
       children: [
         Container(
-          width: 50,
-          height: 50,
+          width: 45,
+          height: 45,
           decoration: const BoxDecoration(
             color: true ? color_10 : color_12,
             borderRadius: BorderRadius.all(Radius.elliptical(45, 45)),
           ),
           child: Padding(
-            padding: const EdgeInsets.all(8),
+            padding: const EdgeInsets.all(10),
             child: SvgPicture.asset(
               imagePath,
               color: true ? color_0 : color_13,

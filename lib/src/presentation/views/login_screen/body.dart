@@ -3,10 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smart_ix/src/presentation/blocs/home/home_bloc.dart';
 import 'package:smart_ix/src/presentation/blocs/routines/routines_bloc.dart';
 
-import '../../../../config/colors.dart';
-import '../../../../core/utils/constants.dart';
-import '../../../../core/utils/screen_config.dart';
-import '../../home_screen/home_screen.dart';
+import '../../../config/colors.dart';
+import '../../../core/utils/constants.dart';
+import '../../../core/utils/screen_config.dart';
+import '../../../core/utils/utils.dart';
+import '../home_screen/home_screen.dart';
 
 class Body extends StatefulWidget {
   const Body({Key? key}) : super(key: key);
@@ -92,7 +93,7 @@ class _BodyState extends State<Body> {
             padding: const EdgeInsets.only(left: 20.0, right: 20.0),
             child: TextFormField(
               validator: (value) {
-                return context.read<HomeBloc>().fieldValidation(value, false);
+                return fieldValidation(value, false);
               },
               controller: usernameController,
               decoration: InputDecoration(
@@ -113,7 +114,7 @@ class _BodyState extends State<Body> {
             child: TextFormField(
               obscureText: true,
               validator: (value) {
-                return context.read<HomeBloc>().fieldValidation(value, true);
+                return fieldValidation(value, true);
               },
               controller: passwordController,
               decoration: InputDecoration(

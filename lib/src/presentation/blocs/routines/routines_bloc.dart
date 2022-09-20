@@ -307,7 +307,8 @@ class RoutinesBloc extends Bloc<RoutinesEvent, RoutinesState> {
 
   bool accessPermissionCheck()
   {
-    return _routineInstance!.owner.userId==_username;
+    return _stateOfRoutine.contains("Update")?
+     _routineInstance!.owner.userId==_username:true;
   }
 
   ///-------------------------------------------------------------------------------------

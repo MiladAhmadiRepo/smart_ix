@@ -96,7 +96,7 @@ class DarkContainer extends StatelessWidget {
                   Text(
                     itsOn ? 'On' : 'Off',
                     textAlign: TextAlign.left,
-                    style: Theme.of(context).textTheme.headline4!.copyWith(
+                    style: Theme.of(context).textTheme.headline5!.copyWith(
                           color: itsOn ? color_0 : color_14,
                         ),
                   ),

@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../config/colors.dart';
-import 'components/body.dart';
+import 'body.dart';
 
 class SmartTV extends StatelessWidget {
   const SmartTV({Key? key}) : super(key: key);

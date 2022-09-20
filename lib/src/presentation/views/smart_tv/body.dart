@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../../../config/colors.dart';
-import '../../../../core/utils/constants.dart';
-import 'intensity_slider.dart';
-import 'mood_toggle_buttons.dart';
+import '../../../config/colors.dart';
+import '../../../core/utils/constants.dart';
+import '../../widgets/intensity_slider.dart';
+import '../../widgets/mood_toggle_buttons.dart';
 
 class Body extends StatefulWidget {
   const Body({Key? key}) : super(key: key);
