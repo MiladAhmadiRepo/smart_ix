@@ -81,3 +81,4 @@ const String  modeString = 'Mode' ;
 const String  toneGlowString = 'Tone Glow' ;
 const String  warmString = 'Warm' ;
 const String  coldString = 'Cold' ;
+const String  smartLightString = 'SmartLight' ;

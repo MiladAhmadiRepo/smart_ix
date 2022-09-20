@@ -44,7 +44,7 @@ class _BodyState extends State<Body> {
                           Stack(
                             children: [
                               Text(
-                                smartTvString,
+                                smartLightString,
                                 style: Theme.of(context).textTheme.headline1!.copyWith(
                                   fontSize: 45,
                                   fontFamily: "Poppins",
@@ -52,7 +52,7 @@ class _BodyState extends State<Body> {
                                 ),
                               ),
                               Text(
-                                smartTvString,
+                                smartLightString,
                                 style: Theme.of(context).textTheme.headline1!.copyWith(
                                   fontFamily: "Lexend",
                                   fontSize: 50,
