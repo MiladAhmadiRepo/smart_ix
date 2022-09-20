@@ -80,6 +80,8 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    return BlocBuilder<HomeBloc, HomeState>(
+  builder: (context, state) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -134,8 +136,8 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                   child: Lottie.asset(
                     fanLottiePath,
                     fit: BoxFit.fill,
-                    animate: widget.isFanOff ? true : false,
-                    controller: widget.isFanOff ? _controller : _noController,
+                    animate: context.read<HomeBloc>().switchSmartFan ? true : false,
+                    controller: context.read<HomeBloc>().switchSmartFan ? _controller : _noController,
                   ),
                 )
               ],
@@ -146,12 +148,12 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
             )),
           ],
         ),
+        MoodToggleButtons(modeString ,[airString,mildString,breezeString]),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 0),
+          padding: EdgeInsets.symmetric(horizontal: 15),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              MoodToggleButtons(modeString ,[airString,mildString,breezeString]),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -207,6 +209,8 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
         ),
       ],
     );
+  },
+);
   }
 }
 

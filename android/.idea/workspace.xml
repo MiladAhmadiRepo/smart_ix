@@ -5,49 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f5d302b2-14c4-4582-853e-48ce82db385d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lib/src/presentation/widgets/SmartLabel.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/src/config/routes/app_routes.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/src/config/routes/app_routes.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/src/core/params/devices_request.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/src/core/params/devices_request.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/src/core/params/news_request.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/src/core/params/news_request.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/src/core/params/weather_request.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/src/core/params/weather_request.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/src/core/utils/constants.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/src/core/constants.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/src/core/utils/utils.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/src/core/utils/utils.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/src/data/datasources/local/DAOs/routines_dao.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/src/data/datasources/local/DAOs/routines_dao.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/src/data/datasources/remote/devices_api_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/src/data/datasources/remote/devices_api_service.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/src/data/datasources/remote/newses_api_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/src/data/datasources/remote/newses_api_service.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/src/data/datasources/remote/routines_api_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/src/data/datasources/remote/routines_api_service.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/src/data/datasources/remote/weathers_api_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/src/data/datasources/remote/weathers_api_service.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/src/domain/entities/routines/routines.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/src/domain/entities/routines/routines.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/src/injector.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/src/injector.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/src/presentation/blocs/home/home_bloc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/src/presentation/blocs/home/home_bloc.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/src/presentation/blocs/routines/routines_bloc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/src/presentation/blocs/routines/routines_bloc.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/src/presentation/views/home_screen/components/add_device_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/src/presentation/views/home_screen/components/add_device_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/src/presentation/views/home_screen/components/home_body.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/src/presentation/views/home_screen/components/home_body.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/src/presentation/views/login_screen/body.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/src/presentation/views/login_screen/body.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/src/presentation/views/routines_screen/add_routine_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/src/presentation/views/routines_screen/add_routine_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/src/presentation/views/routines_screen/routine_name_dialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/src/presentation/views/routines_screen/routine_name_dialog.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/src/presentation/views/routines_screen/routine_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/src/presentation/views/routines_screen/routine_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/src/presentation/views/routines_screen/routine_then_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/src/presentation/views/routines_screen/routine_then_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/src/presentation/views/routines_screen/routine_when_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/src/presentation/views/routines_screen/routine_when_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/src/presentation/views/routines_screen/widgets/dropdown_search_devices.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/src/presentation/views/routines_screen/widgets/dropdown_search_devices.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/src/presentation/views/routines_screen/widgets/dropdown_search_properties.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/src/presentation/views/routines_screen/widgets/dropdown_search_properties.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/src/presentation/views/routines_screen/widgets/option_and_text_selected_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/src/presentation/views/routines_screen/widgets/option_and_text_selected_item.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/src/presentation/views/routines_screen/widgets/option_selected_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/src/presentation/views/routines_screen/widgets/option_selected_item.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/src/presentation/views/routines_screen/widgets/show_alert_dialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/src/presentation/views/routines_screen/widgets/show_alert_dialog.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/src/presentation/views/routines_screen/widgets/text_field_selected_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/src/presentation/views/routines_screen/widgets/text_field_selected_item.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../lib/src/presentation/views/smart_ac/body.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/src/presentation/views/smart_ac/body.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../lib/src/presentation/views/smart_fan/body.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/src/presentation/views/smart_fan/body.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/src/presentation/views/smart_fan/smart_fan.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/src/presentation/views/smart_fan/smart_fan.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/src/presentation/views/smart_light/body.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/src/presentation/views/smart_light/body.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/src/presentation/views/smart_tv/body.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/src/presentation/views/smart_tv/body.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/src/presentation/widgets/custom_bottom_nav_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/src/presentation/widgets/custom_bottom_nav_bar.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/src/presentation/widgets/intensity_slider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/src/presentation/widgets/intensity_slider.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/src/presentation/widgets/mood_toggle_buttons.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/src/presentation/widgets/mood_toggle_buttons.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/src/presentation/widgets/switch_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/src/presentation/widgets/switch_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/basic_logic.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../test/basic_logic.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

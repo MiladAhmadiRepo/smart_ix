@@ -15,6 +15,8 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return BlocBuilder<HomeBloc, HomeState>(
+  builder: (context, state) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
       child: Column(
@@ -102,5 +104,7 @@ class Body extends StatelessWidget {
         ],
       ),
     );
+  },
+);
   }
 }
