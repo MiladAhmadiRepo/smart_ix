@@ -97,7 +97,7 @@ class _BodyState extends State<Body> {
                 ],
               ),
             ),
-            MoodToggleButtons( ),
+            MoodToggleButtons(modeString ,[tvShowString,moviesString,myListString]),
             SizedBox(height: 20),
 
             Intensity( ),

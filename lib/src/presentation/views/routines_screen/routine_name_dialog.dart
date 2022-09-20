@@ -28,7 +28,7 @@ Future<void> routineNameDialog(BuildContext context) async {
               onPressed: () {
                 context
                     .read<RoutinesBloc>()
-                    .add(SetRoutineName(routineName: _textFieldController.value.text.toString()));
+                    .add(SetRoutineNameEvent(routineName: _textFieldController.value.text.toString()));
                 Navigator.pop(context);
               },
             ),

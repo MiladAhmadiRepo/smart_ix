@@ -19,7 +19,7 @@ class _TextFieldSelectedItemState extends State<TextFieldSelectedItem> {
 
   @override
   void didChangeDependencies() {
-    _textEditingController.text= context.read<RoutinesBloc>().getWhenOrThenValue(widget.whenOrThen);
+    _textEditingController.text= context.read<RoutinesBloc>().getWhenOrThenTextFieldValue(widget.whenOrThen);
     super.didChangeDependencies();
   }
 

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../../config/colors.dart';
+import '../../core/utils/constants.dart';
 import '../blocs/home/home_bloc.dart';
 
 BottomNavigationBar getCustomBottomNavBar (HomeBloc homeBloc)=> BottomNavigationBar(
@@ -11,20 +13,20 @@ BottomNavigationBar getCustomBottomNavBar (HomeBloc homeBloc)=> BottomNavigation
       onTap: (int index){
         homeBloc.add(BottomSheetTapped(index));
       },
-      items: const <BottomNavigationBarItem>[
+      items:   <BottomNavigationBarItem>[
         BottomNavigationBarItem(
           label: '',
           icon: Icon(Icons.home),
           // backgroundColor: Colors.white,
         ),
         BottomNavigationBarItem(
-          label: '',
-          icon: Icon(Icons.broadcast_on_home),
-          // backgroundColor: Colors.lightBlue,
+            label: '',
+            icon: Icon(Icons.storm),
+            // icon: IconButton(icon: SvgPicture.asset(airSvgPath), onPressed: () {  },)
         ),
         BottomNavigationBarItem(
           label: '',
-          icon: Icon(Icons.task),
+          icon: Icon(Icons.broadcast_on_home),
           // backgroundColor: Colors.lightBlue,
         ),
         BottomNavigationBarItem(

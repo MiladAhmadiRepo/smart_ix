@@ -9,9 +9,9 @@ abstract class RoutinesEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class SetRoutineName extends RoutinesEvent {
+class SetRoutineNameEvent extends RoutinesEvent {
   final String routineName;
-  const SetRoutineName({required this.routineName});
+  const SetRoutineNameEvent({required this.routineName});
   @override
   List<Object> get props => [routineName];
 }
@@ -32,30 +32,35 @@ class SelectPropertyEvent extends RoutinesEvent {
   List<Object> get props => [selectedProperty,whenThen];
 }
 
-class GetRoutines extends RoutinesEvent {
+class GetRoutinesEvent extends RoutinesEvent {
    final String filterName;
-  const GetRoutines(this.filterName);
+  const GetRoutinesEvent(this.filterName);
   @override
   List<Object> get props => [filterName];
 }
 
-class RemoveRoutines extends RoutinesEvent {
+class RemoveRoutinesEvent extends RoutinesEvent {
   final Routines routines;
-  const RemoveRoutines({required this.routines});
+  const RemoveRoutinesEvent({required this.routines});
   @override
   List<Object> get props => [routines];
 }
 
-class UpdateRoutines extends RoutinesEvent {
+class UpdateRoutinesEvent extends RoutinesEvent {
   final Routines routines;
-  const UpdateRoutines({required this.routines});
+  const UpdateRoutinesEvent({required this.routines});
   @override
   List<Object> get props => [routines];
 }
 
-class InsertRoutines extends RoutinesEvent {
-  // final Routines routines;
-  const InsertRoutines();
-  // @override
-  // List<Object> get props => [routines];
+class InsertOrUpdateRoutinesEvent extends RoutinesEvent {
+  const InsertOrUpdateRoutinesEvent();
+}
+
+class UpdateTheUiOfWhenSectionEvent extends RoutinesEvent {
+  const UpdateTheUiOfWhenSectionEvent();
+}
+
+class UpdateTheUiOfThenSectionEvent extends RoutinesEvent {
+  const UpdateTheUiOfThenSectionEvent();
 }

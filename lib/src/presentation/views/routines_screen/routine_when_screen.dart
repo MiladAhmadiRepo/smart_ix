@@ -30,7 +30,7 @@ class _RoutineWhenScreenState extends State<RoutineWhenScreen> {
             appBar: AppBar(
               leading: TextButton(
                 onPressed: () {
-                  context.read<RoutinesBloc>().submitWhenSection();
+                  context.read<RoutinesBloc>().add(UpdateTheUiOfWhenSectionEvent());
                   Navigator.pop(context);
                 },
                 child: const Text(saveString),
@@ -38,6 +38,7 @@ class _RoutineWhenScreenState extends State<RoutineWhenScreen> {
               actions: [
                 TextButton(
                   onPressed: () {
+                    context.read<RoutinesBloc>().clearRoutineWhenData();
                     Navigator.pop(context);
                   },
                   child: const Text(cancelString),

@@ -56,6 +56,6 @@ Future<void> initializeDependencies() async {
   // injector.registerFactory<DevicesBloc>(() => DevicesBloc(injector()));
   injector.registerSingleton<DevicesBloc>(DevicesBloc(injector()));
   injector.registerFactory<RoutinesBloc>(
-      () => RoutinesBloc(injector(), injector(), injector(), injector(), injector()));
+      () => RoutinesBloc(injector(), injector(), injector(),   injector()));
   injector.registerFactory<HomeBloc>(() => HomeBloc());
 }

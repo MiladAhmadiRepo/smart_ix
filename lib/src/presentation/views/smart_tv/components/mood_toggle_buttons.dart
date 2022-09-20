@@ -4,7 +4,9 @@ import '../../../../core/utils/constants.dart';
 
 
 class MoodToggleButtons extends StatefulWidget {
-  const MoodToggleButtons({Key? key,}) : super(key: key);
+  String mode="";
+  List<String> listOfToggles=[];
+    MoodToggleButtons(this.mode,this.listOfToggles,{Key? key,}) : super(key: key);
 
   @override
   State<MoodToggleButtons> createState() => _MoodToggleButtonsState();
@@ -22,7 +24,7 @@ class _MoodToggleButtonsState extends State<MoodToggleButtons> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Mood',
+            widget.mode,
             style: Theme.of(context).textTheme.headline2!.copyWith(
               fontFamily: "Lexend",
               fontSize: 30,
@@ -47,38 +49,16 @@ class _MoodToggleButtonsState extends State<MoodToggleButtons> {
                 });
               },
               isSelected:isSelectedList ,
-              children: const <Widget>[
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 15),
-                  child: Text(
-                    tvShowString,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 16,
-                    ),
+              children: widget.listOfToggles.map((item) => Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                child: Text(
+                  item,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontSize: 16,
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 15),
-                  child: Text(
-                    moviesString,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 16,
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 15),
-                  child: Text(
-                    myListString,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 16,
-                    ),
-                  ),
-                ),
-              ],
+              )).toList(),
             ),
           ),
           SizedBox(height: 20),

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smart_ix/src/presentation/views/routines_screen/routine_when_screen.dart';
+import 'package:smart_ix/src/presentation/views/routines_screen/widgets/show_alert_dialog.dart';
 
 import '../../../config/colors.dart';
 import '../../../core/utils/constants.dart';
@@ -20,7 +21,7 @@ class AddRoutineScreen extends StatefulWidget {
 
 class _AddRoutineState extends State<AddRoutineScreen> {
   String titleBar = "";
-  Routines? routine;
+  String stateOfRoutine = "";
 
   @override
   void initState() {
@@ -29,8 +30,8 @@ class _AddRoutineState extends State<AddRoutineScreen> {
 
   @override
   void didChangeDependencies() {
-    routine = context.read<RoutinesBloc>().getRoutine();
-    titleBar = routine == null ? addRoutineString : updateRoutineString;
+    stateOfRoutine = context.read<RoutinesBloc>().stateOfRoutine;
+    titleBar = stateOfRoutine.contains("Insert") ? addRoutineString : updateRoutineString;
     super.didChangeDependencies();
   }
 
@@ -45,7 +46,8 @@ class _AddRoutineState extends State<AddRoutineScreen> {
             ),
             leading: TextButton(
               onPressed: () {
-                context.read<RoutinesBloc>().add(InsertRoutines());
+                context.read<RoutinesBloc>().add(InsertOrUpdateRoutinesEvent());
+                context.read<RoutinesBloc>().add(GetRoutinesEvent(""));
                 Navigator.pop(context);
               },
               child: const Text(saveString),
@@ -53,6 +55,9 @@ class _AddRoutineState extends State<AddRoutineScreen> {
             actions: [
               TextButton(
                 onPressed: () {
+                  context.read<RoutinesBloc>().clearRoutineWhenData();
+                  context.read<RoutinesBloc>().clearRoutineThenData();
+                  context.read<RoutinesBloc>().add(GetRoutinesEvent(""));
                   Navigator.pop(context);
                 },
                 child: const Text(cancelString),
@@ -69,12 +74,7 @@ class _AddRoutineState extends State<AddRoutineScreen> {
                 padding: const EdgeInsets.all(10),
                 child: Column(
                   children: [
-                    Flexible(
-                      child: BlocBuilder<RoutinesBloc, RoutinesState>(
-                          builder: (BuildContext context, state) {
-                        return RoutineNameSection();
-                      }),
-                    ),
+                    Flexible(child: RoutineNameSection()),
                     Flexible(child: RoutineWhenSection()),
                     Flexible(child: RoutineThenSection()),
                   ],
@@ -97,16 +97,20 @@ class RoutineThenSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).pushNamed(routineThenScreen);
+        context.read<RoutinesBloc>().accessPermissionCheck()?
+        Navigator.of(context).pushNamed(routineThenScreen):
+        showAlertDialog(context,permissionString,doNotPermissionString);
       },
       child: Card(
         elevation: 2,
         child: ListTile(
           title: Text(
-            'Add Action',
-            style: TextStyle(color: color_8),
+            context.read<RoutinesBloc>().getTheNameOfSelectedDeviceInThenSection(),
+            style: const TextStyle(color: color_8),
           ),
-          subtitle: Text('ex : Turn on The Light'),
+          subtitle: Text(
+            context.read<RoutinesBloc>().getTheNameOfSelectedPropertyInThenSection(),
+          ),
         ),
       ),
     );
@@ -120,22 +124,26 @@ class RoutineWhenSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return  GestureDetector(
       onTap: () {
-        Navigator.of(context).pushNamed(routineWhenScreen);
+        context.read<RoutinesBloc>().accessPermissionCheck()?
+        Navigator.of(context).pushNamed(routineWhenScreen):
+        showAlertDialog(context,permissionString,doNotPermissionString);
       },
       child: Card(
         elevation: 2,
         child: ListTile(
-          contentPadding: EdgeInsets.symmetric(
+          contentPadding: const EdgeInsets.symmetric(
             vertical: 2,
             horizontal: 10,
           ),
           title: Text(
-            'When This Happens',
-            style: TextStyle(color: color_8),
+            context.read<RoutinesBloc>().getTheNameOfSelectedDeviceInWhenSection(),
+            style: const TextStyle(color: color_8),
           ),
-          subtitle: Text('ex : The Air Condition is Active'),
+          subtitle: Text(
+            context.read<RoutinesBloc>().getTheNameOfSelectedPropertyInWhenSection(),
+          ),
         ),
       ),
     );
@@ -165,7 +173,9 @@ class RoutineNameSection extends StatelessWidget {
         ),
       ),
       onTap: () {
-        routineNameDialog(context);
+        context.read<RoutinesBloc>().accessPermissionCheck()?
+        routineNameDialog(context):
+        showAlertDialog(context,permissionString,doNotPermissionString);
       },
     );
   }

@@ -19,8 +19,8 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   List<Widget> ListOfPageView = [
     HomeBody() ,
-    DevicesScreen(),
     RoutineScreen(),
+    DevicesScreen(),
     Scaffold(),
   ];
   @override

@@ -57,6 +57,22 @@ class RoutinesShowNothing extends RoutinesState {
   const RoutinesShowNothing();
 }
 
+class UpdateWhenSectionState extends RoutinesState {
+  final String deviceName;
+  final String propertyName;
+  const UpdateWhenSectionState(this.deviceName,this.propertyName);
+  List<Object> get props => [deviceName,propertyName];
+
+}
+
+class UpdateThenSectionState extends RoutinesState {
+  final String deviceName;
+  final String propertyName;
+  const UpdateThenSectionState(this.deviceName,this.propertyName);
+  List<Object> get props => [deviceName,propertyName];
+
+}
+
 class RoutinesError extends RoutinesState {
   const RoutinesError(DioError? error)  ;
 }

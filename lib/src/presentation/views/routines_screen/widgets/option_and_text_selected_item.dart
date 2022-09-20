@@ -27,7 +27,7 @@ class _MyStatefulWidgetState extends State<OptionAndTextSelectedItem> {
     _activityState = ActivityState.values
         .byName(context.read<RoutinesBloc>().getWhenOrThenOptionValue("Equal",ActivityState, widget.whenOrThen));
     _textEditingController.text =
-        context.read<RoutinesBloc>().getWhenOrThenValue(widget.whenOrThen);
+        context.read<RoutinesBloc>().getWhenOrThenTextFieldValue(widget.whenOrThen);
     super.didChangeDependencies();
   }
 

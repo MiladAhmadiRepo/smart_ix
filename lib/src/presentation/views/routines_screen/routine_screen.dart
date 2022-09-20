@@ -28,7 +28,7 @@ class _RoutineScreenState extends State<RoutineScreen> {
 
   @override
   void didChangeDependencies() {
-    context.read<RoutinesBloc>().add(GetRoutines(""));
+    context.read<RoutinesBloc>().add(GetRoutinesEvent(""));
     super.didChangeDependencies();
   }
 
@@ -49,8 +49,9 @@ class _RoutineScreenState extends State<RoutineScreen> {
               color: color_5,
             ),
             onPressed: () {
-              context.read<RoutinesBloc>().clearRoutineData("whenthen");
-              // context.read<RoutinesBloc>().add(GetRoutines());
+              context.read<RoutinesBloc>().clearRoutineWhenData();
+              context.read<RoutinesBloc>().clearRoutineThenData();
+              context.read<RoutinesBloc>().stateOfRoutine="Insert";
               Navigator.of(context).pushNamed(addRoutineScreen);
             },
           )
@@ -65,12 +66,11 @@ class _RoutineScreenState extends State<RoutineScreen> {
                 children: [
                   TextField(
                     onChanged: (value) {
-                      // _foundData = runFilter(value, state.listOfRoutines);
-                      context.read<RoutinesBloc>().add(GetRoutines(value));
+                      context.read<RoutinesBloc>().add(GetRoutinesEvent(value));
                     },
                     decoration: const InputDecoration(
                         labelStyle: TextStyle(color: color_5),
-                        labelText: 'Search',
+                        labelText: searchString,
                         suffixIcon: Icon(
                           Icons.search,
                           color: color_5,
@@ -87,28 +87,36 @@ class _RoutineScreenState extends State<RoutineScreen> {
                         color: Colors.white,
                         elevation: 4,
                         margin: const EdgeInsets.symmetric(vertical: 6),
-                        child: ListTile(
-                          shape: const RoundedRectangleBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(10)),
-                          ),
-                          tileColor: color_1,
-                          leading: Container(
-                            padding: const EdgeInsets.all(10),
-                            decoration:
-                                const BoxDecoration(shape: BoxShape.circle, color: Colors.white),
-                            child: SvgPicture.asset(
-                              airSvgPath,
-                              color: color_8,
-                              width: 20,
-                              height: 20,
+                        child: GestureDetector(
+                          onTap: () {
+                            context.read<RoutinesBloc>().routineInstance=state.listOfRoutines[index];
+                            context.read<RoutinesBloc>().stateOfRoutine="Update";
+                            Navigator.of(context).pushNamed(addRoutineScreen);
+                          },
+                          child: ListTile(
+                            shape: const RoundedRectangleBorder(
+                              borderRadius: BorderRadius.all(Radius.circular(10)),
                             ),
+                            tileColor: color_1,
+                            leading: Container(
+                              padding: const EdgeInsets.all(10),
+                              decoration:
+                                  const BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+                              // child: SvgPicture.asset(
+                              //   airSvgPath,
+                              //   color: color_8,
+                              //   width: 20,
+                              //   height: 20,
+                              // ),
+                              child: Icon(Icons.storm)
+                            ),
+                            contentPadding: const EdgeInsets.symmetric(
+                              vertical: 2,
+                              horizontal: 10,
+                            ),
+                            title: Text(state.listOfRoutines[index].name),
+                            subtitle: Text('${state.listOfRoutines[index].name.toString()}  '),
                           ),
-                          contentPadding: const EdgeInsets.symmetric(
-                            vertical: 2,
-                            horizontal: 10,
-                          ),
-                          title: Text(state.listOfRoutines[index].name),
-                          subtitle: Text('${state.listOfRoutines[index].name.toString()}  '),
                         ),
                       ),
                     ),

@@ -17,14 +17,14 @@ void main() {
   late RoutinesBloc routinesBloc;
   setUpAll(() async {
     await initializeDependencies();
-    routinesBloc=RoutinesBloc(injector(),injector(),injector(),injector(),injector());
+    routinesBloc=RoutinesBloc(injector(),injector(),injector() ,injector());
   });
   group('show loading', ()
   {
     blocTest<RoutinesBloc, RoutinesState>(
       'emit loading to get routines',
       build: () => routinesBloc,
-      act: (bloc) => bloc.add(GetRoutines("")),
+      act: (bloc) => bloc.add(GetRoutinesEvent("")),
       expect: () => [RoutinesLoadingState()],
     );
   });
@@ -32,7 +32,7 @@ void main() {
     blocTest<RoutinesBloc, RoutinesState>(
       'description',
       build: () => routinesBloc,
-      act: (bloc) => bloc.add(GetRoutines("")),
+      act: (bloc) => bloc.add(GetRoutinesEvent("")),
       skip: 1,
       expect: () => [],
     );

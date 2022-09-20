@@ -21,7 +21,6 @@ part 'routines_state.dart';
 
 class RoutinesBloc extends Bloc<RoutinesEvent, RoutinesState> {
   final GetRoutinesUseCase _getRoutinesUseCase;
-  final RemoveRoutinesUseCase _removeRoutinesUseCase;
   final InsertRoutinesUseCase _insertRoutinesUseCase;
   final UpdateRoutinesUseCase _updateRoutinesUseCase;
   final DevicesBloc _devicesBloc;
@@ -30,23 +29,45 @@ class RoutinesBloc extends Bloc<RoutinesEvent, RoutinesState> {
 
   RoutinesBloc(
     this._getRoutinesUseCase,
-    this._removeRoutinesUseCase,
     this._insertRoutinesUseCase,
     this._updateRoutinesUseCase,
     this._devicesBloc,
   ) : super(const RoutinesLoadingState()) {
-    on<SetRoutineName>(_setRoutineNameEventToState);
-    on<LoadPropertiesEvent>(_getPropertiesOfDevicesAndServicesEventToState);
-    on<SelectPropertyEvent>(_getSelectPropertyEventToState);
-    on<GetRoutines>(_getRoutinesEventToState);
-    on<RemoveRoutines>(_removeRoutinesEventToState);
-    on<UpdateRoutines>(_updateRoutinesEventToState);
-    on<InsertRoutines>(_insertRoutinesEventToState);
+    on<SetRoutineNameEvent>(_setRoutineNameEventToState);
+    on<LoadPropertiesEvent>(_fillThePropertiesDropDownEventToState);
+    on<SelectPropertyEvent>(_loadTheViewOfTheSelectPropertyEventToState);
+    on<GetRoutinesEvent>(_getRoutinesEventToState);
+    on<InsertOrUpdateRoutinesEvent>(_insertOrUpdateRoutinesEventToState);
+    on<UpdateTheUiOfWhenSectionEvent>(_updateWhenSectionUiEventToState);
+    on<UpdateTheUiOfThenSectionEvent>(_updateThenSectionUiEventToState);
   }
 
   ///----------------------------------------------------------------------------------------------
+  String _stateOfRoutine = "Insert";
+  String get stateOfRoutine => _stateOfRoutine;
+  set stateOfRoutine(String value) {
+    _stateOfRoutine = value;
+  }
+  Routines? _routineInstance ;
+  Routines? get routineInstance => _routineInstance;
+  set routineInstance(Routines? value) {
+    _routineInstance = value;
+
+    _routineName=_routineInstance!.name;
+
+    _selectedWhenDevice=_routineInstance!.owner.when!.devices;
+    _selectedWhenProperty=_routineInstance!.owner.when!.properties;
+     _selectedWhenTextFieldValue = _routineInstance!.owner.when!.value;
+    _selectedWhenOption = _routineInstance!.owner.when!.option;
+    _selectedWhenToggleButton = _routineInstance!.owner.when!.toggle;
+
+    _selectedThenDevice=_routineInstance!.owner.then!.devices;
+    _selectedThenProperty=_routineInstance!.owner.then!.properties;
+    _selectedThenTextFieldValue = _routineInstance!.owner.then!.value;
+     _selectedThenOption = _routineInstance!.owner.then!.option;
+     _selectedThenToggleButton = _routineInstance!.owner.then!.toggle;
+  }
   List<Routines> routinesList = [];
-  Routines? routine ;
   String _username = '', _password = '', _routineName = '';
   List<Devices> _allDevicesAndServicesList = [];
   List<Properties> _allPropertiesList = [];
@@ -54,32 +75,36 @@ class RoutinesBloc extends Bloc<RoutinesEvent, RoutinesState> {
   //------------------------------------------------------
   Devices? _selectedWhenDevice;
   Properties? _selectedWhenProperty;
-  String? _selectedWhenValue = null;
-  String? _selectedWhenOption = null;
-  int? _selectedWhenToggleButton = null;
+  String? _selectedWhenTextFieldValue  ;
+  String? _selectedWhenOption  ;
+  int? _selectedWhenToggleButton  ;
 
   //------------------------------------------------------
   Devices? _selectedThenDevice;
   Properties? _selectedThenProperty;
-  String? _selectedThenValue = null;
-  String? _selectedThenOption = null;
-  int? _selectedThenToggleButton = null;
+  String? _selectedThenTextFieldValue  ;
+  String? _selectedThenOption  ;
+  int? _selectedThenToggleButton  ;
 
   ///----------------------------------------------------------------------------------------------
 
   //set a name for a routine
-  void _setRoutineNameEventToState(SetRoutineName event, Emitter<RoutinesState> emit) async {
+  void _setRoutineNameEventToState(SetRoutineNameEvent event, Emitter<RoutinesState> emit) async {
     _routineName = event.routineName;
     emit(ShowRoutineNameState(_routineName));
   }
 
-  //get properties and set the selected device or service
-  void _getPropertiesOfDevicesAndServicesEventToState(
+  //fill the properties dropdown and set the selected device or service
+  void _fillThePropertiesDropDownEventToState(
       LoadPropertiesEvent event, Emitter<RoutinesState> emit) {
-    clearRoutineData(event.whenThen);
-    event.whenThen.contains("when")
-        ? _selectedWhenDevice = event.selectedDevicesAndServices
-        : _selectedThenDevice = event.selectedDevicesAndServices;
+    if(event.whenThen.contains("when"))
+    {
+      clearRoutineWhenData( );
+     _selectedWhenDevice = event.selectedDevicesAndServices;
+    }else{
+      clearRoutineThenData( );
+      _selectedThenDevice = event.selectedDevicesAndServices;
+    }
     Properties onOrOffProperties = Properties("onOff_${event.selectedDevicesAndServices.id!}",
         "On or Off", "bool", "false", [], "off", "on");
     _allPropertiesList.clear();
@@ -88,8 +113,8 @@ class RoutinesBloc extends Bloc<RoutinesEvent, RoutinesState> {
     emit(LoadPropertiesState(_allPropertiesList));
   }
 
-  //get selected property and show a related view
-  void _getSelectPropertyEventToState(SelectPropertyEvent event, Emitter<RoutinesState> emit) {
+  //load the view of selected property
+  void _loadTheViewOfTheSelectPropertyEventToState(SelectPropertyEvent event, Emitter<RoutinesState> emit) {
     event.whenThen.contains("when")
         ? _selectedWhenProperty = event.selectedProperty
         : _selectedThenProperty = event.selectedProperty;
@@ -105,51 +130,62 @@ class RoutinesBloc extends Bloc<RoutinesEvent, RoutinesState> {
     }
   }
 
-  //load all routines in listview
-  void _getRoutinesEventToState(GetRoutines event, Emitter<RoutinesState> emit) async {
+  //load all routines in listview by filter section
+  void _getRoutinesEventToState(GetRoutinesEvent event, Emitter<RoutinesState> emit) async {
     emit(RoutinesLoadingState());
-    if (routinesList.isNotEmpty) {
-      routinesList = runFilter(event.filterName, routinesList);
-    } else {
-      routinesList = await _getRoutinesUseCase();
+    List<Routines> tempRoutinesList = [];
+    routinesList = await _getRoutinesUseCase();
+    tempRoutinesList=List.from(routinesList);
+     if (event.filterName.isNotEmpty) {
+      tempRoutinesList = runFilter(event.filterName, tempRoutinesList);
     }
-    emit(RoutinesDoneState(routinesList));
+    emit(RoutinesDoneState(tempRoutinesList));
   }
 
-  void _removeRoutinesEventToState(RemoveRoutines event, Emitter<RoutinesState> emit) async {
-    await _removeRoutinesUseCase(params: event.routines);
-  }
-
-  void _updateRoutinesEventToState(UpdateRoutines event, Emitter<RoutinesState> emit) async {
-    await _updateRoutinesUseCase(params: event.routines);
-  }
-
-  void _insertRoutinesEventToState(InsertRoutines event, Emitter<RoutinesState> emit) async {
-    When when = When(_selectedWhenDevice, _selectedWhenProperty, _selectedWhenValue,
+  void _insertOrUpdateRoutinesEventToState(InsertOrUpdateRoutinesEvent event, Emitter<RoutinesState> emit) async {
+    When when = When(_selectedWhenDevice, _selectedWhenProperty, _selectedWhenTextFieldValue,
         _selectedWhenOption, _selectedWhenToggleButton);
-    Then then = Then(_selectedThenDevice, _selectedThenProperty, _selectedThenValue,
+    Then then = Then(_selectedThenDevice, _selectedThenProperty, _selectedThenTextFieldValue,
         _selectedThenOption, _selectedThenToggleButton);
     OwnerRoutine ownerRoutine = OwnerRoutine(_username, when, then);
-    Routines routines = Routines(null, _routineName, ownerRoutine);
-    await _insertRoutinesUseCase(params: routines);
+    //checking, is it a insert state or update state?
+    if(stateOfRoutine.contains("Insert")) {
+      Routines routines = Routines(null, _routineName, ownerRoutine);
+      await _insertRoutinesUseCase(params: routines);
+    }else{
+      Routines routines = Routines(_routineInstance!.id, _routineName, ownerRoutine);
+      await _updateRoutinesUseCase(params: routines);
+    }
   }
 
+  void _updateWhenSectionUiEventToState(UpdateTheUiOfWhenSectionEvent event, Emitter<RoutinesState> emit) {
+    When when = When(_selectedWhenDevice, _selectedWhenProperty, _selectedWhenTextFieldValue,
+        _selectedWhenOption, _selectedWhenToggleButton);
+    emit(UpdateWhenSectionState(_selectedWhenDevice!.name!, _selectedWhenProperty!.name!));
+  }
+
+  void _updateThenSectionUiEventToState(UpdateTheUiOfThenSectionEvent event, Emitter<RoutinesState> emit){
+    Then then = Then(_selectedThenDevice, _selectedThenProperty, _selectedThenTextFieldValue,
+        _selectedThenOption, _selectedThenToggleButton);
+    emit(UpdateThenSectionState(_selectedThenDevice!.name!, _selectedThenProperty!.name!));
+  }
   ///-------------------------------------------------------------------------------------
 
-  void clearRoutineData(String whenThen) {
-    if (whenThen.contains("when")) {
+  void clearRoutineWhenData() {
       _selectedWhenDevice = null;
       _selectedWhenProperty = null;
       _selectedWhenOption = null;
-      _selectedWhenValue = null;
+      _selectedWhenTextFieldValue = null;
       _selectedWhenToggleButton = null;
-    } else {
+  }
+
+  void clearRoutineThenData() {
       _selectedThenDevice = null;
       _selectedThenProperty = null;
       _selectedThenOption = null;
-      _selectedThenValue = null;
+      _selectedThenTextFieldValue = null;
       _selectedThenToggleButton = null;
-    }
+
   }
 
   //set the username and password
@@ -180,10 +216,10 @@ class RoutinesBloc extends Bloc<RoutinesEvent, RoutinesState> {
   Devices getWhenOrThenSelectedDevicesOrServices(String whenThen) {
     return whenThen == "when"
         ? _selectedWhenDevice == null
-            ? _allDevicesAndServicesList[0]
+            ? _selectedWhenDevice=_allDevicesAndServicesList[0]
             : _selectedWhenDevice!
         : _selectedThenDevice == null
-            ? _allDevicesAndServicesList[0]
+            ? _selectedThenDevice=_allDevicesAndServicesList[0]
             : _selectedThenDevice!;
   }
 
@@ -191,10 +227,10 @@ class RoutinesBloc extends Bloc<RoutinesEvent, RoutinesState> {
   Properties getWhenOrThenSelectedProperty(String whenThen) {
     return whenThen == "when"
         ? _selectedWhenProperty == null
-            ? _allPropertiesList[0]
+            ? _selectedWhenProperty=_allPropertiesList[0]
             : _selectedWhenProperty!
         : _selectedThenProperty == null
-            ? _allPropertiesList[0]
+            ? _selectedThenProperty=_allPropertiesList[0]
             : _selectedThenProperty!;
   }
 
@@ -207,32 +243,32 @@ class RoutinesBloc extends Bloc<RoutinesEvent, RoutinesState> {
     }
     return whenThen == "when"
         ? _selectedWhenOption == null
-            ? defaultValue
+            ? _selectedWhenOption=defaultValue
             : _selectedWhenOption!
         : _selectedThenOption == null
-            ? defaultValue
+            ? _selectedThenOption=defaultValue
             : _selectedThenOption!;
   }
 
   //get the selected Textfield Value ,based on the loaded data or a new routine state
-  String getWhenOrThenValue(String whenThen) {
+  String getWhenOrThenTextFieldValue(String whenThen) {
     return whenThen == "when"
-        ? _selectedWhenValue == null
-            ? ""
-            : _selectedWhenValue!
-        : _selectedThenValue == null
-            ? ""
-            : _selectedThenValue!;
+        ? _selectedWhenTextFieldValue == null
+            ? _selectedWhenTextFieldValue=""
+            : _selectedWhenTextFieldValue!
+        : _selectedThenTextFieldValue == null
+            ? _selectedThenTextFieldValue=""
+            : _selectedThenTextFieldValue!;
   }
 
   //get the selected toggleButton ,based on the loaded data or a new routine state
   int getWhenOrThenToggleButton(String whenThen) {
     return whenThen == "when"
         ? _selectedWhenToggleButton == null
-            ? 0
+            ? _selectedWhenToggleButton=0
             : _selectedWhenToggleButton!
         : _selectedThenToggleButton == null
-            ? 0
+            ? _selectedThenToggleButton=0
             : _selectedThenToggleButton!;
   }
 
@@ -243,7 +279,7 @@ class RoutinesBloc extends Bloc<RoutinesEvent, RoutinesState> {
 
   //set the value of the Textfield
   String setWhenOrThenValue(String value, String whenThen) {
-    return whenThen == "when" ? _selectedWhenValue = value : _selectedThenValue = value;
+    return whenThen == "when" ? _selectedWhenTextFieldValue = value : _selectedThenTextFieldValue = value;
   }
 
   //set the value of the toggle Button
@@ -253,35 +289,25 @@ class RoutinesBloc extends Bloc<RoutinesEvent, RoutinesState> {
         : _selectedThenToggleButton = value;
   }
 
-  // check to find out : are they filled items in the whenSection or thenSection?
-  // bool checkFillItemInWhenOrThenSection(String whenThen, String typeOfProperty) {
-  //   bool stateWhenThen = false;
-  //   whenThen == "when"
-  //       ? stateWhenThen = _selectedWhenDevice != null && _selectedWhenProperty != null
-  //       : stateWhenThen = _selectedThenDevice != null && _selectedThenProperty != null;
-  //
-  // if(typeOfProperty.contains("OptionAndTextSelectedItem")||typeOfProperty.contains("TextFieldSelectedItem")) {
-  //   whenThen == "when"?
-  //     stateWhenThen = stateWhenThen && ((_selectedWhenValue?.isNotEmpty) ?? false):
-  //     stateWhenThen = stateWhenThen && ((_selectedThenValue?.isNotEmpty) ?? false);
-  // }
-  //   return stateWhenThen;
-  // }
-
-  //number validation for number text
-
-  void submitWhenSection() {
-    When when = When(_selectedWhenDevice, _selectedWhenProperty, _selectedWhenValue,
-        _selectedWhenOption, _selectedWhenToggleButton);
+  String getTheNameOfSelectedDeviceInWhenSection(){
+    return _selectedWhenDevice==null?whenThisHappensString:_selectedWhenDevice!.name!;
   }
 
-  void submitThenSection() {
-    Then then = Then(_selectedThenDevice, _selectedThenProperty, _selectedThenValue,
-        _selectedThenOption, _selectedThenToggleButton);
+  String getTheNameOfSelectedDeviceInThenSection(){
+    return _selectedThenDevice==null?thenAddActionString:_selectedThenDevice!.name!;
   }
 
-  Routines? getRoutine() {
-    return routine;
+  String getTheNameOfSelectedPropertyInWhenSection(){
+    return _selectedWhenProperty==null?whenExampleString:_selectedWhenProperty!.name!;
+  }
+
+  String getTheNameOfSelectedPropertyInThenSection(){
+    return _selectedThenProperty==null?thenExampleString:_selectedThenProperty!.name!;
+  }
+
+  bool accessPermissionCheck()
+  {
+    return _routineInstance!.owner.userId==_username;
   }
 
   ///-------------------------------------------------------------------------------------

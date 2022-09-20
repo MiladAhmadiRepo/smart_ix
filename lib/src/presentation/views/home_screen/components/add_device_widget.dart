@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
 
+import '../../../../core/utils/constants.dart';
+
 class AddNewDevice extends StatelessWidget {
   const AddNewDevice({Key? key}) : super(key: key);
 
@@ -20,7 +22,7 @@ class AddNewDevice extends StatelessWidget {
               color: Color(0xFFBDBDBD),
             ),
             Text(
-              'Add New Device',
+              insertNewDeviceString,
               style: Theme.of(context).textTheme.headline4,
             ),
           ],

@@ -33,7 +33,7 @@ class _RoutineThenScreenState extends State<RoutineThenScreen> {
             appBar: AppBar(
               leading: TextButton(
                 onPressed: () {
-                  context.read<RoutinesBloc>().submitThenSection();
+                  context.read<RoutinesBloc>().add(UpdateTheUiOfThenSectionEvent());
                   Navigator.pop(context);
                 },
                 child: const Text(saveString),
@@ -41,6 +41,7 @@ class _RoutineThenScreenState extends State<RoutineThenScreen> {
               actions: [
                 TextButton(
                   onPressed: () {
+                    context.read<RoutinesBloc>().clearRoutineThenData();
                     Navigator.pop(context);
                   },
                   child: const Text(cancelString),
